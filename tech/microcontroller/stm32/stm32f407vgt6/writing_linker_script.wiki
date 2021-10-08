@@ -1,0 +1,23 @@
+= Linker Scripts =
+
+* Linker script is a text file which explains how different sections of the object files should 
+	be merged to create an output file.
+* Linker and locator combination assigns unique absolute addresses to different sections of the 
+	output file by referring to address information mentioned in the linker script.
+* Linker script also includes the code and data memory address and size information.
+* Linker script are written using the GNU linker command language.
+* GNU linker script has the file extension of .ld.
+* You must supply linker script at the linking phase to the linker using -T option.
+
+= Some Linker Script Commands =
+
+1. [[ENTRY|ENTRY]]
+2. [[MEMORY|MEMORY]]
+3. [[SECTIONS|SECTIONS]]
+4. [[KEEP|KEEP]]
+5. [[ALIGN|ALIGN]]
+6. [[AT|AT> SYMBOL]]
+
+= Writing Linker Script =
+
+[[file:/home/basith/Coding/microcontroller_programming/stm32/stm32f407vgt6/src/stm32_ls.ld|Linker Script Code]]

@@ -1,0 +1,36 @@
+= For Ubuntu OS =
+
+sudo apt-get install build-essential lzop u-boot-tools net-tools bison flex libssl-dev 
+libncurses5-dev libncursesw5-dev unzip chrpath xz-utils minicom wget git-core
+
+== Tool Chain ==
+
+This links to the cross compiler(This works on ubuntu)
+[[http://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/|Cross Compiler - Ubuntu Host OS]]
+
+Compiler Name:
+gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
+
+= For Arch OS =
+
+Arch OS also needs tools similar to ubuntu but their name may vary slightly
+
+== Tool Chain ==
+
+These are cross compiler from yay(arch repositories). I didn't test them.
+1. arm-linux-gnueabihf-binutils
+2. arm-linux-gnueabihf-gcc 
+ 
+But I downloaded the cross compiler from here this [[http://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/|link]]
+
+Add the binary file (compiler) to $PATH variable(in .zshrc). Now it can used from any terminal.
+
+If you are using bash then put it in .bashrc file.
+
+I needed these tools: 
+
+* uboot-tools lzop
+
+When I was compiling it gave an error saying lzop not found and mkimage not found, so I 
+installed them.
+

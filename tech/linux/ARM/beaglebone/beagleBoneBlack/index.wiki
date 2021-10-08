@@ -1,0 +1,25 @@
+= Contents =
+
+  - [[#Tools needed for host pc and downloads]]
+  - [[#Documentations]]
+  - [[#Explanations]]
+
+= Tools needed for host pc and downloads =
+
+	1. [[Tools|Tools]]
+	2. [[Downloads|Boot Images for beaglebone black]]
+
+= Documentations =
+
+	1. [[Board Specs.wiki|Board Specs]]
+	2. [[file:/home/basith/Coding/kernel_programming/beagle_bone_black/ldd/docs/am335xTechnicalReferenceManual.pdf|Technical Reference Manual]]
+	3. [[file:/home/basith/Coding/kernel_programming/beagle_bone_black/ldd/docs/am3358Datasheet.pdf|Datasheet]]
+	4. [[file:/home/basith/Coding/kernel_programming/beagle_bone_black/ldd/docs/BBB_SystemReferenceManual_C.pdf|System Reference Manual]]
+	5. [[file:/home/basith/Coding/kernel_programming/beagle_bone_black/ldd/docs/devicetree-specification-v0.3.pdf|Device Tree Specs]]
+
+= Explanations =
+
+	1. [[Boot]]
+	2. [[UpgradingKernel|Upgrading Kernel]]
+	3. [[InternetOverUSB|Internet Over USB]]
+

@@ -1,0 +1,9 @@
+= Compilation Stages =
+
+The process of converting 'C' statements to machine instructions is called 
+Compilation process. There are four stages of compilation.
+
+1. [[Preprocessing Stage]]
+2. [[Compiling Stage]]
+3. [[Assembling Stage]]
+4. [[Linking Stage]]

@@ -1,0 +1,19 @@
+= FZF - Command-line fuzzy finder =
+
+1. Pre requisite
+	- Install neovim and other tools
+		- {{https://github.com/neovim/neovim/wiki/Installing-Neovim|Neovim}}
+		- {{https://github.com/BurntSushi/ripgrep|Rip Grep}}
+		- {{https://github.com/ggreer/the_silver_searcher|Silver Searcher(optional)}}
+	- Install plug-vim
+		- {{https://github.com/junegunn/fzf.vim|fzf}}
+		- {{vfile:/home/basith/.config/nvim/autoload/plug.vim|plug.vim}}
+	- Create directories and files
+		- $HOME/.config/nvim/general/settings.vim ({{vfile:/home/basith/.config/nvim/general/settings.vim|settings.vim}})
+		- $HOME/.config/nvim/init.vim ({{vfile:/home/basith/.config/nvim/init.vim|init.vim}})
+		- $HOME/.config/nvim/plug-config/somepluginconfig.vim ({{vfile:/home/basith/.config/nvim/plug-config/fzf.vim|fzf.vim}})
+2. Understanding configs
+	- Configurations of vim and plugin files  
+		- {{vfile:/home/basith/.config/nvim/init.vim|init.vim}}
+		- {{vfile:/home/basith/.config/nvim/general/settings.vim|settings.vim}}
+		- {{vfile:/home/basith/.config/nvim/plug-config/fzf.vim|fzf.vim}}

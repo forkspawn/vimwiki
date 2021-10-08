@@ -1,0 +1,5 @@
+1. [[neovim/index.wiki|Neovim]]
+2. [[zsh/index.wiki|z shell]]
+3. [[git/git.wiki|git]]
+4. [[TaskWarrior/taskwarrior.wiki|TaskWarrior]]
+5. [[Make/make_notes.wiki|Makefile]]

@@ -1,0 +1,22 @@
+= External Storage Class =
+
+* Extern variables are global variables.
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/globalVariable1.c|Global Variable Program 1}} 
+	  When local and global variables are present with same name always the priority will take place for local 
+	  variable only. If local variable is not present then global variable can be accessed.
+
+* If local variables wants to be global then it should be applied with extern keyword. 
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/globalVariable2.c|Global Variable Program 2}}  
+	  extern int a, is only a declaration its not a definition. 
+
+* What's the difference between declaration and definition? 
+	* Declaration: Only gives the type, status and nature of variable without reserving any space for the variable.
+	* Definition: Actual space is reserved for the variable and some initial value is given.
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/globalVariable3.c|Global Variable Program 3}} 
+	  Here int a; will be the global variable declaration and definition.
+
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/globalVariable4.c|Global Variable Program 4}} 
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/globalVariable5.c|Global Variable Program 5}} 
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/globalVariable6.c|Global Variable Program 6}} 
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/globalVariable7.c|Global Variable Program 7}} 
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/globalVariable8.c|Global Variable Program 8}} 

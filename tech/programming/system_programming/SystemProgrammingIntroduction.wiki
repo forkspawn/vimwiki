@@ -1,0 +1,93 @@
+*Lecturer: Sunil Sir*
+*Video Number: 2020-08-27*
+
+= Basics Of System Programming =
+
+* RAM is divided into two spaces, user space and kernel space. Currently running applications(Processes) can be seen 
+  in userspace of RAM, and loaded device drivers can be seen in kernel space of RAM. The application can never 
+  interact with the hardware device directly, it sends the request to device driver present in kernel space of RAM 
+  via system calls. There are approximately 400 system calls. Process related information is present in /proc 
+  directory, Its called proc virtual file system. 
+  
+  {{file:/home/basith/Pictures/user_and_kernel_space.png|User and Kernel Space Interaction}}
+  
+* System calls can also request the services from sub components of the kernel. The sub components of kernel from 
+  which user can request services are: 
+  1. Process Management 
+  2. File Management 
+  3. Network Management
+  4. Memory Management
+  5. I/O Management 
+
+* To see the currently running application using GUI use system monitor, and for CLI use "ps -ef" command. The ps 
+  command is developed by using system calls so thats why its capable to retrieve the information of the processes.
+  
+  {{file:/home/basith/Pictures/ps_command.png|ps -ef command}}
+	 
+  Every library internally invokes system call. This system call will invoke kernel call. Kernel call starts with 
+  sys_ prefix. 
+<span style="color:#d79921;">     lib func        system call         kernel call</span>
+  1. printf()   -->  write()      -->    sys_write() (Device I/O Management)
+  2. scanf()    -->  read()       -->    sys_read() (Device I/O Management)
+  3. malloc()   -->  sbrk()       -->    (Memory Management) 
+	    
+  watch 16:00(min:sec)  to 16:34(min:sec) ??? 
+  
+* An instance of a program under execution is called a process. When a process is loaded kernel will create a 
+  process control block(PCB) in kernel space of ram. This pcb is a kernel object. Its type is task_struct, its 
+  present in /usr/include/sched.h file???. Each process is created from another process. The terminal is a process 
+  this terminal can run a.out, terminal in this case is a parent process and a.out is a child process. PID is a 
+  process id and ppid is a parent process id. PCB will exists as long as the process is under execution and when 
+  it completes its execution then corresponding PCB will also be terminated in kernel space of ram. Each process 
+  will have a seperate PCB in kernel space.
+  
+  The members of pcb are:
+  01. Process ID (PID): 
+	  	the process id of a process.
+  02. Parent Process ID (PPID) 
+	  	Who created the process.
+  03. File description table (fd table) 
+	  	How many files are opened.
+  04. Signal Disposition Table 
+	  	How many signals does this process have.
+  05. Page Table 
+	  	The process is divided into equal size pages and they are loaded into corresponding physical frames of ram.
+  06. Signal mask 
+	  	How many signals are blocked/masked indirectly
+  07. Process state 
+	  	Whether the process is running, sleeping or waiting.
+  08. General Purpose cpu registers 
+	  	What is the current instruction its executing
+  09. Program Counter 
+	  	It maintains the next instruction base address which needs to be executed.
+  10. Stack Pointer 
+	  	It points the stack frame of the corresponding function which is under execution.
+  11. Owner Name 
+	  	Who is the owner of the process.
+  12. Scheduling Information(Priority) 
+	  	Normal priority or high priority.
+  13. etc  
+  
+  {{file:/home/basith/Pictures/process_and_pcb_basic.png|Process and PCB}}
+  
+  For currently running processes in userspace there exists corresponding PCB in kernel space and they are 
+  maintained as nodes in a double linked lists, they are called as running queue. PCB contains process information. 
+  PCB information can be seen by command "ps -ef". It wont show all the information related to process. The process 
+  management will handle the running queue and waiting queue. Ever process is identified by a unique positive number
+  integer value called process identifier(PID).
+  
+  {{file:/home/basith/Pictures/running_queue_basic.png|Running Queue Basic}}
+  
+  "top" command will display the dynamic inforamtion about currently running processes. System monitor is a gui 
+  application which shows the currently running processes dynamically.
+  
+  {{file:/home/basith/Pictures/top_command.png|top command shows running process dynamically}}
+  
+* Kernel(actually scheduler) will allocate equal amount of cpu time for each and every process. Commands like ps, 
+  top are getting the inforamtion from proc virtual file system. In proc vfs it will maintain each process 
+  inforamtion by creating a folder with its process id. Each process will get 100ms or 200ms depending upon the 
+  architecture. cpu time is one of the member of task_struct. If the process is executed within that cpu time, 
+  that process gets terminated if not it stops the particular process and goes to the next process. cpu execution 
+  speed depends upon clock ticks(???), frequency(machine cycles). With this its possible to calculate how much 
+  (video ended) ???
+  

@@ -1,0 +1,23 @@
+= #define macro =
+The #define directive defines an identifier and a character sequence (i.e., a set of characters) that will be 
+substitued for the identifier each time it is encountered in the source file. The identifier is referred to as 
+a macro name and the replacement process as macro replacement.
+
+Syntax: #define macro-name char-sequence
+
+Notice that there is no semicolon in this statement. There may be any number of spaces between the identifier 
+and the character sequence, but once the character sequence begins, it is terminated only by a new line.
+
+For example, if you wish to use the word LEFT for the value 1 and the word RIGHT for the value 0, you could 
+declare these two #define directives:
+
+#define LEFT 1
+#define RIGHT 0
+
+This causes the compiler to substitue a 1 or a 0 each time LEFT or RIGHT is encountered in you source file. For 
+example, the following prints 0 1 2 on the screen:
+printf("%d %d %d", RIGHT, LEFT, LEFT+1);
+
+For example, #define PI 3.14159 replaces all subsequent occurences of the symbolic constant PI with the numeric 
+constant 3.14159. Symbolic constants enable the programmer to create a name for a constant and use the name 
+throughout the program.

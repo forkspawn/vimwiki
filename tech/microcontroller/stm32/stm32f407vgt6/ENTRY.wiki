@@ -1,0 +1,12 @@
+= ENTRY Command =
+
+* This Command is used to set the _*"Entry point address"*_ information in the header of the 
+	final elf file generated.
+* In our case, "Reset_Handler" is the entry point into the application. The first piece of code 
+	that executes right after the processor reset. Look at the [[file:/home/basith/Coding/microcontroller_programming/stm32/stm32f407vgt6/src/stm32_startup.c|Startup File]].
+* The debugger uses this information to locate the first function to execute.
+* Not a mandatory command to use, but required when you debug the elf file using the 
+	debugger (GDB).
+* Syntax: 
+    Entry(_symbol_name_)
+    Entry(Reset_Handler)

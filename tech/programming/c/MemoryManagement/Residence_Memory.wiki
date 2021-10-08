@@ -1,0 +1,98 @@
+= Residence Memory Of RAM =
+
+* In turbo c 3.0 compiler size of residence memory is 1MB
+* When any program is executed it is stored in the residence memory. For turbo C 3.0, it has 1MB residence memory 
+  i.e. when we open turbo c 3.0 it stores 1MB in the RAM.
+
+* Segments of residence memory
+	- {{file:/home/basith/Pictures/16_segments_of_residence_memory.png|16 segments of residence memory}}
+
+	- Each segment/area has a purpose. 
+
+	- Data Area: Segment number 8 is data segment and this data segment is divided in seperate memory areas. 
+	
+		- Data segment is divided into five parts and in which area the data is stored is decided by storage class. 
+			1. OS kernel
+			2. Text segment
+			3. Initialized Data segment
+			4. Uninitialized data segment(bss(block started by symbol) segment).
+			5. Stack and Heap segment.
+			- {{file:/home/basith/Pictures/memory_address_space_of_a_process.png|Memory address space of a process picture}}
+
+		- Initialized data segment: It is usually called data segment. A data segment is a portion of virtual 
+		  address space of a program, which contains the global variables and static variables that are initialized 
+		  by the programmer. Note that data segment is not read-only, since the values of the variables can be 
+		  altered at run time. 
+		  
+		  This segment further divided into initialized read-write area and initialized read-only area.  
+		  
+		  For instance global string defined by char s[] = "hello" in C and a C statement like int debug = 1 
+		  outside the main(i.e global) would be stored in initialized read-write area. And the global C statement 
+		  like const char* string = "hello" makes the string literal "hello world" to be stored in initialized 
+		  read-only area and the character pointer variable string in initialized read-write area. 
+		  
+		  Example: static int i = 10 will be stored in data segment and global int i = 10 will also be stored in 
+		  data segment.
+		  
+		- Uninitialized data segment: Uninitialized data segment often called the bss segment, named after an 
+		  ancient assembler operator that stood for "block started by symbol". Data in this segment is initialized 
+		  by the kernel to arithmetic zero before program starts executing, uninitialized data starts at the end of 
+		  of the data segment and contains all global variables and static variables that are initialized to zero 
+		  or do not have explicit initialization in source code. 
+		  
+		  For instance a variable declared static int i; would be contained in bss segment. A global variable 
+		  declared int j; would be in bss segment.
+
+	- Code Area(text area): A text segment, also known as code segment or simply as text, is one of the sections 
+	  of program in an object file or in memory, which contains executable instructions. 
+	  
+	  As a memory region, a text segment may be placed below heap or stack in order to prevent heaps and stack 
+	  overflow from overwriting it. Usually, the text segment is sharable so that only a single copy needs to be 
+	  in memory for frequently executed programs, such as text editors, the c compiler, the shells, and so on. 
+	  Also, the text segment is often read-only, to prevent a program from accidentally modifying its instructions.
+	  
+	  Function pointer can only access code area. Size of this area is always fixed and it is read only memory area. 
+	  
+	- Stack Area: All automatic variables and constants are stored into stack area. 
+		- Automatic variables and constants in c: 
+			1. All the local variables of default storage class. 
+			2. Variables of storage calls auto.
+			3. Integer constants, character constants, string constants, float constants etc in any expression.
+			4. Function parameters and function return value.
+
+		- Variables in the stack area are always deleted when program control reaches it out of scope. Due to this 
+		  stack area is also called temporary memory area. 
+		  
+		  For example: {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/035auto_storage_class_program1.c|Auto storage class program}} 
+
+* We can choose the memory areas based on storage classes. There are four types of storage classes, they are: 
+	1. {{Automatic Storage Class.wiki|Automatic}} 
+	2. {{Staic_Storage_Class.wiki|Static Storage Class}}
+	3. {{External Storage Class.wiki|External(global)}} 
+	4. {{Register Storage Class.wiki|Register}} 
+
+* There are five types of storage class specifiers.
+	1. auto
+	2. static
+	3. extern
+	4. register 
+	5. typedef
+
+* Scope of the variables:
+	- It refers to where in the program a variable can be accessed.
+	- Scope can be roughly divided into four types.
+		1. Functional Scope  
+			* If the variable is defined after the function then its called functional scope.
+		2. Iteration Scope
+			* If the variable is defined in iteration.
+		3. Conditional Scope
+			* If the variable is defined in condition like in if condition then its called conditional scope.
+		4. Anonymous Scope(nameless)
+			* If the variable is defined in a block then its called nameless scope
+
+* Life of the variables:
+	- It refers to how long a variable will exists or retain its value.
+
+* Depending upon the storage classes, scope, life, initial values, storage location will change for the variable.
+  {{file:/home/basith/Pictures/storage_class_table.png|Storage Class Table}}
+		  

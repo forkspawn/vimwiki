@@ -1,0 +1,3 @@
+= Lseek System Call =
+
+* To change the cursor position we will use lseek system call.

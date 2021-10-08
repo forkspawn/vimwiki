@@ -1,0 +1,42 @@
+- Syntax and example:
+  	{{{ 
+		datatype variable_name[size];
+		
+		Example:
+		int arr[10]; // array can store 10 elements of type integer
+		float s[7];
+		char h[4];
+		
+		int m[5] = {1, 43, 56, 12, -4};
+		float p[] = {1.2, 43.342, 56.1234, 12.556, -4.545}; // size of 'p' array is 5
+		float r[]; // invalid 
+		
+		char name[10] = {'a', 'b', 'd', 'u', 'l'}; // no null character at the end
+		or
+		char name[10] = {"abdul"}; // null character will be put in the end of the string
+		
+		int a = 10;
+		int arr[a]; // invalid, array size must be unsigned integer. It doesnt accept 
+								// variables in many cases.
+		
+		int arr[-5]; //invalid, negative values are not allowed when declaring size of array.
+		
+		unsigned int b = 10;
+		int arr[b]; // valid
+		
+		int arr[0]; // invalid, array size cannot be 0 bytes.
+		
+		int arr[40000]; // valid in 32 bit and above but not in 16 bit and below. 
+		In 16 bit compiler, int size is 2 bytes and 40000*2 is 80k bytes and max integer number 
+		in 16 bit compiler is 65,536
+		
+		const unsigned int a = 10; 
+		int array[a]; // valid, constants are possible when declaring array size. all initial values are 
+		garbage values .
+		
+		int a[5] = {7}; // valid, first element is 7 and rest of the elements are zero.
+		
+		int arr[5<2]; // invalid, size is zero
+		
+		int arr[5>2]; // valid, size is one
+	}}} 

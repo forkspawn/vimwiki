@@ -1,0 +1,29 @@
+*Lecturer: Sunil Sir*
+*Video Number: 2020-09-04*  
+
+= Write System Call =
+
+* If you want to write the data into the opened file, we have to use write() system call, we have to include 
+  unistd.h to use this system call.
+  
+  ssize_t write(int fd, const void * buf, size_t nbytes);
+  
+	First input: give fd value returned by open system call 
+	Second input: buffer base address(char array address) or strings base address
+	Third input: size of the buffer(number of bytes user want to write into the file) 
+	
+	If successful, it returns number of bytes written/updated to the file
+	If unsuccessful, it returns -1. 
+	
+* The write operation or read operation can be done from current offset cursor position. The write() invokes 
+  equivalent kernel function sys_write() from there the request goes to block driver and device. When we perform
+  write() operation everytime the data gets updated into the original file.
+  
+  {{vfile:/home/basith/Coding/system_programming/viven_system_programming/0004_write_system_call.c|Write system call (program 3)}} 
+  {{vfile:/home/basith/Coding/system_programming/viven_system_programming/0005_read_write_open_system_call.c|Open, Read and Write System call Combo (program 3)}} 
+  {{vfile:/home/basith/Coding/system_programming/viven_system_programming/0003_cat_command.c|Cat command program (program 2)}} 
+  
+* After writing the contents using write and then performing the read operation the cursor position will be where 
+  the write has put. 
+
+  

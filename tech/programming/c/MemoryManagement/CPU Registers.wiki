@@ -1,0 +1,16 @@
+= Registers =
+
+* Registers are part of cpu. When data is stored in register data can be accessed at high speed. Since registers 
+  are temporary storage for cpu. They have less capacity.
+
+* When to use register storage?
+	When the data needed to be accessed at a very high speed then use it. Modern compiler will hint the loader 
+	to put the variable with register keyword in CPU registers. 
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/038registerProgram1.c|Register Program 1}}  
+	  How many times does the variable 'i' being accessed. (17 times memory being accessed if i = 10.)
+
+* Why can't the modifiers like auto, static, extern be part of function parameter declaration?
+  For example: void fun(static int x, extern int y, auto int z)
+	- Its becautse those variables are stored in cpu registers. If we write fun(register int x) then it wont raise 
+	  any error.
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/039registerProgram2.c|Register Program 2}}  

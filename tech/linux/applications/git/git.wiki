@@ -1,0 +1,86 @@
+= Introduction =
+
+*What is git?*
+	It's version control system. It's free and open source.
+	
+*What is version control?*
+	The management of changes to documents, computer programs, large web sites,
+	and other collections of information.
+
+*Terms to know*
+	Repository: Project, or the folder/place where your project is kept.
+	Github: A website to host your repositories online.
+
+= Git Commands =
+
+	*clone:* Bring a repository that is hosted somewhere like Github into a folder
+			 on your local machine
+	*add:* Track your files and changes in git
+	*commit:* Save your files in git
+	*push:* Upload git commits to a remote repo, like Github/Gitlab etc.
+	*pull:* Download changes from remote repo to your local machine, the opposite
+			of push
+			
+= Setting Up ssh for github =
+
+	Create the github account and then do the following steps.
+	
+	We need to link github and our computer for communication.
+	To link computer to github use the ssh keys. The below line will generate 
+	ssh keys. 
+	
+	ssh-keygen -t rsa -b 4096 -C "email@example.com".
+	
+	The email provided will be used as our github account. Make sure github 
+	account email and the email you typed matches. Follow the steps on command
+	line, when it finishes it will generate two files. Private and Public.
+	
+	1. id_rsa (Private)
+	2. id_rsa.pub (This is public key which we need to use for github)
+	
+	Open id_rsa.pub and copy/add that key to github(under github settings). 
+	
+	Add the below lines to .ssh/config file in your local machine. 
+	
+	Host *
+	AddKeysToAgent yes
+	# UserKeychain yes (this line doesnt work so I commented it out)
+	IdentityFile ~/.ssh/id_rsa
+	
+	Now add ssh private key to ssh-agent.
+	ssh-add ~/.ssh/id_rsa
+		
+= Git Command examples =
+	command: 
+		<span style="color:#d79921;">git init </span>
+		This command will initialize the git repository in the current folder.
+	
+	command: 
+	
+		*git status*
+	
+		After initialization, do git status, if there are any files in current
+		folder it will say untracked files.
+		
+	command: *git add <file/directory>*
+	
+		To add the entire current directory to github do 
+		
+		*git add .* 
+		
+		Here . represents	current working directory. It can also add individual 
+		file. The below command will add README.wiki to git. This command track 
+		changes of directory/files which was added.
+		
+		*git add README.wiki*
+		
+	command: *git commit -m "Title Comment" -m "Description"*
+		This will commit any chages you made to a file or in the directory which
+		git recognizes
+	
+	command:	*git push origin master*
+		This will push the chages to github. If you added a file it will add
+		those files and if you did any modifications to a file those modifications
+		will be pushed/uploaded. If you want to just type git push but not the 
+		origin master then do *git push -u origin master*. Once you did that then  
+		you dont have to type origin master again and again, just do git push.

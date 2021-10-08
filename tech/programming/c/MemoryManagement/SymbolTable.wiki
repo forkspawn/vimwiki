@@ -1,0 +1,23 @@
+
+= SymbolTable =
+
+* It is present below text segment.
+* It maintains symbol information.
+* symbols
+	* Functions(library)
+	* global
+	* static variables
+		* static global variables
+		* static local variables
+* It maintains symbol address, symbol name, memory segment symbol.
+	* T/t --> text segment
+	* D/d --> data segment
+	* B/b --> bss segment
+	* R/r --> RO data segment
+	* u --> undefined symbol(in program)
+* To see the content of symbol table of an executable file we can use nm tool or objdump or readelf tool.
+* nm <executable filename> displays symbol segment sizes. We have to use size command along with executable filename.
+* If you want to see memory segment addresses we have to use
+	objdump -s <executable filename>
+* When you load the application CPU start executing the instruction present in your text segment.
+

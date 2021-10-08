@@ -1,0 +1,30 @@
+= Static Storage Class =
+
+* Static variable is initialized only one time that value will store until the end of the program.
+* Difference of the scope static and non-static(automatic) 
+
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/staticStorage1.c|Static storage Class Program 1}} 
+
+* Life of staic variable is entire program, data sement data is stored in lower memory area, while stack segment 
+  data is stored in upper memory area. When you see the address of stack and data segment then their addresses 
+  will be higher and lower respectively.
+
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/staticStorage2.c|Static storage Class Program 2}} 
+
+* Programs
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/staticStorage3.c|Static storage Class Program 3}} 
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/staticStorage4.c|Static storage Class Program 4}} 
+
+* Properties of static storage class
+	- *Lifetime:*
+		* From memory allocation time to till the end of the program.
+
+	- *Scope:*
+		* Function scope or block scope if local variables. For global variables scope is entire program. 
+
+	- *Default Value:*
+		* Zero. 
+
+	- *Storage Location:*
+		* Storage location is data area, if initialized to a non zero value then its in initialized data area 
+		  else it is in bss segment. If the value is initialized to zero then the variable will be in bss segment.

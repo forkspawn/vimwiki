@@ -1,0 +1,66 @@
+The modules which are already part of the Linux kernel are called in tree module.
+(approved by the kernel developers and maintainers).
+
+= In tree building =
+You have to add the linux kernel module inside the linux kernel source tree 
+and let the linux build system builds that.
+
+If you want to list your kernel module selection in kernel menuconfig, then 
+create and use a Kconfig file.
+
+== Steps to add in-tree module to kernel menu configuration ==
+
+* Create a folder in drivers/char/my_c_dev in linux kernel source tree
+* copy main.c(which is our driver)
+* create Kconfig file and add the below lines
+
+menu "Description"
+	config IDENTIFIER
+		tristate "description of custom module"
+		default _option for tristate_
+endmenu
+
+tristate could be static(y) or dynamic(m) or none(n)(not selected) 
+
+Example:
+
+menu "my custom modules"
+	config CUSTOM_HELLOWORLD
+		tristate "hello world module support"
+		default m
+endmenu
+
+* Add the local Kconfig entry to upper level Kconfig
+  Inside drivers/char/Kconfig file add this line
+  source "drivers/char/my_c_dev/Kconfig"
+  
+* Create a local Makefile in drivers/char/my_c_dev
+  Add the below in drivers/char/my_c_dev/Makefile
+  
+  obj-<config_item> += <module>.o 
+  
+  Example:
+  
+  obj-$(CONFIG_CUSTOM_HELLOWORLD) += main.o 
+  
+  In above line CONFIG should be added to CUSTOM_HELLOWORLD identifier.
+  The identifier will be replaced by menu config selection. It can be replaced by y or m or n
+ 
+* Add the local level makefile to higher level makefile.
+  Go to the drivers/char/Makefile file and at the end add the line
+
+  obj-y += my_c_dev/
+  
+  Here when we write obj-y we are always selecting this folder. There is no config available to select this
+  folder. So when obj-y is written then this folder is always selected. There was only config available to 
+  select the driver (main.c) but not the folder.
+* Go to the linux source tree and create the module by running the below command
+
+  make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- modules -j4
+
+* Go back to my_c_dev directory and run modinfo on main.ko file it should say intee: Y
+  Now kernel wont say kernel is tainted
+
+Search kconfig-language.txt in kernel documentation to know more.
+
+

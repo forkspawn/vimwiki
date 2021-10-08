@@ -1,0 +1,33 @@
+= Research =
+
+= Device =
+Radx Pxie 1092
+= Websites and docs =
+for 1084
+https://forums.ni.com/t5/PXI/The-PXIe-1084-chassis-is-not-detected-by-NI-MAX-but-devices-on/td-p/4104193?profile.language=en
+
+
+trifecta gpu
+quadro t1000 gpu
+pxie gpu nv 1s
+
+for pxie 1092, pxie 8880
+{{file:/home/basith/work/pxie_1092/Docs/pxisa_docs/377519b.pdf}}
+https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YHcVCAW&l=en-IN
+20-aug-2021
+https://www.gpumag.com/graphics-card-not-detected-fix/
+
+firmware and drivers download page
+https://www.ni.com/en-in/support/downloads/software-products/download.pxie-8880-firmware-and-additional-drivers.html#377601
+https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local
+
+Documents
+ 
+
+troubleshooting
+https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000004B0jSAE&l=en-IN
+https://www.ni.com/en-in/support/documentation/compatibility/15/ni-pxi-platform-services-hardware-support.html#section-565580378
+https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YGwTCAW&l=en-IN
+https://www.ni.com/en-in/support/documentation.html
+https://www.electronics-notes.com/articles/test-methods/pxi/chassis-slots.php
+

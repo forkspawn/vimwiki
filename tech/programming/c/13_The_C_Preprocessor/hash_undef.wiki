@@ -1,0 +1,17 @@
+= #undef macro=
+The #undef directive removes a previously defined definition of the macro name that follows it. That is, 
+	it "undefines" a macro.  
+
+	The general form for #undef is: 
+#undef macro-name 
+
+	For example: 
+#define LEN 100 
+#define WIDTH 100 
+	char array[LEN][WIDTH]; 
+#undef LEN 
+#undef WIDTH 
+	/ * at this point both LEN and WIDTH are undefined * / 
+
+	Both LEN and WIDTH are defined until the #undef statements are encountered. undef is used principally to 
+	allow macro names to be localized to only those sections of code 

@@ -1,0 +1,15 @@
+{{{ c
+	int a[ ]; // invalid
+	int a[][]; // invalid
+	int a[][4]; // invalid
+	int a[5][]; // invalid
+	int a[] = {45, 34, 57}; // valid, size is 3
+
+	// invalid, dont know how many elements are there for each 1d array.
+	int a[4][] = {45, 34, 67, 35, 3, 9}; 
+
+	// valid, for each 1d(row) there are 4 elements(columns). There are 3 one dimensions(rows). Left most 
+	// dimension is optional at the time of declaration and initialization. size is 3*4. There are 4 elements 
+	// for each set(row).
+	int a[][4] = {45, 34, 67, 35, -3, 9, 55, -231, 345}; 
+}}}

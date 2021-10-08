@@ -1,0 +1,79 @@
+= Memory Organization=
+
+== Introduction ==
+* {{file:/home/basith/Pictures/the_memory_hierarchy.png|Memory Hierarchy}}
+* There are different types of memory storage.
+	- [[External Storages.wiki|External Storage]]
+	- [[Internal Storages.wiki|Internal Storage]]
+* [[Endianess.wiki|Endianess]]
+* There are different types of temporary memories like registers, ram etc. Usually our data is stored in RAM area.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+== Introduction ==
+* The executable file internally contains memory segments
+* Each executable file in different OS will have seperate file format.
+* In linux executable file is called elf or a.out. elf stands for executable linking format.
+
+== Memory Segments ==
+1. [[Text Segment]]
+2. [[Data Segment]]
+3. [[BssSegment.wiki|.BSS Segment]]
+4. [[SymbolTable.wiki|Symbol Table]]
+
+== Program ==
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/memorySegments1.c|Memory Segments Program 1}}
+
+== Research ==
+=== Try1 ===
+link:
+https://www.youtube.com/watch?v=dOfucXtyEsU
+Its difficult to understand the topics presented in above link.
+
+1. gcc -Os --> 
+2. objdump --no-show-raw-insn -dC <a.out> 
+	- --no-show-raw-insn --> will hide byte code
+	- -dC --> d is disassemble and C is demangle
+		-C --demangle[= style ] Decode (demangle) low-level symbol names into 
+		user-level names. Besides removing any initial underscore prepended 
+		by the system, this makes C++ function names readable. Different 
+		compilers have different mangling styles.
+	- 
+3. readelf -a <a.out>
+	- To look at everything in the executable file
+4. [[elf file]]
+
+=== Try2 ===
+
+Well it's not worth knowing more about memory management at this point. Its a rabit hole.
+
+Learn the following things
+1. Digital electronics
+	- Big Bad tech(jim pytel)
+2. Microprocessor and microcontroller
+
+If you do above two you can now try this 
+[[https://pwn.college/modules/intro|Executables Review]]

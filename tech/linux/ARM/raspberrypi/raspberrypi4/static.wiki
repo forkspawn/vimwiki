@@ -1,0 +1,6 @@
+Why static is used in above function?
+	Static keyword make the function/variable private. When we dont want this
+	function services to be accessed by other functions we use static keyword.
+	This fucntion is used for only this module alone. So we use static keyword
+	here we are limiting its services to this module only and other module 
+	cannot access this function features.

@@ -1,0 +1,18 @@
+= Host Side Output =
+
+* In buildroot/output/host directory it generates/downloads files. 
+	- bin, doc, etc, include, lib, lib64, libexec, sbin, share, usr, var
+
+* It produces:
+	1. Cross compiler (it's name)
+		* "arm-buildroot-linux-uclibcgnueabi-gcc"
+
+	2. Cross compiler binaries
+		* buildroot/output/host/bin
+
+	3. Sysroot
+		* buildroot/output/host/arm-buildroot-linux-uclibcgnueabi/sysroot
+
+* Sysroot will have the headers and libraries for the target, it's used in cross compilation.
+
+

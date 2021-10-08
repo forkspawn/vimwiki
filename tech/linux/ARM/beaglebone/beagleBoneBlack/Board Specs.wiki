@@ -1,0 +1,25 @@
+= Beagle Bone Black rev c Board Components =
+* [[file:/home/basith/Pictures/BBB_Rev_C.jpg|Beagle Bone Image]]
+
+
+= Boot Options =
+1. emmc
+2. sd card
+3. spi(how to boot from spi?)
+4. ethernet(how to boot from ethernet?)
+5. usb
+
+= Powering Options =
+1. USB to mini cable
+2. Power Adapter(5v)
+
+= Serial Debug Port =
+When BBB boots up, it puts out info to serial pins. To read it we need serial cable or 
+serial adapter.
+
+* [[file:/home/basith/Pictures/serialCable.png|Serial Cable]]
+* [[file:/home/basith/Pictures/serialAdapter.png|Serial Adapter]]
+
+Connecting serial cable/adapter to BBB:
+* [[file:/home/basith/Pictures/serialConnection.png|Serial Connection]]
+

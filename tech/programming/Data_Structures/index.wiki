@@ -1,0 +1,4 @@
+= Data Structures =
+* Stacks
+* Queues
+* {{linkedlist.wiki|Linked List}}

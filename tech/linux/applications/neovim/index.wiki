@@ -1,0 +1,17 @@
+= PLUGINS =
+1. Programming/Scripting
+	- [[coc.wiki|Conquere Of Completion]]
+	- [[nerdcommenter.wiki|Nerd Commenter]]
+	- [[nerdtree.wiki|Nerd Tree]]
+	- [[gitplugin.wiki|Git]]
+	- [[treesitter.wiki|Treesitter]]
+	- [[snippets.wiki|Snippets]]
+2. Note Taking
+	- [[Vimwiki.wiki|Vimwiki]]
+3. Navigation
+	- [[telescope.wiki|Telescope]]
+	- [[fzf.wiki|FZF]]
+4. Color Scheme
+	- [[base-16.wiki|base16-vim]]
+5. Settings
+	- [[commands.wiki|Basic Commands]]

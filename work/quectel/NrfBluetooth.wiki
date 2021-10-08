@@ -1,0 +1,18 @@
+= nrf Bluetooth Test =
+
+== Instructions ==
+
+1. Bluetooth save key and use this for subsequent commands
+2. Disconnect from ble and do this, 
+	- Dont obtain key
+	- Send random key(for testing)
+
+*CRC calculation:*
+
+[[file:/home/basith/work/quectel/Src/crc_calculation_nrf.c|CRC Calculation Program]]
+
+== Testing ==
+
+[[nrfBoardTest1|NRF TEST 1]]
+[[nrfBoardTest2|NRF TEST 2]]
+

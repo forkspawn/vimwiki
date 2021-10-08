@@ -1,0 +1,65 @@
+= Introduction =
+
+It is used to create linux kernel and its filesystem.
+
+== buildroot Installation ==
+
+* Install [[QEMU]], we are using it to boot linux kernel image in "qemu" application.
+
+* In arch linux I have downloaded buildroot from the official buildroot [[https://buildroot.org/download.html|Website]]
+
+* Extract the buildroot tarball files using this command.
+			{{{
+$ tar -xvzf <buildroot-tar-filename>
+			}}}
+
+* Read manual in documentation folder in buildroot.
+
+* Install ncurses.
+	* Arch Linux:
+			{{{
+$ sudo pacman -S ncurses
+			}}}
+	* Ubuntu:
+			{{{
+$ sudo apt-get install libncurses5-dev libncursesw5-dev
+			}}}
+
+* Requirements 
+	* [[build_tools_needed|Build Tools]]
+
+= Build Linux Kernel With Rootfs =
+
+* Create config files suitable to board (kernel configs, cross compiler configs ) or
+  use existing available configurations.
+    - Steps to create config files.	
+      1. Run this command in buildroot directory
+					{{{
+$ make menuconfig
+					}}}
+					- It opens build root configuration menu.
+					- Or You can select an already available configuration by using the below command.
+					{{{
+$ make list-defconfigs
+					}}}
+					- Some available configs information
+						* [[configs_information|Some Config Information (read this before selecting config file)]]
+					- In .config file look for these things and uncomment them if they are commented:
+						- qemu_arm_versatile_defconfig (deconfig file location)
+						- versatile.pb (device tree name)
+					- Use qemu_arm_versatile_defconfig, and use this command to build .config file for 
+					  this versatile board. 
+					{{{
+$ make qemu_arm_versatile_defconfig
+					}}}
+					- After the compilation completes, it generates output files for. 
+						- [[host_files|HOST Side]]
+						- [[target_files|TARGET Side]]
+			2. 
+	
+* Make. 
+* Review generated outputs.
+
+= Booting Linux in Virtual Board in QEMU =
+
+= Running Linux Application on Virtual Board =

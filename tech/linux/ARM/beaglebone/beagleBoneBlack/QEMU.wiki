@@ -1,0 +1,10 @@
+= Installation =
+
+* In Arch Linux:
+
+  * Any one command will work (if you have "yay")
+      $ sudo pacman -S qemu
+      $ yay -S qemu
+
+* In Ubuntu:
+    $ sudo apt-get install qemu-system-arm 

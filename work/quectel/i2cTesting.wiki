@@ -1,0 +1,10 @@
+= Instruction =
+
+== i2c device test ==
+
+1. /dev dir check i2c device numbers
+2. i2cdetect -y 1( 1-> represents an i2c number ) (check if we are getting slave addr or not)
+3. slave address 0x68(mpu6050)
+4. getting some data 
+
+

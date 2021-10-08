@@ -1,0 +1,78 @@
+*Lecturer: Sunil Sir*
+*Video Number: 2020-08-26*
+
+= Basic Linux =
+
+  When system calls are used in programs, the process exection will switch from user mode to kernel mode and 
+  executes the system call and returns to the user mode. 
+  
+  The users, groups, files and processes are four fundamental objects for understanding the linux programming. When 
+  user creates a new file, the file contains common permissions.
+  	1. users/owners
+	2. groups
+	3. others
+  
+  The linux only allows if the user has an account in the system. The linux maintains the following information for 
+  each user in /usr/etc/passwd or /etc/passwd file. For each user account kernel will allocate seperate workspace in
+  /home/basith directory. In /etc/ directory has system and user configurations. /etc/passwd has the following 
+  information:
+  
+  username:userid:password:groupid:home directory of user:shell
+  
+  Every user of linux system is identified by unique identifier(uid). There are lot of ids when dealing with system 
+  programming like:
+  when dealing with process --> pid(process id)
+  when dealing with users --> uid(user id)
+  when dealing with groups --> gid(group id)
+  when dealing with ipc objects --> unique value 
+  
+  / --> root directory
+  /bin --> contains essential low level utilities(essential system applications)
+  /usr/bin --> higher level system utilities and application programs
+  /sbin --> super user system utilities(for performing system administration task)
+  /lib --> libraries like c libs etc. They are in object format or precompiled format. They could be static(.a) or 
+  		   dynamic libraries(.so).
+  /usr/lib --> contains program libraries for higher level user.
+  /etc --> system and application configuration files
+  /proc --> contains each active process information(proc virtual file system)
+  /dev --> contains device files
+  /usr/include --> conatins header files 
+  
+  Type of files:
+  	- Normal text files(text files)
+	- Executable files(audio, programs, videos)
+	- Special files
+		* Device files 
+		* Ipc objects
+			* Pipes
+			* Named pipes 
+			* Message queues
+			* Shared memories
+		* Sockets
+	- Directories(They are also files)
+  
+  	These files has permissions. ls -l command will display the files, directories, permissions, links, owner, 
+	group, type of file, size, timestamps, name of the files. From gui, properties will give the information of 
+	each file. 
+	
+	{{file:/home/basith/Pictures/ls_command.png|Files, their types, permissions etc}}
+	{{file:/home/basith/Pictures/files_permissions_type.png|Files, their types, permissions etc}}
+	
+	file type:
+	d --> directory
+	l --> link
+	c --> character device
+	b --> block 
+	p --> pipe
+	s --> special file(like sockets) 
+	
+  Permissions:
+    - File permissions are represented in octal format. The number before octal represents type of file. To 
+	  differentiate between directory and executable file, use filetype. See the picture.
+	  {{file:/home/basith/Pictures/files_permissions_type2.png|Files, their types, permissions etc}}
+	  {{file:/home/basith/Pictures/files_permissions_type3.png|Files, their types, permissions etc}} 
+		
+	- Fiel permissions can be changed in two ways: 
+	  1. Commands (These commands already exists in OS)
+	  2. System Programs (Creating new programs to change permissions)
+	

@@ -1,0 +1,5 @@
+= Internal Storages =
+
+* [[RAM.wiki|RAM]]
+* Caches
+* [[CPU Registers.wiki|CPU Registers]]

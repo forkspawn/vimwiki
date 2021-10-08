@@ -1,0 +1,245 @@
+= Arrays =
+
+== Introduction ==
+
+An array is a single subscripted variable which can hold 'n' number of variables. An array is a 
+homogeneous type. It stores same type of elements. All the array elements will be stored in 
+sequential order of memory location. The array elements externally can be accessed by their 
+subscript numbers. It can internally be accessed by their addresses. Array subscript always 
+starts from zero to size of n-1. An array variable size must be defined at the time of 
+compilation. 
+  
+{{file:/home/basith/vimwiki/tech/programming/c/8_Arrays/syntax_and_examples.wiki|Syntax And Examples (One Dimension)}} 
+
+{{file:/home/basith/Pictures/array_diagram.png|Array Picture}} 
+  
+== Program ==
+
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/076arrays.c|Array program 1}}  
+  arr[i] --> element of the array 
+  arr --> constant base address 
+  i --> index number
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/077arrays.c|Array program 2}}  
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/078arrays.c|Array program 3}}  
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/079arrays.c|Array program 4}}  
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/080arrays.c|Array program 5}}  
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/081arrays.c|Array program 6}}  
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/082arrays.c|Array program 7}}  
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/083arrays.c|Array program 8}}  
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/084arrays.c|Array program 9}}  
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/085arrays.c|Array program 10}}  ccc
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/086arrays.c|Array program 11}}  ccc
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/087arrays.c|Array program 12}}  ccc
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/088arrays.c|Array program 13}}  ccc
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/089arrays.c|Array program 14}}  
+- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/090arrays.c|Array program 15}}  
+  Its output depends upon compiler. In 16 bit compiler (Turbo C) its output is 60.
+  
+== Passing single dimension array as function parameter ==
+
+Any dimension of the array can be passed as the function parameter, if passing single dimension 
+array it requires minimum two arguments: 
+	1. Array of any type
+	2. Size of integer type 
+	 
+== Array Double Dimensions ==	
+
+More than one dimension is a multi dimension array. If there are two dimensions in an array its 
+called double dimension array. 
+{{{
+	int arr[3][2]; 
+	
+	3 --> rows 
+	2 --> columns
+	
+	For convenience purpose, these are called rows and columns. But there are no rows and columns 
+	everything is in sequential memory address.
+	
+	Size of double dimension array 
+	
+	datatype * columns * rows 
+	
+	 4(int)  *   3     *  2     = 24 bytes // for 64 bit machine
+	 2(int)  *   3     *  2     = 12 bytes // for 16 bit machine
+}}}
+
+To implement business oriented applications, matrix type of applications, game programming etc 
+double dimensions are used.
+
+== Syntax, Declarations and examples ==
+
+{{vfile:/home/basith/vimwiki/tech/programming/c/8_Arrays/syntax_and_examples_double_dimension.wiki|Syntax And Examples (Multi Dimension)}} 
+
+== Double Dimensions in memory == 
+Consider the program and its diagram below.
+{{file:/home/basith/Pictures/array_single_dimension.png|Array Single Dimension}} 
+In address of array variable gives the value of address in most cases. If sizeof &arr is used then the output is 
+pointer size and if sizeof(arr) is given then it gives the total memory occupied by the array. 
+
+Programs
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/091arrays.c|Array program 16}}  
+{{file:/home/basith/Pictures/array_double_dimension.png|Array Double Dimension}}  
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/092arrays.c|Array program 17}}  
+{{file:/home/basith/Pictures/array_double_dimension1.png|Array Double Dimension}}  
+{{file:/home/basith/Pictures/array_double_dimension2.png|Array Double Dimension}}  
+
+Each row can be considered as 1-D array, so a two dimensional array can be considered as a 
+collection of one dimensional arrays that are placed one after another. In other words we can 
+say that a 2-D array is an array of arrays. So here arr is an array of 3 elements where each 
+element is a 1-D array of 4 integers.
+
+We know that the name of an array is a constant pointer that points to the 0th element of the 
+array. In case of 2-D arrays, 0th element is a 1-D array so the name of a 2-D array represents 
+a pointer to a 1-D array. For example in the above case, arr is apointer to 0th 1-D array 
+contains address 404. Since arr is a Pointer to an array of 4 integers so according to pointer 
+arithmetic, the expression (arr+1) will represent address 412.
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/093arrays.c|Array program 18}}  
+{{file:/home/basith/Pictures/array_double_dimension3.png|Array Double Dimension}}   
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/094arrays.c|Array program 19}}  
+{{file:/home/basith/Pictures/array_double_dimension4.png|Array Double Dimension}}
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/095arrays.c|Array program 20}}  
+{{file:/home/basith/Pictures/array_double_dimension5.png|Array Double Dimension}}   
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/096arrays.c|Array program 21}}  
+{{file:/home/basith/Pictures/array_double_dimension6.png|Array Double Dimension}}   
+
+{{file:/home/basith/Pictures/array_multi_dimension.png|Array Multi Dimension}}
+Use pointers rather than subscripts. Poiters are fast at compile time. Subscripts are easy to 
+read and write but little slow at compile time.
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/097arrays.c|Array program 22}}  ccc
+Solve it using memory diagram put the picture here
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/098arrays.c|Matrix Multiplication(23)}} 
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/099arrays.c|Array program 24}}  
+{{file:/home/basith/Pictures/array_double_dimension7.png|Array Double Dimension Memory (sizeof operator)}}   
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/100arrays.c|Array program 25}}  
+{{file:/home/basith/Pictures/array_double_dimension8.png|Array Double Dimension Subtracting Memories}}  
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/101arrays.c|Array program 26}}  
+{{file:/home/basith/Pictures/array_double_dimension_position.png|Array Double Dimension Subtracting Memories}}   
+
+= Three Dimensional Arrays =
+
+{{file:/home/basith/Pictures/multi_dimension_example.png|Multi Dimension Example}}   
+{{file:/home/basith/Pictures/multi_dimension_initialization.png|Multi Dimension Initialization}}   
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/102arrays.c|Array program 27}}  
+{{file:/home/basith/Pictures/array_three_dimension_position.png|Array Three Dimension Position}}   
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/103arrays.c|Marks Calculation for MCA (28)}}  
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/104arrays.c|Array program 29}}  
+  
+= Sunil Sir =
+
+== Arrays ==
+
+Arrays are used to store the same type of data in continuous memory location. Character arrays 
+are used to store string constants.
+
+== Syntax for array declaration ==
+
+datatype arrayname[number of element];
+{{{ c
+	char str[10];
+}}}
+
+== Important Points ==
+
+Compiler will understand that the user is requesting the memory to store 10 elements and each 
+element is of type char.
+
+_Compiler decision for size:_
+size = n * sizeof(datatype);
+
+Example: 
+size = 10*sizeof(int);
+10*4=40
+
+In each byte it will store corresponding ascii char's ascii value in binary format. When we 
+use array name it will access total 10 bytes and it will return 10 bytes starting address.
+
+Example Program:
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/arraySimple.c}}
+
+* If you declare array inside the function it is called local array.Uninitialized local array 
+  has garbage value.
+* If you declare an array globally outside of function it is called global array. Uninitialized 
+  global array is filled with zeros.
+* To read the string constant by using scanf function we have to use %s format specifier.
+* The %s format specifier always requires starting base address of string memory location.
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/arraySimple.c}}
+* By using scanf function we are not updating null character. The scanf function will 
+  automatically update the null character at the end of the string.
+* printf will print character by character until it finds null character. When "abdul basith" 
+  string is given as input to the scanf function it will not update "basith" because space is 
+	the default seperator and thus it only reads abdul.
+* While reading multiple string constant it uses space or enter key as seperator.
+* To read the input in terms of statement by statement we have to use gets() function. gets() 
+  can be terminated by enter key. It can also take spaces between statements.
+* We can use space in between statements in scanf but it should be used like this:
+  scanf("[\n]s", str); // here \n is enter key.
+* After reading integers it will not read characters. If we want to read integers then we 
+  have to use fpurge
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/arraySimple2.c}}
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/arraySimple3.c}}
+
+== Integer Array ==
+
+* Integer arrays are constructed based on integer arithmetic operations on integer pointers.
+* Integer array definitions, declarations, comes under static memory allocation.
+* Arrays size is decided by compiler at compilation time based on datatypes and number of 
+  elements.
+* If you declare array locally it's called local array and memory is allocated in stack frame 
+  of corresponding function.
+* If you write uninitialized array variable globally it's global array is filled with zeros 
+  and the memory is allocated in .bss segment.
+* Int array contains 4 byte memory.
+* When we use array name it returns starting base address of allocated memory.
+* To access array elements we have to use subscripts. It starts with zero and it ends with 
+  number of elements-1.
+
+Example Program:
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/arraySimple4.c}}
+* Array base address cannot be modified.
+* By using array names we can access array elements in 4 ways.
+
+| Data    | Address    |
+|---------|------------|
+| arr[i]  | &arr[i]    |
+| i[arr]  | &i[arr]    |
+| (arr+i) | &(arr+i)   |
+| (i+arr) | &(i+arr)   |
+
+Programs:
+Read the array using read function and display the array using display function.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/myreadAndDisplay.c}}
+
+Create a program which should have these features:
+exit, read, display, decimal to binary, biggest value in an array, reverse the 
+integer array. It should use switch fucntion to switch between features/functions.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/features1.c}}
+
+== Character Array ==
+
+* Character are used to request the memory to store string constant.
+* In char array each element will take 1 byte of memory.
+char str[10] --> It can store 10 bytes of data. Each element is of 1 byte.
+* In each byte it will store corresponding ascii char's ascii value in binary format.
+* The index value will start with 0 and ends with (n-1). n is total number of elements.
+* A char array is constructed based on arithmetic operation on char pointer.
+* When you assign character by character even we have to store null character at the end.
+* When you read input in terms of string format by using scanf function automatically it will 
+  store null character at the end along with string.
+* To read input in string format we have to use %s format specifier.
+* This format specifier requires char array's starting base address.
+* If you want to print char by char you have to use for loop and use null character as 
+  termination condition in for loop.
+	{{file:/home/basith/Pictures/accessingArrayUsingPointers.png}}

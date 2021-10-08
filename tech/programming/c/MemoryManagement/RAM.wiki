@@ -1,0 +1,95 @@
+= RAM =
+
+* What is a RAM?
+	- It is a memory cell in a computer. Entire RAM is divided in equal number of parts, which are known as memory 
+	  cells. Each cell can store one-byte of data. Data is stored in binary format. Addresses can be represented in 
+	  hexadecimal format. A character data occupy one memory cell. A float data will occupy four memory cells. 
+	  
+		- Example: 
+		  int a = 4;  
+		  
+		  00000000 00000100 
+		  
+		  Lower byte memory 		Higher byte memory
+		  00000000 					00000100 --> Big Endian Machine
+		  00000100 					00000000 --> Little Endian Machine 
+		  
+	- {{Endianess.wiki|Little Endian, Big Endian}}  
+	  
+* RAM is divided into two parts:
+	1. {{RAM_Extended_Memory.wiki|Extended Memory (useless)}} 
+	2. {{Residence_Memory.wiki|Residence Memory}}
+
+	* {{file:/home/basith/Pictures/extended_and_residence_memory_ram.png|Extended And Residence Memory}}
+
+* Physical Address of a computer
+	- All the c programming variables stored are stored in the residence memory. In turbo c 3.0, 20 bits address of 
+	  the memory cell is known as physical address or real address. In 20 bits, we can represent address from 
+	  0x00000 to 0xfffff. All the c programming variables must have memory address within this range. 
+	  
+	- A c programmer cannot decide what will be the memory address of any variable. It is decided by compiler. 
+	  
+	  For example: 
+	  	{{{ c
+			#include <stdio.h>
+			int main() {
+				int a;
+				printf("%x", &a);
+				return 0;
+			}
+		}}}
+		
+		output: we cannot predict.
+		
+		But we can say in 16 bit compiler address must be within 0x0000 to 0xffff and in 32 bit 0x00000000 to 
+		0xffffffff. 
+		
+		Note: Suppose your c compiler is based on the microprocessor whose total address buses are 32 then its 
+		total size of addressable memory will be: 
+			Addressable memory = 2 ^ (address bus) bytes 
+							   = 2 ^ 32 bytes 
+							   = 4 GB
+			
+			8 bits = 1 byte
+			1024 bytes = 1 KB
+			1024 KB (1024 * 1024 bytes) = 1024 MB 
+			1024 MB (1024 * 1024 * 1024 bytes) = 1 GB
+
+	- Memory Segment | Segment Address
+		* Memory segmentation in 8086 microprocessor: 
+			- Segmented Memory 
+				Residence memory of RAM of size 1MB has divided into 16 equal parts. These parts are called segments. 
+				Each segment has size of 64 KB. 
+				
+				16 * 64KB = 1MB
+				
+				{{file:/home/basith/Pictures/memory_segment_number_and_offset_number.png|Memory Segment and offset values image}}
+			
+	- Address is a combination of two addresses, segment address and offset address. Below program shows segment 
+	  address and offset address in c. Data is stored in data segment of offset address. Remember offset and segment 
+	  are different addresses and data is found in offset address of data segment.
+	  
+	  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/034segmentNumOffsetNum.c|Segment Number and Offset Address program}} 
+	  
+	  In turbo c 3.0 physical addresses of any variables are stored in the 20 bits. Generally pointers cannot store
+	  address of size 20 bits. To solve this problem three pointers have been implemented which can store large 
+	  addresses, they are: 
+	  1. Near Pointer
+	  2. Far Pointer
+	  3. Huge Pointer
+
+	- Offset Address(for 16 bits machine)
+		* Each segment of RAM is divided into two parts
+			1. segment number(4 bits) 
+			2. offset number(16 bits) 
+			   
+			   // My deduction
+			   *_Segment_*  + *_Offset_*
+			   2 bits*1 + 8 bits*1 --> 8 bit machine
+			   2 bits*2 + 8 bits*2 --> 16 bit machine
+			   2 bits*4 + 8 bits*4 --> 32 bit machine
+			   2 bits*8 + 8 bits*8 --> 64 bit machine
+			   // Provide some reference for this to be true
+	  
+		* Suppose physical address of any variable in c is 0x500f1, then its segment number is 5 and offset address 
+		  is 00f1

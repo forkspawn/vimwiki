@@ -1,0 +1,41 @@
+= Date =
+23-08-2021
+
+== Problem ==
+Nvidia Quadro T1000 graphic is not detected by NI 8880 embedded controller in NI 1092 chassis in 
+Windows 10 Operating System.
+
+== Tried Solution ==
+By Abdul Basith
+
+== Websites Visited ==
+* pxie module pin description - Google Search
+	https://www.google.com/search?q=pxie+module+pin+description&sxsrf=ALeKk02iqP219gZE6SotnjRjEg-4YuxTdA%3A1629702802588&ei=kkojYY2-I4ye9QPepbKoBQ&oq=pxie+module+pin+description&gs_lcp=Cgdnd3Mtd2l6EAM6CggjEK4CELADECc6BwgjEK4CECc6BAgjECc6BQghEKABOgcIIRAKEKABSgQIQRgBUN_bvAFYjOq8AWDO7LwBaAFwAHgAgAG5AYgB0g2SAQQwLjEymAEAoAEByAEBwAEB&sclient=gws-wiz&ved=0ahUKEwiNz4yFzMbyAhUMT30KHd6SDFUQ4dUDCA4&uact=5
+
+* PXI/PXIe Resolver Simulator Module, 4-Banks - 41/43-670-201-AABBCC
+	https://www.pickeringtest.com/en-in/product/41-670-201-aabbcc-pxi-resolver-simulator-4banks
+
+* CompactPCI Express Electrical, Physical Interface, cPCIe Bus Description
+	http://www.interfacebus.com/Design_Connector_cPCIe_Bus.html
+
+* PICMG | CompactPCI® Express Specification - PDF Version
+	https://www.picmg.org/product/compactpci-express-specification/
+
+* PCI eXtensions for Instrumentation - Wikipedia
+	https://en.wikipedia.org/wiki/PCI_eXtensions_for_Instrumentation
+
+* PICMG | CompactPCI
+	https://www.picmg.org/openstandards/compactpci/
+
+* Intel Support
+	https://www.intel.com/content/www/us/en/support.html
+
+* Introduction to PXIe and PXI | Spectrum
+	https://spectrum-instrumentation.com/en/product-note-introduction-pxie-and-pxi
+
+* what is the purpose of the chipset on a motherboard - Google Search
+	https://www.google.com/search?q=what+is+the+purpose+of+the+chipset+on+a+motherboard&biw=1358&bih=684&sxsrf=ALeKk02SRr23oL7T_YfuCM-49jNchgfeNA%3A1629713490419&ei=UnQjYbiEGdGW4-EPu9OnqAk&oq=what+is+the+purpose+of+chipset+on+&gs_lcp=Cgdnd3Mtd2l6EAMYADIGCAAQFhAeOgcIIxCwAxAnOgcIABBHELADOgUIABCABDoECAAQDToICAAQsQMQgwE6CAgAEBYQChAeOggIIRAWEB0QHkoECEEYAFCmsxFY85QSYN-lEmgKcAJ4AYABigaIAcEokgEKMS4yNC41LTIuMZgBAKABAcgBCcABAQ&sclient=gws-wiz
+
+== Result ==
+* Device Not Found in device manager.
+----

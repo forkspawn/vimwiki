@@ -1,0 +1,102 @@
+= Files =
+
+File is a collection of related data stored in a particular area on the disk.
+
+The data which is stored in RAM/Main Memory will be lost when the process is ended. The OS will 
+deallocate the memory and the process itself. So everything related to it will be lost when 
+process is ended or system shutdowns or reboots.
+
+So to overcome it we will use permanent memory(hard disk, flash drives etc). We call permanent 
+memory as non volatile memory. 
+
+There are numerous library functions available for I/O operations. These are categorized into 
+three: 
+1. Console I/O function:
+	Function to receive the input from keyboard and write output to the standard output(Terminal).
+	
+2. Disk I/O function:
+	Disk I/O: 
+		1. [[HighLevel|High Level text]]
+		2. [[LowLevel|Low level text]]
+	
+	Function to perform I/O operations on a hard disk. The first step in a stream oriented data 
+	files is to establish a buffer area, the buffer area is the temporary storage which is used 
+	while the information is being transferred between the computer memory and data files. 
+	The buffer area allows the information to be read from or written to the data files. 
+	To establish a buffer area use FILE structure. 
+	
+3. Port I/O function: 
+	Function to perform I/O operations on various ports. 
+	
+= Functions related to disk i/o =
+
+* File structure (FILE)
+  File control structure for streams. 
+  {{file:/home/basith/Pictures/file_structure.png|File Structure Picture}} 
+  FILE is a special structure type that establishes buffer area. FILE should be declared in 
+  upper case. "file_pointer" is often referred to as stream pointer or simply a string. A data 
+  file must be opened before it can be created or processed. This associates the file name with 
+  the buffer area. It specifies how data file will be utilized.
+  
+* File modes 
+  "r" (read): Searches file, if file exists load it into memory and set up a character pointer 
+  which points to the first character in it, if file doesn't exists it returns null. 
+  	Operations possible: reading from a file.
+  
+  "w" (write): Searches file, if file exists then its content will be overwritten. If file 
+  doesn't exists new file is created. Returns NULL if unable to open a file. 
+  	Operations possible: Writing to a file.
+  
+  "a" (append): Searches file, if file exists loads it into memory and sets up a pointer to point 
+  the first character. If file doesn't exists new file is created. Returns NULL if unable to open 
+  a file.
+  	Operations possible: Appending new content at the end of the file.
+
+  "r+" (read, write and modify): Searches file, if it exists, loads it into memory sets up a 
+  pointer which points to the first character in it. If doesn't exists returns NULL. 
+  	Operations possible: Reading, writing, modifying existing contents. 
+	
+  "w+": Opens a file for both reading and writing.
+  
+  "a+": Opens an existing file for reading and appending.
+  
+  There are also ab+, wb+ etc. b represent binary.
+  
+* fopen function returns a pointer to the beginning of the buffer area associated with the file. 
+  A NULL is returned, if a file cannot be opened. A datafile must be closed at the end of the 
+  program, to close it we use fclose(), eg: fclose(file_pointer).
+
+* Various Functions:
+	fclose(), fgets(), fread(), fwrite(), feof(), fopen(), fscanf(), fremove(), fgetc(), 
+	fprintf(), fseek(), frename(), fgetchar(), fputc(), ftell().
+* Constants, data types and global variables. 
+  	EOF, SEEK_CUR, FILE, SEEK_END, NULL, SEEK_SET.
+* In order to write the data into the files and to read the data from the files, we have fprintf() 
+  and fscanf(). 
+  
+  int fprintf(fp, format, s);
+  fprintf(): This call places output on the named output to which the file pointer fp points to, 
+  's' represents the argument whose values are printed. format is the format specifier string, 
+  printf format specifier works with the fprintf() as well. 
+  
+  int fscanf(fp, format, s);
+  fscanf(): This function will read the data from the file to which the file pointer fp points to.
+  It returns the number of values to read. format is format specification. 's' represents the 
+  arguments (or buffer area) which data is stored after read operation.
+	
+= Programs =
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/196_file_basic.c|File Basic (program 1)}}
+    {{file:/home/basith/Pictures/basic_file_structure.png|File Structure Picture}} 
+    fgetc will get a character from file pointer stream first it will read the position and then get 
+    the character from the buffer. There are more than 8 members in FILE structure.
+    {{file:/home/basith/Pictures/more_members_of_FILE_struct.png|File Structure Picture}} 
+    https://stackoverflow.com/questions/1685483/how-can-i-examine-contents-of-a-data-section-of-an-elf-file-on-linux
+   
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/197_file_create.c|File Basic (program 2)}}
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/198_file_create.c|File Basic (program 3)}} 
+	unlink deletes a file and its in unistd.h
+	
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/199_file_create.c|File Basic (program 4)}} ccc 
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/200_file_create_2.c|File Basic (program 5)}}
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/201_file.c|File Basic (program 6)}}
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/202_file.c|File Basic (program 7)}} ccc

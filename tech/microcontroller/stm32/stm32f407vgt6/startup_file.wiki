@@ -1,0 +1,70 @@
+= Importance of startup file =
+
+* The starup file is responsible for setting up the right environment for the main user code 
+	to run.
+* Code written in startup file runs before main(). So, you can say startup file calls main().
+* Some part of the startup code file is the target (Processor) dependent.
+* Startup code takes care of vector table placement in code/flash memory as required by 
+  ARM cortex Mx processor.
+* Startup code may also take care of stack reinitilization.
+* Startup code is responsible for .data, .bss section initialization in main memory. Explain 
+  more about main memory like is it a flash memory, SRAM1, SRAM2 like that. ???
+
+= Start-up file =
+
+== Steps to follow ==
+
+1. Create a vector table for your microcontroller. Vector tables are MCU specific.
+     [[file:/home/basith/Pictures/vector_table_placement.png|Stm32f4 Vector Table Placement]]
+     [[file:/home/basith/Pictures/stm32_vector_table.png|Stm32f4 Vector Table Outline]]
+     [[file:/home/basith/Coding/microcontroller_programming/stm32/Docs/dm00031020-stm32f405-415-stm32f407-417-stm32f427-437-and-stm32f429-439-advanced-arm-based-32-bit-mcus-stmicroelectronics.pdf|See Stm32f4 Reference Manual for vector table(page number: 372)]] 
+	 - Vector table addresses consumes 392 bytes in code memory. First fifteen memory locations 
+		 or addresses are consumed by ARM cortex system exceptions. These fifteen are the exception 
+		 handlers of the ARM processor. They carries various exceptions for the processor.
+	 - WWDG is the first(wwdg is the 0th irq) IRQ handler, and there are in total 82 IRQ handlers.
+	 - Create an array to hold MSP and handlers addresses. 
+		 {{{c
+uint32_t verctors[] = {store MSP and address of various handlers here};
+		 }}}
+	 - Instruct the compiler not to include the above array in .data section but in a different 
+	   user defined section. It is accomplished using compiler attribute, search for term "section 
+		 ("section-name")" in [[|gnu gcc compiler manual]] and follow the example code for clarity on 
+		 how to use the attribute. See the vector table placement picture for more information on 
+		 why verctor[] array should not go to .data section.
+	 - Compiler attributes can also be used with functions.
+	 - There are 97 exceptions (15 system exceptions + 82 interrupts). So, would you write handlers 
+		 for all the exceptions? 
+			 * Not required. Let's create a single default handler for all the exceptions and allow 
+		 programmer to implement required handlers as per application requirements. I called it as 
+		 NMI_Handler. I used alias for NMI_Handler as Default_Handler. So whenever NMI exceptions 
+		 are raised it will run Default_Handler. In code Default_Handler address is used not the 
+		 NMI_Handler. Because for most of the exceptions we want to go to default handler. 
+		 Look at the [[file:/home/basith/Coding/microcontroller_programming/stm32/stm32f407vgt6/src/stm32_startup.c|Startup File]] to get more clarity. 
+	 - Function attribute: weak and alias
+			 * Weak: It lets programmer to override already defined weak function(dummy) with the same 
+				 function name.
+					* It is used to override default function with same function name.
+			 * Alias: It lets programmer to give alias name for a function.
+					* Give function a different name.
+
+2. Write a start-up code which initializes .data and .bss section in SRAM. 
+	 - When the processor goes under reset the Reset_Handler is called.
+	 - The Reset_Handler should contain theses instructions:
+		 - Copy .data section to SRAM. 
+			 - [[file:/home/basith/Pictures/data_section_to_sram.png|copying .data section to sram]] 
+			 - Need to know boundary and size information to copy the data from flash memory to SRAM. 
+			   This information is exported from linker script to the startup file. Then its possible 
+				 to implement data copying from flash to SRAM in startup file.
+			 - At this point linker script should be implemented. See how to create linker script.
+			 - [[file:/home/basith/Pictures/linker_script_1.png|Merging two .o files(job of linker and locator)]] 
+		 - Initialize the .bss section to zero.
+		 - Call init function of standard library, if you are using any of the function belonging 
+		   to it, like printf, scanf etc. Else not needed.
+		 - Call main().
+
+3. Call main().
+
+== Startup File ==
+
+[[file:/home/basith/Coding/microcontroller_programming/stm32/stm32f407vgt6/src/stm32_startup.c|Startup File]]
+

@@ -1,0 +1,172 @@
+= Preprocessor =
+
+Preprocessor Directives or 
+Text Processing Tool or 
+Text Substitution Tool or 
+#(hash) Symbol Preprocessor
+
+The preprocessor contains the following directives
+
+#define		#elif		#else		#endif
+#error		#if			#ifdef		#ifndef
+#include	#line		#pragma		#undef
+
+Preprocessing occurs before a program is compiled. All preprocessor directives begin with a # sign. In addition, 
+each preprocessor directive must be on its own line. 
+
+For example, #include <stdio.h> #include <stdlib.h> will not work.
+
+Four Stages of Compilation in C
+1. Text Program/Source Code
+2. Preprocessor
+3. Compiler + Assembler
+4. Linker  
+   
+   {{file:/home/basith/Pictures/basic_compilation_stage.png|Compilation Stages Basic}}
+
+* Macro language accepts the source code which include various preprocessing directives and do the necessary 
+  operations on it and gives back an intermediate file, this file is the pure C code. This file is .i file. i 
+  stands for intermediate. The c source code contains not only c language functions it also contains macro language, 
+  start with #, it is called as preprocessor directive. It is preprocessing the program before c program is 
+  compiled. 
+  
+  There are four types of preprocessor directives, these are: 
+  1. Macro expansion 
+  2. File inclusion
+  3. Conditional Compilation 
+  4. Miscellaneous directives
+  
+  The second stage of preprocessing directive accept the text program and preprocessor replace all the macro 
+  language and generate a pure C code with .i extension, i stands for intermediate code. This intermediate code 
+  passes to the compiler. 
+  
+  cpp filename.c --> generates .i file.
+  cpp --> c preprocessor. 
+  
+1. Macro Expansion: 
+		Macros, a predefined preprocessor compiler directive which evaluates the related code with high priority. 
+	A macro can be identified by a macro name prefixed with #. The macros are defined under parsel of the linker 
+	in the compiler.
+ 
+	 Properties: 
+		- Macros evaluates the instructions at compilation phase. 
+		- The macros are substituted at the place of call instead of navigation to external scope.
+		- Macros can undergo only runtime error checking. 
+ 
+	 1. #define is a preprocessor directive. It means it is created before compilation process statements. The three 
+		ways to create #define
+ 
+		 * To generate constants 
+	
+			#define A 10
+			#define size 10 
+			#define ISEMPTY top NULL 
+			
+			{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/144macros.c|Macro Program 5}} 
+			{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/145macros.c|Macro Program 6}} 
+			{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/146macros.c|Macro Program 7}}
+			
+		 * To provide alias names for existed functions and datatypes. 
+			
+			#define LI long int
+			#define PF printf 
+			
+		 * It is used for code replacement 
+			
+			#define AREA(x) (3.14*x*x) 
+			#define ISDIGIT(y) (y >= 48 && y <= 57)
+			
+			{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/147macros.c|Macro Program 8}}
+			{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/148macros.c|Macro Program 9}}
+			
+		 * Macro with multi line statements
+			{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/149macros.c|Macro Program 10}}
+		
+2. File Inclusion: 
+   This directive causes one file to be included in another. The preprocessor for including files are:
+		
+		#include "filename"
+		#include <filename>
+
+   This command inserts the entire content of filename into the source code at that point in the program. 
+   This file inclusion preprocessor is used in two cases they are: 
+
+	 - If the program is very large the code is divided into several different files, each conatining a set of 
+		related functions these file inclusion preprocessor is used. These files are included at the beginning 
+		of the main program file. 
+		
+	 - Functions or macro definitions are needed in many programs commonly. In such situations these commonly 
+		used functions and macro definitions are stored in a file, and that file can be included in every
+		program. This will add all the statements in this file to program which is written.
+		
+		{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/150macros.c|Macro Program 11}} ???
+		getting some errors fix it. 
+	
+3. Conditional Compilation 
+   
+   When we are working with this preprocessor, it decides which code to include in .i file based on the conditions.
+   So when some part of the code is not included then it can compile much faster and the size of code will also 
+   shrinks. With the help of this preprocessor we can write one header file and include or exclude the code which 
+   is needed or not needed(look microcontroller header files). It reduces the size of execuatable file. 
+   
+   		#if 
+		#ifdef
+		#else
+		#ifndef
+		#endif etc
+		
+		#if 
+		
+		#if constant-expression
+			statement sequence
+		#endif
+		
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/151macros.c|Macro Program 12}}
+	It excludes the code if the condition is not satisfied. In the above program two printf will not be included, 
+	this makes the code smaller.
+	
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/152macros.c|Macro Program 13}} 
+	
+	Syntax:
+	#ifdef macro_name
+	statement1;
+	statement2;
+	statement3;
+	#endif
+	
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/153macros.c|Macro Program 14}} 
+	The above program concept is very powerful.
+	
+	#undef by using #undef we can close the scope of existing define macro 
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/154macros.c|Macro Program 15}} 
+	
+	#ifdef and #ifndef are called macro testing conditional compilation preprocessor
+4. Miscellaneous directives  
+   
+   #error it can create error messages
+   
+   #pragma, this is use to hide warnings when compiling
+   
+   {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/155macros.c|Macro Program 16}} 
+   {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/156macros.c|Macro Program 17}} 
+   {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/157macros.c|Macro Program 18}} 
+  
+  Do the problems sent by kiran sir ???
+
+- [[hash_define(Macros)]] 
+
+- [[hash_define(Function-like_Macros)]]
+
+- [[hash_error]]
+ 
+- [[hash_include]]
+
+- [[Conditional_Compilation_Directives]]
+
+- [[hash_ifdef_and_hash_ifndef]] 
+
+- [[hash_undef]]
+ 	
+- [[hash_line]]
+ 
+- [[hash_pragma]]

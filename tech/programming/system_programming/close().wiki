@@ -1,0 +1,18 @@
+*Lecturer: Sunil Sir*
+*Video Number: 2020-09-02*  
+
+= Close System Call =
+
+* The close system call will close the opened file. Close system call will take single input that is fd value 
+  returned by open system call. On successful execution it returns zero and on failure it returns -1. To use this 
+  system call use unistd.h. Use different fd values for different files. Dont loose fd values, if lost we cannot 
+  perform any type of read, write, close operations on that file
+  
+  {{file:/home/basith/Pictures/fd_value_lost.png|What happens if fd value is lost}} 
+  
+
+*Lecturer: Sunil Sir*
+*Video Number: 2020-09-03*  
+
+  When close is executes then it invokes corresponding sys_close kernel call this call will destroy file object, 
+  inode object in kernel space of ram. The entry in fd table is also deleted. 

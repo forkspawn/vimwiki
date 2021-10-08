@@ -1,0 +1,24 @@
+= #ifdef and #ifndef = 
+Another method of conditional compilation uses the directives #ifdef and #ifndef, which mean "if defined" and 
+"if not defined" respectively.
+
+The general form of #ifdef is 
+
+#ifdef macro-name
+statement sequence  
+#endif
+
+If macro-name has been previously defined in a #define statement, the block of code will be compiled. 
+
+The general form of #ifndef is 
+
+#ifndef macro-name
+statement sequence  
+#endif
+
+The macro-name is currently undefined by a #define statement, the block of code is compiled.
+
+Example 
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/142macros.c|Macro Program 3}}  
+

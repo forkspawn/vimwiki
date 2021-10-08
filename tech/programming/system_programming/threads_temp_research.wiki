@@ -1,0 +1,17 @@
+If multiple threads are writing to the same memory then it creates problem, to avoid it use 
+synchronization techniques. 
+
+pthreads returns 0 on success and positive value on failure 
+
+errno can be implemented using errno.h for each thread, these errorno will be specific to 
+per thread. failure value is same as errorno. 
+
+After a call to pthread_create(), a program has no gurantees about which thread will next be scheduled to 
+use the CPU (on multiprocessor system, both threads may simultaneously execute on differnt CPUs.) Programs 
+that implicitly rely on a particular order of scheduling are open to the same sorts fo race conditions that 
+is described in section 24.4. if we need to enfore a particular order fo execution, we must use one of the 
+synchronization techniques described in chapter 30
+
+use pthread_mutex_t * mtx, pthread_mutex_lock(&mtx), pthread_mutex_unlock(&mtx). These will make the sharing 
+resources correctly.
+

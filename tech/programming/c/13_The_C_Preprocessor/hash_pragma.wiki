@@ -1,0 +1,5 @@
+= #pragma =
+#pragma is an implementation-defined directive that allows various instructions to be given to the compiler. 
+For example, a compiler may have an option that supports program execution tracing. A trace option would then 
+be specified by a #pragma 
+

@@ -1,0 +1,3 @@
+* Sending the address of the variable from caller to callee is called as call by address. If any changes made in the 
+  sub function it will effect to the caller function variable value. 
+  {{file:/home/basith/Pictures/caller_and_callee.png|Caller and callee function}}

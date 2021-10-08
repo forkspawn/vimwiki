@@ -1,0 +1,38 @@
+I was also struggling to understand the objective of writing device driver. But eventually it 
+made sense. So let me explain it to you. In linux, there's two kinds of driver: controller driver 
+and protocol driver. Say in Beaglenone Black (BBB) SoC (AM335x), there is a SPI controller. 
+For this SPI controller, the corresponding linux driver is already provided by the SoC vendor. 
+So the SPI controller driver is already there in the Kernel. Now say you are trying to hookup a 
+new ADC sensor(XYZ) to your BBB. There are chances the manufacturer of XYZ says in the reference 
+manual that the ADC has SPI interface but they have not provided any linux driver for it. And it 
+happens very often. Now you have to write the linux SPI driver for this client ADC sensor(XYZ).  
+This client driver is a protocol driver.
+
+Now, come to your next question: why not doing it from user-space. To anser this, 
+refer following*:
+
+But the user-space approach to device driving has a number of drawbacks. The most important 
+are as follows:
+
+Interrupts are not available in user space. The only way around this (on the x86) is to use 
+the vm86 system call, which imposes a performance penalty.[13]
+
+Direct access to memory is possible only by mmapping /dev/mem, and only a privileged 
+user can do that.
+
+Access to I/O ports is available only after calling ioperm or iopl. Moreover, not all platforms 
+support these system calls, and access to /dev/port can be too slow to be effective. Both the 
+system calls and the device file are reserved to a privileged user.
+
+Response time is slower, because a context switch is required to transfer information or 
+actions between the client and the hardware.
+
+Worse yet, if the driver has been swapped to disk, response time is unacceptably long. Using 
+the mlock system call might help, but usually you’ll need to lock several memory pages, because 
+a user-space program depends on a lot of library code. mlock, too, is limited to 
+privileged users.
+
+The most important devices can’t be handled in user space, including, but not limited to, 
+network interfaces and block devices.
+
+[[https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch02s07.html]]

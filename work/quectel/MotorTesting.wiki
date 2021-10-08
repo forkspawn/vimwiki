@@ -1,0 +1,8 @@
+= Quectel Motor Testing =
+
+== Instructions ==
+
+1. check whether voltage is high on gpio pin3 when L3, 0 is sent. Here 0 is ebike on in 
+   documentation.
+ 
+

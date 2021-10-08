@@ -1,0 +1,45 @@
+= Available Board Configs =
+
+Select your board and look for important configs. 
+
+== Versatile/PB Board ==
+
+* [[versatile_board_info|Versatile Board Info]]
+* qemu_arm_versatile_defconfig
+
+== Banana Boards ==
+
+* bananpi_m1_defconfig
+
+== Beaglebone ==
+
+* beagleboardx15_defconfig
+* beagleboneai_defconfig
+* beaglebone_defconfig
+* beaglebone_qt5_defconfig
+
+== STM32 boards ==
+
+* stm32f429_disco_defconfig
+
+== i.mx boards ==
+
+These boards are used in medical and automotive domain.
+
+* imx6-sabreauto_defconfig (medical domain)
+* imx7dpico_defconfig
+* imx8mmpico_defconfig (digital cockpit and automotive domain)
+
+== Raspberry Pi Board ==
+
+* raspberrypi0_defconfig
+* raspberrypi4_defconfig
+
+== ZYNQ Board ==
+
+* zynq_zc706_defconfig
+
+= Important Configs to consider =
+
+* [[important_configs_arm|Important Configs]]
+

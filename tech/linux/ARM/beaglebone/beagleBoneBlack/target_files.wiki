@@ -1,0 +1,12 @@
+= Target Side Output =
+
+* In buildroot/output/images directory it generates files.
+ 
+	- It produces
+		1. Root file system
+			* rootfs.ext2 (On my system its not producing this rootfs.ext2, it can produce rootfs.btrfs)
+		2. Device tree
+			* Versatile-pd.dtb
+		3. Kernel
+			* zImage
+

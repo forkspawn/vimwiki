@@ -1,0 +1,55 @@
+= Why compile a kernel =
+
+= Download Kernel =
+Download the kernel from beaglebone black github repo. clone it into a folder.
+
+= Kernel Compilation =
+Follow the steps given by the vendor to compile the kernel image.
+
+_*Step1:*_ Remove all temporary folder object files, images generated during the 
+previous build. This step also deletes the .config file if created previously. *make ARCH=arm distclean*
+_*Step2:*_ Create a .config file by using default config file given by the vendor.
+
+*make ARCH=arm bb.org_defconfig*
+
+_*Step3:*_ This is optional. Run this command only if you want to change some kernel
+settings before compilation.
+
+*make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig*
+
+_*Step4:*_ Kernel source code compilation. This stage creates a kernel image 
+"uImage" and also all device tree source files will be compiled, and dtbs will
+be generated.
+
+*make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- uImage dtbs LOADADDR=0x80008000 -j4*
+
+I got an error because I was lacking tools: lzop and uboot-tools. After 
+installing it, It generated uImage successfully.
+
+_*Step5:*_ This steps will generate in-tree loadable(M) kernel modules(.ko)
+
+*make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- modules -j4*
+
+_*Step6:*_ This step installs all the generated .ko files in the dafault path
+of the computer(/lib/modules/<kernel_ver>)
+
+*sudo make ARCH=arm modules_install*
+
+= Updating BBB kernel =
+Rename the old uImage and copy the compiled uImage to boot directory of the
+sd card(if you are using sd card to boot). 
+
+Copy the installed modules from local machine /lib/modules/kernel_ver to 
+/lib/modules/kernel_ver of the sd card. Then run the command *sync*. Put the sd
+card in and reset the board.
+
+If everything works then great but it wasn't working for me. I'm using 
+beaglebone black rev C board and instructor is using beaglebone black rev A 
+board. It isn't booting. Here are the pictures.
+[[file:/home/basith/Pictures/kernelStartingProb1.png]]
+[[file:/home/basith/Pictures/kernelStartingProb2.png]]
+[[file:/home/basith/Pictures/kernelStartingProb3.png]]
+
+I tried various methods but wasn't successful. I will come back to it later.
+
+= Enabling Internet Over USB =

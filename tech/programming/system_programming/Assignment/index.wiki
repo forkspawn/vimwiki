@@ -1,0 +1,4 @@
+= Assignment =
+1. See the members of task_struct, In which header file is it available. (2020-08-27) 
+2. Write macros from fcntl.h into notebook.
+   

@@ -1,0 +1,106 @@
+= Open System Call =
+
+* Its a system call not a standard c library function. Its declaration is available in fcntl.h. 
+  
+  syntax:
+  int open(const char * pathname, int O_flags, ...); 
+  
+  first argument: path to the file for opening or creating
+  
+  second argument: O_flags is ORing together one or more constants. These constants are predefined macros.
+  flags: 
+  	- O_RDONLY --> read only
+  	- O_WRONLY --> write only
+	- O_RDWR --> for both read and write 
+	  
+  third argument: If we dont know file exists or not in this case we have to use this argument. 
+  In place of ... we can also include mode_t MODE. ???
+  Mode refers to readonly, writeonly, readwrite, append etc. ???
+  
+  If the file doesnt exists then open system call with two arguments will fail and also if we are using third 
+  argument and its unable to create the file then in these two cases open system call will return -1.  
+  
+  When we are using three arguments in open() system call the second argument must be ORed with the macros. 
+  The macros are O_CREATE, O_APPEND etc. ???
+  
+  What's the difference between two arguments and three arguments?
+  	In two arguments case if file doesnt exists and we are trying to open it then in this case it will return -1. 
+	Even if file exists and we are unable to open it, even in that case it will return -1.
+	
+	In three arguments case if its unable to create the file then it will return -1. ???(line by me)
+  
+*Lecturer: Sunil Sir*
+*Video Number: 2020-09-01*  
+
+= Open system call with two arguments =
+
+* When we use the open system call using two arguments, if file exists it will have an inode object and it copies 
+  the inode object into kernel space of ram. The open() system call will invoke equivalent kernel call sys_open(),
+  the sys_open() will search for the file mentioned in first argument of open() in the harddisk and tries to open 
+  it. When it does then files inode object will be copied to kernel space of ram. If the file doesnt exists in 
+  harddisk, the open() system call will return an error that is -1. 
+  
+  The loaded inode object(in kernel space) is linked to the PCB. Each loaded inode object will have corresponding 
+  file object. The file object is created when you open a file from your program. This inode object is of type 
+  struct_inode and file object is of type struct_file. See the image and understand the flow.
+  
+  {{file:/home/basith/Pictures/flow_of_open_system_call.png|File Operations Basic Information}}
+  
+* PCB
+	- [[fd_table.wiki|fd table]] 
+	  
+* From any program or application is it possible to access kernel objects? 
+  	Yes, we have different set of system calls.
+
+*Lecturer: Sunil Sir*
+*Video Number: 2020-09-02*  
+  
+* open() system call will send the request to sys_open(), now sys_open() will send the reques to driver(mass storage 
+  driver), this driver will search for the particular entry (file name), if it exists then it will load the file's 
+  inode(or vnode if it is device file) object into kernel space of ram. When file is opened, the operations which 
+  needs to be performed on file will be updated in file object, thats why file object is created. It tracks the 
+  file operations performed on the file. 
+  
+* A file descriptor is a positive value, when we open an existing file or create a new file, the kernel returns 
+  fd to the process. This fd value is used by read() and write() system calls to do the read and write operations 
+  on the file. Cursor position changes for every read and write operation. If the open() returns -1 then exit it. 
+  This is true for open with two arguments.
+
+= Open system call with three arguments = 
+
+* When open system call is used with three arguments then if file doesnt exists then it will create it. It creates 
+  the file by utilizing the third argument.
+  
+  - first argument --> file name to open/create 
+  - second argument --> o_flags | macro 
+  - third argument --> access rights (0664(-rw-rw-r--))
+	
+	O_FLAGS: 
+		Normal Textual File
+		1. O_RDONLY
+		2. O_WRONLY
+		3. O_RDWR
+		4. O_SEARCH 
+		   open for search only. Used to search in directories.
+		
+		Executable File
+		1. O_EXEC 
+		   
+	Macros:
+		1. O_APPEND 
+		     Append to the end of the file(EOF) on each write.
+			 
+		2. O_CREAT 
+		     It will create new file if it doesn exists. User should also provide access rights(0664 (-rw-rw-r--)). 
+		     This is written in third argument(mode).  
+			 
+		3. O_DIRECTORY
+			 
+		4. O_TRUNC 
+		     When its used, it will truncates the total length of the file to zero. Erases everything.
+		
+		These flags are in fcntl.h. 
+		
+	
+  {{file:/home/basith/Pictures/open_with_three_args.png|File Operations Basic Information}}
+		  

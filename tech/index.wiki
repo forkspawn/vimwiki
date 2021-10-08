@@ -1,0 +1,25 @@
+= OPERATING SYSTEMS =
+1. [[linux/linux.wiki|LINUX]]
+
+= PROGRAMMING LANGUAGES =
+1. [[programming/c/index.wiki|C]]
+1. [[programming/Data_Structures/index.wiki|Data Structures]]
+2. [[programming/system_programming/index.wiki|System Programming]]
+3. [[programming/Kernel_Programming/index.wiki|Kernel Programming]]
+4. [[programming/python/index.wiki|PYTHON]]
+5. [[programming/bash/index.wiki|BASH]]
+6. [[programming/regex/index.wiki|REGEX]]
+7. [[programming/java/index.wiki|JAVA]]
+8. [[programming/sqlite/index.wiki|SQLite]]
+
+= ELECTRONICS =
+== MICROCONTROLLERS ==
+1. [[microcontroller/avr/atmega328p/index.wiki|atmega328p]]
+2. [[microcontroller/stm32/stm32f407vgt6/index.wiki|stm32f407vgt6]]
+3. [[microcontroller/msp/msp432e/index.wiki|msp432e]]
+
+= PROJECTS =
+1. [[projects/index.wiki|PROJECTS]]
+
+= VIDEOS =
+1. [[linux/applications/index.wiki|Applications]]

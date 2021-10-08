@@ -1,0 +1,32 @@
+= Preprocessing Stage =
+	In this stage pre processor comes into picture. The preprocessor accepts 
+	.c file and it will generate .i file as the output. This output file is 
+	called as preprocessed output. This preprocessed output is c code only.
+	
+	In this stage the statements which are starting with preprocessor directive
+	are processed. The statements which starts with preprocessor directive are:
+	1. Macro Definitions
+	2. Inclusion of header files
+	3. Conditional compilation statements
+	
+	The macro definitions are removed and are replaced with it's value at
+	appropriate locations. The contents of header files are placed in place of 
+	header files. The conditional compilation statements are removed by some
+	part of the code. Even comments are removed in this stage.
+	
+	How to stop the compilation after first stage
+	
+	{{{
+	
+		gcc -E <program file> > ***.i
+	
+	}}}
+	
+	To see this preprocessed output we can use normal textual editors. When we
+	have preprocessed output we can generate executable file by using 
+	
+	{{{
+	
+		gcc ***.i // generate a.out file
+	
+	}}}

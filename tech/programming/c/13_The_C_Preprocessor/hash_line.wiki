@@ -1,0 +1,17 @@
+= #line macro =
+The #line directive changes the contents of _ _LINE_ _ and _ _FILE_ _ , which are predefined identifiers 
+in the compiler. The _ _LINE_ _ identifier contains the line number of the currently compiled line of code. 
+The __FILE__ identifier is a string that contains the name of the source file being compiled.  
+
+The general form for #line is: 
+#line number "filename" 
+
+where number is any positive integer and becomes the new value of _ _LINE_ _ , and the optional filename is 
+any valid file identifier, which becomes the new value of _ _FILE_ _ . #line is primarily used for debugging 
+and special applications. 
+
+For example, the following code specifies that the line count will begin with 100. 
+The printf() statement displays the number 102 because it is the third line in the 
+program after the #line 100 statement. 
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/143macros.c|Macro Program 4}} 

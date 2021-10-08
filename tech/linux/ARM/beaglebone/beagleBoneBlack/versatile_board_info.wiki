@@ -1,0 +1,22 @@
+= Versatile Board Information =
+
+This series of machines have been the basis of ARMv5TE development and was the second ARM 
+reference design after the ARM Integrator to receive full support for the Linux kernel from ARM. 
+They were popular as prototyping systems around 2003-2010. 
+
+They were based around the ARM926EJ-S CPU core on a special tailored test chip.
+
+The two main boards are:
+
+* ARM Versatile Application Baseboard or Versatile AB for short which come with daughterboards 
+  named EB1 (Expansion Board 1) and EB2 (Expansion Board 2). The EB1 can connect the Versatile 
+	AB to an external LCD color display using a special cable and can be used for prototyping 
+	interactive display systems, and the EB2 has a mobile phone form factor and comes with a 
+	small display, candy bar phone keypad and a GSM modem and can be used for prototyping 
+	mobile handsets.
+
+* ARM Versatile Platform Baseboard or Versatile PB for short. This board has a PCI expansion 
+  tile and is good for development of embedded systems with PCI.
+	
+For more information visit this [[https://elinux.org/ARM_Versatile|website]]
+

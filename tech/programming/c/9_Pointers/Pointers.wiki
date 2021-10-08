@@ -1,0 +1,362 @@
+= Pointers =
+
+== Introduction ==
+* Pointers helps to reduce the number of statements/instructions need to write in programming. Two symbols are 
+  important * and &. They are unary operator. Which operator doesn't return value: the star operator doesn't 
+  return any value. 
+	- '&' --> address operator.
+	- '*' --> Value at address or (indirection operator) or object at that location.
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/040Pointer1.c|Pointer Program 1}} 
+	  The operator '*' directly or indirectly works with address. It doest work with values. 
+	  {{file:/home/basith/Pictures/Basic_Pointer_Picture.png|Basic Pointer Picture}}
+	  {{file:/home/basith/Videos/misc/Learning Code with Anki-lw5HsaFswEQ.mkv|Learning Code}}
+	  {{file:/home/basith/Documents/gdb.pdf|gdb tool overview}}
+
+* Pointers is a derived datatype which can hold the address of other variables. It can be ordinary variable, array, 
+  another pointer or user defined datatype variable. It can also hold address of a function.  
+	- Syntax: datatype * var_name = <initialization>;
+	- How to read the below statements: 
+		
+	  	{{{ C
+			int * s; // s is a variable of datatype integer pointer
+			float* ptr; // ptr is a variable of type float pointer
+			char *k; // k is a variable of char pointer
+		}}}
+		
+	- Primary datatype and derived datatype: 
+	  	{{{ C
+			int s; // s is a variable of type integer(int is primary datatype)
+			int * s; // s is a variable of type integer pointer(int * is derived datatype)
+		}}}
+
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/041Pointer2.c|Pointer Program 2}}  
+	  Do this by drawing memory cells. 
+	  {{file:/home/basith/Pictures/Basic_Pointer_Picture_2.png|Basic Pointer Picture2}}
+
+* (*)ptr is alias to the location not to the variable. alias to the object of specific location. alias means 
+  duplicate. (*)ptr is replaced with the object at that location.
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/042Pointer3.c|Pointer Program 3}}  
+	- Tell whether below statements are valid or not:
+		{{{
+			ptr = 100; // invalid
+			ptr1 = ptr2; // valid
+			s = *ptr2; // valid
+			ptr2 = s; // invalid
+		}}}
+	
+	- C is a loosely type checking language and C++ is strong type checking language. Follow the strong type 
+	  checking rules.
+
+== Workout Programs: ==
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/043Pointer4.c|Pointer Program 4}}  
+	  {{file:/home/basith/Pictures/Basic_Pointer_Picture_3.png|Basic Pointer Picture3}} 
+	  
+== Levels of Pointer. ==
+	{{{
+		*
+		**
+		***
+		****
+	}}} 
+	
+	We can place any number of levels of pointer. There is no restriction on pointers. 
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/044Pointer5.c|Pointer Program 5}}  
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/045Pointer6.c|Pointer Program 6}}  
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/046Pointer7.c|Pointer Program 7}}  
+
+== Properties of Pointers ==
+	- The size of a pointer variable is with respect to the compiler, irrespective of the datatype. 
+	  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/047Pointer8.c|Pointer Program 8}}  
+	- A pointer variable at the time of declaration we can initialize with an address or null pointer.
+	  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/048Pointer9.c|Pointer Program 9}}  
+	  What is null pointer whether it is same as uninitialized pointer? 
+	  	Null pointer has a reserved value, often but not necessarily the value zero, indicating that it refers to
+		no object. Null pointers are used routinely, particularly in C and C++ where the compile-time constant NULL 
+		is used, Null pointer means it is not referring to any object but uninitialized pointer can contain any 
+		value(just like any other uninitialized variable), which we call garbage.
+	- An integer pointer can hold integer type, a float pointer can hold float type, that is other pointers cannot 
+	  hold other type. 
+	  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/049Pointer10.c|Pointer Program 10}} 
+	  Why in the above program the warning is given as cannot convert integer pointer to float pointer? 
+	  	Because the address is nothing but pointer. Here & represents pointer. We are trying to store integer 
+		pointer in float pointer.
+	  {{file:/home/basith/Pictures/Basic_Pointer_Picture_4.png|Basic Pointer Picture4}}
+	- Generic pointer or void pointer can hold any type of address. void is a datatype the size of void is nothing. 
+	  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/050Pointer11.c|Pointer Program 11}}  
+	  The size of pointer depends on compiler, for 16 bit its 2 bytes, for 32 bit its 4 bytes, for 64 bit its 
+	  8 bytes. 
+	  
+	  void s; --> what is the size of s --> its nothing, so compiler gives error.
+	  
+	  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/051Pointer12.c|Pointer Program 12}}  
+	  {{{
+		levels of pointer should be equal
+	  	* = ** // invalid
+		
+		int a;
+		int *p;
+		int **p2p;	
+		
+		p = &a;
+		
+		p2p = &p;
+		** = ** // Valid
+	  }}}  
+	  
+	- Arithmetic operations on pointers.
+	  	p1 = 500, p2 = 600 both are addresses.
+		
+	  	p1 + p2 is not possible 
+		
+		Reason: Adding two pointer addresses will go beyond memory range.
+		
+		There are two types of memory usage: 
+			1. Compile time memory: 
+			   	This memory is used when the source code is compiling. 
+			2. Run time memory: 
+			   	This memory is used when program is executing. It tries to exhaust total memory of the system.
+	    		{{file:/home/basith/Pictures/Compiler_And_Memory.png|Compiler And Memory}}
+
+	    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/052Pointer13.c|Pointer Program 13}}  
+
+		* Addition of pointer and constant number is possible. But output depends on operator difference of memory 
+		  location.
+			ptr1 = 500; Consider 500 as address 
+			ptr2 = 600; Consider 600 as address 
+			
+			ptr1 + 1 = 502; For 16 bit compiler 
+			{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/053Pointer14.c|Pointer Program 14}}  
+			
+		* Subtraction of pointer variable and constant number is possible. 
+		  	ptr1 - 1 = 498;
+			ptr2 - ptr1 = 600 - 500 --> 50
+			{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/054Pointer15.c|Pointer Program 15}}  
+
+		* Invalid 
+		  	ptr1 * ptr2
+			ptr1 / 2
+			ptr1 / ptr2
+			ptr1 % ptr2
+
+		* Valid 
+			ptr1 > ptr2 
+			ptr1 < ptr2 
+			ptr1 == ptr2 (comparing two memory locations)
+			ptr1 != ptr2 
+			ptr1++
+			ptr1--
+			
+== Advantages of pointers == 
+  	1. Pointers allow us to pass values to functions using [[call_by_address.wiki|call by address]]. This is userful when large sized arrays  
+	   are passed as arguments to functions. A function can return more than one value by using call by address.
+	2. Dynamic allocation of memory is possible with the help of pointers.
+	3. Pointers point to physical memory and allow quicker access to data.
+== Programs: == 
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/055Pointer16.c|Pointer Program 16}}  
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/056Pointer17.c|Pointer Program 17}}  
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/057Pointer18.c|Pointer Program 18}}  
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/058Pointer19.c|Pointer Program 19}}  
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/059Pointer20.c|Pointer Program 20}}  
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/060Pointer21.c|Pointer Program 21}}  
+
+== Function returning pointer. ==
+	* A function can return a value like integer, float, double,etc. Similarly it can also return pointer it has 
+	  to be explicitly mentioned in the calling function as well as in the function declaration. While returning 
+	  pointers, return the pointer of global, static variables or dynamically allocated memory address. Do not 
+	  return any addresses of local variables because function will be destroyed from stack and the local variables 
+	  are inside stack. When local variables address is returned then the address which is held by the pointer 
+	  is called dangling pointer. 
+	  
+	  {{{ c
+	  	return_type * fun_name(args, ...);
+	  }}}
+	  
+	* Programs:
+		* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/061Pointer.c|Pointer Program 22}}  
+
+== Pointer to functions ==
+	* Pointers which can hold function address is known as pointer to functions. When pointer has function address 
+	  its possible to send the function as the parameter to other function. 
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/062Pointer.c|Pointer Program 23}}  
+	  {{file:/home/basith/Pictures/functionPointerInMemory.png|Function in memory}}
+	* Variables stored in stack 
+		* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/062stack.c|Stack Program 23}}  
+== Constant Pointer ==
+	* Its possible to make pointer as constant so that no one can change it. Array addresses are constant we 
+	  cannot change the array adresses. 
+		* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/063Pointer.c|Pointer Program 24}}  
+		  const int * p --> p points to an integer that is constant
+		  int const * p --> p is a constant pointer which cannot be changed
+		* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/064Pointer.c|Pointer Program 25}}  
+
+== Passing array as a function parameter. ==
+	Array itself is a pointer. Its a const pointer, Its not possible to change the address of array. When array is 
+	passed as parameter by default it passes address not a value. So it can be called as call by address. Is it 
+	possible to call array as pointer.
+
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/065Pointer.c|Pointer Program 26}}  
+	  As in the above program array is passed, in the function definition its possbile to replace the array's 
+	  subscript with pointer. As the array gives address why can't we say array is a pointer? Yes, the difference 
+	  is array is the constant pointer(where its defined) and pointer is a not a constant variable(unless otherwise 
+	  we make it a constant). 
+	  
+	  	For example: 
+			a = 5;	
+			a++ --> possible because its not a constant variable 
+			
+			5++ --> not possible becuase constant cannot be incremented
+			
+			(*)ptr = &a; 
+			ptr++; --> possible because pointer is a variable 
+			const int (*)ptr; 
+			
+			arr[];
+			arr++; --> not possible because arr is a constant pointer(where its defined).
+
+== How to read pointer. == 
+  {{{ 
+		++ptr --> pre increment of pointer
+		ptr++ --> post increment of pointer
+		--ptr --> pre decrement of pointer
+		ptr-- --> post decrement of pointer
+		++*ptr --> pre increment of object
+		--*ptr --> pre decrement of object
+		(*ptr)++ --> post increment of object
+		(*ptr)-- --> post decrement of object
+		*++ptr --> pre incrementation of pointer and access the data
+		*ptr++ --> accessing the data and post incrementation of pointer
+		*--ptr --> predecrementation of a pointer and access the data
+		*ptr-- accessing the data and post decrement the pointer
+  }}}
+  
+* Why array index starts from zero?
+	Array starts because in pointer addition when one is added to it then it will go to the next location so that's 
+	why array starts from zero. The zeroth location is the first location. 
+		{{{
+			arr[0] --> *(arr+0) // first location
+			arr[1] --> *(arr+1) // second location
+		}}}
+
+== Programs ==
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/066Pointer.c|Pointer Program 27}} 
+	  {{file:/home/basith/Pictures/arrayIncrementationExample.png|Pictorial explanation of array concept}} 
+	  Array subscripts are implicitly replaced with a pointer symbol. 
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/067Pointer.c|Pointer Program 28}} 
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/068Pointer.c|Pointer Program 29}}  
+	  When array is constructed a sequential space is reserved and a constant pointer is generated with the name of 
+	  arr as the base address, with index operator its easy to locate all the locations.
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/069Pointer.c|Pointer Program 30}}  
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/070Pointer.c|Pointer Program 31}}  
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/071Pointer.c|Pointer Program 32}}  
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/072Pointer.c|Pointer Program 33}}   
+	  c and c++ doesnt have boundaries checking it doesnt raise an error but it will terminate abnormally. 
+	  Other languages raises an error. 
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/073Pointer.c|Pointer Program 34}}  
+	  {{{
+	  	*++p --> pre increment pointer and access the data
+		*p++ --> access the data and post increment the pointer
+		++*p --> pre increment the object
+	  }}}
+
+== Array of pointers. == 
+  	Array of pointers hold addresses. 
+	int * a[3]; --> it can hold 3 integer pointer addresses.
+
+== Program ==
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/074Pointer.c|Pointer Program 35}} 
+	* {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/075Pointer.c|Pointer Program 36}} 
+	
+	  
+	  
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	* Pointers are used to store valid memory base addresses. Valid memory could be a struct, variable, array, file, 
+	  string, function etc.
+	* If you dont have data at the address then it's invalid address.
+	* Pointers are used to access the data by using address
+	* It is used to develop the function by using call by reference mechanism.
+	* To construct the arrays it uses intenally arithmetic operation on pointers concept.
+	* To access the dynamically requested memory we will use pointers(malloc, calloc).
+	* Structures + pointers + dma calls are used to construct data structures.
+	* How to differentiate between pointer variable and normal variable?
+	  Use dereferencing operator(indirectional, star or asterisk).
+	  int x = 10; --> normal variable(it hold integer value)
+	  int * ptr = &x; --> pointer variable(it holds address of an integer variable)
+	  when ptr data is defined as int then it access 4 bytes of data from x.
+	  if ptr is defined as char then it will access only 1 byte of data from x.
+	* Steps to be followed for pointers
+	1. Create a pointer variable.
+	2. Assign value in base address.
+	3. Dereference the pointer to access the data from that address.
+	* The pointer size in 32 bit machine is 4 bytes
+	* The pointer size in 64 bit machine is 8 bytes
+	* The pointer size doesn't depend upon datatype.
+	* The datatype will provide how many bytes to be accessed from that address when you dereference the pointer.
+	* We can cross verify the sizes by using sizeof operator.
+	* The pointer variable can be declared locally or globally.
+	* If you declare or define a pointer variable inside the function then it's a local pointer variable.
+	  For this pointer the memory is allocated in stack fram of corresponding function.
+	* Uninitialized local pointer contains garbage values and it's an invalid address. 
+	  If it has an invalid address then it's called wild pointer.
+	* The local pointer variable will have function scope or block scope.
+	* A variable pointer which is declared or defined outside of the functon is called global pointer variable.
+	* Uninitialized global pointer memory is allocated in bss segment.
+	* Initialized global pointer memory is allocated in data segment.
+	* Uninitialized global pointer contains zeros and it has zeros/null then its called null pointer.
+	* Global pointer will have file scope.
+	* When you increment character pointer it will jump 1 byte.
+	* When you increment short integer pointer it will jump 2 byte.
+	* When you increment integer pointer it will jump 4 byte.
+	* Acessing the char variable data by using character pointer.
+	* A character pointer can store character variable base address, char array base address, strings base address,
+      address returned by dma calls.
+	* When you want to access the data byte by byte use character pointer.
+	* asterisk (addr) --> means dereferencing the address or getting the value at that address.
+
+	Program:
+	Basic program to show some pointers capabilities.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/pointerBasic1.c}}
+
+Write a program to swap two numbers, read an integer variable value using read function and print the swapped values 
+using display function.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/pointerBasic2.c}}
+
+Write programs which can do the following things using pointers concepts:
+* Find factorial of a number.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/factPointer.c}}
+
+* Find the sum of natural numbers.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/sumOfNaturalNumPointer.c}}
+
+* Print the peoples name using three different ways.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/peopleNamesPointer.c}}

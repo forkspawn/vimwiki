@@ -1,0 +1,406 @@
+= Contents =
+    - [[#Task Warrior]]
+    - [[#Installation]]
+    - [[#Commands and usage]]
+    - [[#Usage]]
+    - [[#Basic anatomy of task]]
+    - [[#Attributes that can be assigned to task]]
+      - [[#Tags]]
+      - [[#Project]]
+      - [[#Priority]]
+      - [[#Annotations]]
+      - [[#Dates (due date, until date, scheduled date)]]
+      - [[#Specifying the dates]]
+      - [[#Other ways of modifying tasks]]
+      - [[#Task Identifiers]]
+      - [[#Example]]
+      - [[#Urgency]]
+      - [[#Filters and reports]]
+        - [[#Filters - attribute modifiers]]
+        - [[#Filters - expressions]]
+      - [[#Reports]]
+    - [[#Configuration]]
+    - [[#Taskwarrior under the hood]]
+      - [[#Garbage Collections]]
+      - [[#Intermediate topics]]
+      - [[#Advanced topics]]
+    - [[#From Taskwarrior Website]]
+
+== Task Warrior ==
+
+Its a command line todo list manager. Very powerful to get the job done(if used properly).
+
+== Installation ==
+Arch Linux
+
+	* sudo pacman -S task
+
+Ubuntu
+
+	* sudo apt-get task
+
+== Commands and usage ==
+
+Short Intro on how to use it
+
+	* adding task
+	* listing task
+	* completing task
+	* deleting task
+
+== Usage ==
+	* task add task which I need to do (Add the task)
+	* task (It shows all actionable task)
+	* task all (shows all the task (deleted, actionable, completed etc))
+
+== Basic anatomy of task ==
+
+Basic attributes: description and status.
+
+Basic task's status lifecycle: pending -> completed / deleted
+
+== Attributes that can be assigned to task ==
+
+=== Tags ===
+
+Tags are arbitrary words associated with a task. 
+
+Use + to add a tag and a - to remove a tag from a task:
+
+	* task add +home +work Water The Flowers
+	* task 4 mod -work (assuming 4 is the task id in the given task list). 
+
+A task can have any number of tags.
+
+=== Project ===
+
+Each task can be associated with at most one project.
+
+	* task add project:Home Water the flowers 
+
+Project is just a plain text attribute.
+
+Subprojects can be specified by a . syntax.
+
+	* task add project:Home.Kitchen Clean the sink
+
+=== Priority ===
+
+Priority attribute specifies the priority for the task.
+
+	* task add pri:H Water the flowers 
+
+By default, only values H, M or L are supported (plus empty).
+
+=== Annotations ===
+
+An annotation is a note added to an existing task, and is in the form of text string.
+
+	* task add Buy the milk
+	* task 1 annotate Go to the shop on the corner of Spadina and King.
+
+There can be any number of annotations of a given task.
+
+=== Dates (due date, until date, scheduled date) ===
+
+Different kinds of dates are available:
+
+	* Use "due date" to specify the exact date by which a task must be completed.
+	* The "scheduled date" represents the earliest opportunity to work on a task.
+	* The "wait date" represents the earliest opportunity the task should show up on the 
+		task list.
+	* The "until date" specifies a date after which the tasks self-destructs.
+
+=== Specifying the dates ===
+
+Taskwarrior reads dates from the command line and displays dates in the reports.
+
+The expected and desired date format is determined by the configuration variable "dateformat".
+
+Exact Specification
+
+	* task ... due:7/14/2008
+
+ISO-8601
+
+	* task ... due:2013-03-14T22:30:00Z
+
+Relative Wording
+
+	* task ... due:now
+	* task ... due:today
+	* task ... due:yesterday
+	* task ... due:tomorrow
+	* task ... due:friday
+
+Day number with ordinal
+
+	* task ... due:23rd
+	* task ... due:3wks
+	* task ... due:1day
+	* task ... due:9hrs
+
+Start/end of next (work) week (Monday), calendar week (Sunday or Monday), month, quarter and year.
+
+Describing Start Date:
+
+	* task ... due:sow (start of the week)
+	* task ... due:soww (start of the work week)
+	* task ... due:socw (start of the calendar week)
+	* task ... due:som (start of the month)
+	* task ... due:soq (start of the quarter)
+	* task ... due:soy (start of the year)
+
+Describing End Date:
+
+	* task ... due:eow (end of the week)
+	* task ... due:eoww (end of the work week)
+	* task ... due:eocw (end of the calendar week)
+	* task ... due:eom (end of the month)
+	* task ... due:eoq (end of the quarter)
+	* task ... due:eoy (end of the year)
+
+Predictable holidays
+
+	* task ... due:easter
+	* task ... due:goodfriday
+
+Date arithmetic
+
+	* task ... wait:due-3d (due - 3 days)
+	* task ... due:today+3d
+	* task ... due:sow+2d
+
+=== Other ways of modifying tasks ===
+
+The task <ID> mod is not the only way to modify the tasks! You can also use:
+
+	* task edit
+	* task annotate
+	* task undo
+	* task purge
+
+=== Task Identifiers ===
+
+Two ways: using ID or UUID
+
+	* ID is the line number in the pending data file, the UUID is permanent.
+	* UUID (Universally Unique IDentifier) is a 128 bit number used to Uniquely Identify a task.
+
+A UUID never changes, and is not modifiable.
+
+=== Example ===
+
+1. _*Organizing a party*_ 
+
+	* task add project:Party Get together invite list
+	* task 2 edit (2 being party project task)
+	* task 2 information
+	* task 2 annotate Invite ron(It will add to previos annotation, assuming you did annotation 
+		previously)
+	* task UUID purge 
+		* Note:
+			Only deleted task will be purged. task all gives uuid of tasks.
+
+=== Urgency ===
+
+Taskwarrior has a next report, which is sorted by decreasing urgency.
+
+Urgency is a numeric score Taskwarrior assigns to each task.
+
+Taskwarrior uses a weighted linear expression to calculate urgency, and you can tweak the 
+coefficient.
+
+	* urgency.active.coefficient         4.0
+	* urgency.age.coefficient            2.0
+	* urgency.age.max                    365
+	* urgency.annotations.coefficient    1.0
+	* urgency.blocked.coefficient        -5.0
+	* urgency.blocking.coefficient       8.0
+	* urgency.due.coefficient            12.0
+	* urgency.inherit                    0
+	* urgency.project.coefficient        1.0
+	* urgency.scheduled.coefficient      5.0
+	* urgency.tags.coefficient           1.0
+	* urgency.uda.priority.H.coefficient 6.0
+	* urgency.uda.priority.L.coefficient 1.8
+	* urgency.uda.priority.M.coefficient 3.9
+	* urgency.user.tag.next.coefficient  15.0
+	* urgency.waiting.coefficient        -3.0
+
+=== Filters and reports ===
+
+Taskwarrior has a set of predefined reports: 
+
+	* task next (default)
+	* task completed 
+
+These can be narrowed down using filters:
+
+	* task <FILTER> <REPORT|COMMAND>  
+
+	* task project:Home
+	* task project:Work completed 
+
+==== Filters - attribute modifiers ====
+
+Attribute modifiers improve filters:
+
+	* task due.before:eom priority.not:L list
+
+Supported attribute words are: 
+
+	- before (synonyms under, below)
+	- after (synonyms over, above)
+	- none
+	- any 
+	- is (synonym equals)
+	- isnt (synonym not)
+	- has (synonym contains)
+	- hasnt
+	- startswith (synonym left)
+	- endswith (synonym right)
+	- word
+	- noword
+
+==== Filters - expressions ====
+
+You can use following operators in filter expressions:
+
+	- and   or   xor   !   (Logical Operators)
+	- <   <=   =   ==   !=   !==   >=   >   (Relational Operators)
+	- ( )   (Precedence)
+
+For Example:
+
+	- task due.before:eom priority.not:L list
+	- task '( due < eom or priority != L )' list
+	- task '! ( project:Home or project:Garden )' list 
+
+Notes:
+
+	- The = operator tests for approximate equality. Dates compare equal if they are on the same 
+		day(hour and minutes are ignored).
+	- The == operator tests for exact equality.
+
+=== Reports ===
+
+Each report has a default filter:
+
+- task show report.list.filter
+	- output/value: status pending
+
+Hence, a query like this:
+- task project:Home list 
+
+is actually
+- task status:pending project:Home list
+
+This can cause problems!
+
+== Configuration ==
+
+Configuration resides in the ~./taskrc file.
+
+It gets autogenerated the first time you run the *task* command
+
+Topics we can understand now:
+
+	- color schemes
+	- dateformat
+	- holidays
+	- turning certain features on and off
+
+== Taskwarrior under the hood ==
+
+It is all about plaintext - look into the _~/.task/_ !
+
+	- completed.data
+	- pending.data
+	- backlog.data
+	- undo.data
+
+=== Garbage Collections ===
+
+When a task is marked as deleted, it gets a new status, and an end attribute. The task is written 
+back into the pending.data file, but it doesn't belong there - it belongs in the completed.data 
+file.
+
+Garbage Collection (gc) is operation automatically run by taskwarrior to move tasks into the 
+the correct files.
+
+When moving tasks between the files, ID numbers are affected, because they are simply line numbers 
+in the pending.data file.
+
+=== Intermediate topics ===
+
+We've got all the basics covered!
+
+	- Custom reports
+
+		* report.work.filter=+PENDING project:Work
+		* report.work.labels=ID,Active,Age,Deps,P,Project,Comp,Tag,Recur,S,Due,Until,Description,Urg
+		* report.work.columns=id,start.age,entry.age,depends,priority,project,tags,recur,
+			scheduled.countdown,due.relative,until.remaining,description,urgency
+
+	- Recurrence (and Specifying frequencies) 
+
+		* task add Organize the notes wait:eoww due:eow project:Work
+
+	- Time tracking
+
+		* There is start and end command for project. But nothing more fancy.
+			* task 3 start
+			* task 3 stop
+			* task 3 info(to see duration)
+		* See timewarrior(application) for more time tracking functionality
+		
+	- Virtual tags
+
+		* These are tags which are generated on the fly. See man task(type virtual in man) for more 
+			information.
+		* Some examples: 
+			- task +PROJECT (Gives all the project related tasks)
+			- task +TODAY (GIves all the task which needs to be done today)
+			- task +MONTH (GIves all the task which needs to be done in this month)
+
+=== Advanced topics ===
+
+More advanced feature of taskwarrior. There are docker images for taskserver.
+
+	- taskserver(different application)
+	- Context
+		- switches to work related projects.
+{{{ bash
+$ task @ work
+}}}
+
+		- switches to home related projects.
+{{{ bash
+$ task @ home
+}}}
+
+		- This will unset the context to the default value.
+{{{ bash
+$ task context none
+}}}
+
+	- UDAs
+		* Useful for estimating how long something is going to take? Im not sure.
+	- TW DOM
+		* task underscore_get 6.due (dont type "underscore" just use its symbol)
+			* Gives the due date for task 6. Its helpful for automating work around taskwarrior.
+	- Hooks
+		* Look the git repo of the tomas babej. It has an example for hook.
+		* Its useful see the video again.
+	- tasklib
+		* Its a python library.
+		* It runs taskwarrior under the hood and reads its output.
+	- taskwiki (different application)
+
+== From Taskwarrior Website ==
+
+[[best_practices|Best Practices]]
+
+https://taskwarrior.org/docs/best-practices
+

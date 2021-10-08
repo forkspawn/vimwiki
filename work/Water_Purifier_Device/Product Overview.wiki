@@ -1,0 +1,8 @@
+= Product Overview =
+The product gives the information of clean water, waste water and temperature it then stores all 
+the data in the server/computer. 
+
+User can retrieve the data by typing the address 192.168.4.1 in the browser. The information 
+displayed will be the tank number, its location, water purity along with its temperature.
+
+

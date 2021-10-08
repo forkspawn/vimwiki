@@ -1,0 +1,15 @@
+= #error =
+The #error directive forces the compiler to stop compilation. It is used primarily for debugging. The general 
+form of the #error directive is 
+
+#error   error-message 
+
+The error-message is not between double quotes. When the #error directive is encountered, the error message is 
+displayed, possibly along with other information defined by the compiler. 
+For example, 
+
+#ifndef LINUX 
+
+#error This software requires the LINUX OS. 
+
+#endif 

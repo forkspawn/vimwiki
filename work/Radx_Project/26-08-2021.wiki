@@ -1,0 +1,74 @@
+= Date =
+26-08-2021
+
+== Problem ==
+Nvidia Quadro T1000 graphic is not detected by NI 8880 embedded controller in NI 1092 chassis in 
+Windows 10 Operating System.
+
+== Tried Solution ==
+By Abdul Basith
+
+=== Websites Visited ===
+* Broadcom Tomahawk4: Industry's Highest Bandwidth Chip - YouTube
+	[[https://www.youtube.com/watch?v=B-COGMbaUg4]]
+
+* The Signal Path - YouTube
+	https://www.youtube.com/c/Thesignalpath/videos
+
+* national instrument "external gpu" - Google Search
+	https://www.google.com/search?q=national+instrument+%22external+gpu%22&sxsrf=ALeKk00ADUNUeg09hqDxd4hNPVdXXe76Qw%3A1629959160354&ei=-DMnYeSFFaiZ4-EP5O2m-AU&oq=national+instrument+%22external+gpu%22&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABMgUIIRCgAToHCAAQRxCwAzoECCMQJ0oECEEYAFCfRFjiX2CDZGgBcAJ4AIABuwGIAbsCkgEDMC4ymAEAoAEByAEIwAEB&sclient=gws-wiz&ved=0ahUKEwjk4YCGh87yAhWozDgGHeS2CV8Q4dUDCA8&uact=5
+
+* Multifunction DAQ - Page 56 - NI Community
+	https://forums.ni.com/t5/Multifunction-DAQ/bd-p/250/page/56?profile.language=en
+
+* GPU-Based Numeric Simulations for Spintronics - NI Community
+	https://forums.ni.com/t5/Big-Physics/GPU-Based-Numeric-Simulations-for-Spintronics/ta-p/3504083?profile.language=en
+
+* GPU-based High-Performance Simulations for Spintronics
+	file:///home/basith/Downloads/GPU%20Based%20Numeric%20Simulations%20for%20Spintronics%20-%20Jan%20Jacob.pdf
+
+* Download Area - ADLINK Technology
+	https://www.adlinktech.com/Products/downloadarea
+
+* Customizing GPU Computing Using the LabVIEW GPU Analysis Toolkit - National Instruments
+	https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000015AcdSAE&l=en-IN
+
+* MXI-Express Compatibility and Connectivity Troubleshooting Guide - National Instruments
+	https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000x0MKCAY&l=en-IN
+
+* NI Linux Device Drivers Download - NI
+	https://www.ni.com/en-in/support/downloads/drivers/download.ni-linux-device-drivers.html#350003
+
+* NI Linux Real-Time Operating System PXI Hardware Support - NI
+	https://www.ni.com/en-in/support/documentation/compatibility/20/ni-linux-real-time-operating-system-pxi-hardware-support.html
+
+* Provisioning a PXIe Controller to the NI Linux Real-Time Operating System - National Instruments
+	https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000x4CsCAI&l=en-IN
+
+* NI Linux Device Drivers Release Notes - NI
+	https://www.ni.com/en-in/support/documentation/release-notes/product.ni-linux-device-drivers.html#version-2021-q3
+
+* SCAPP - CUDA interface | Spectrum
+	https://spectrum-instrumentation.com/de/scapp-cuda-gpu-based-data-processing
+
+* CUDA GPUs | NVIDIA Developer
+	https://developer.nvidia.com/cuda-gpus#compute
+
+* Tag: CUDA | NVIDIA Developer Blog
+	https://developer.nvidia.com/blog/tag/cuda/
+
+* Support and Services
+	https://www.broadcom.com/support
+
+* PCI/PCIe Software Development Kits
+	https://www.broadcom.com/products/pcie-switches-bridges/software-dev-kits
+
+* PEX 8796
+	https://www.broadcom.com/products/pcie-switches-bridges/pcie-switches/pex8796
+
+* 12351860
+	https://docs.broadcom.com/doc/12351860
+
+== Result ==
+* Device Not Found in device manager.
+----

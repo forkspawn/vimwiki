@@ -1,0 +1,44 @@
+*Lecturer: Sunil*
+*Date: 2020-08-24*
+
+Essential Books:
+----------------
+	1. Essential Linux Device Drivers
+	2. Linux Device Drivers 3
+	3. Embedded Linux Primer 
+	   
+= Introduction =
+================
+
+* Linux kernel is the main core component of a system which also requires libraries and applications to provide 
+  features to end users. Linux is created by Linus Torvalds. Now a days more than 1000 people is contributing to 
+  linux kernel, it includes individuals, big and small companies.
+
+Features of kernel:
+* Linux kernel supports 30+ architectures. It can be ported to any one particular architecture and has huge hardware 
+  support.
+* Scalability, it can run on super computers as well as on tiny devices.
+* It has huge networking support.
+* Security, it is more secure and flaws cannot be hidden.
+* Its code is reviewed by many experts.
+* Its more stable and reliable.
+* Its modular, drivers can be loaded and unloaded at run time.
+* Easy to program and developers can learn from existing code. 
+
+Linux kernel Main Roles: 
+* Linux kernel manages all hardware resources like CPU, memory, I/O devices. It provides a set of portable 
+  architecture and hardware independent api(application programming interface) to allow user applications and 
+  libraries to use the hardware resources.
+  
+  Applications use libraries, library functions invokes system calls and system calls will use drivers and 
+  drivers will interact with hardware. 
+  
+  Linux kernel will provide 300+ system calls. It can handle concurrent accesses and usage of hardware resources 
+  from different applications.
+  
+  The main interface between kernel and user space is the set of system calls. These 300+ system calls can provide 
+  the main kernel services like file and device operations, networking operations, interprocess communication 
+  mechanism, process management, memory mapping, timers, threads, synchronizing primitives etc. This system call 
+  interface is stable over time and only new system calls can be added by kernel developers. The system call
+  interface is wrapped by c library. The user applications can never make a system call directly. 
+

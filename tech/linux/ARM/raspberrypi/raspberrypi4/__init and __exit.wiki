@@ -1,0 +1,44 @@
+= init macro =
+{{{c
+#define __init				__section(.init.text)
+#define __initdata		__section(.init.data)
+#define __initconst		__section(.init.rodata)
+}}}
+
+These are the compiler directives, which directs the compiler to keep data or 
+code in an output section called ".init".
+
+init and exit macros makes sense for only static modules(built-in modules)
+
+init is a macro which will be translated into compiler directive, which 
+instructs the compiler to put the code in .init section of the final ELF of 
+linux kernel image.
+
+.init section will be freed from memory by the kernel during boot time once all
+the initialization functions get executed.
+
+Since the built-in driver cannot be unloaded, its init function will not be 
+called again until the next reboot, that's why there is no need to keep 
+references to its init function anymore.
+
+So using init macro is a technique, when used with a function, the kernel will
+free the code memory of that function after its execution.
+
+Similarly, you can use initdata, which works similarly to init macro but for
+init variables rather than functions.
+
+= exit macro =
+{{{c
+#define __exit 			__section(.exit.text)
+}}}
+
+Compiler dirctive, which directs the compiler to keep the data or code in an 
+ouput section called ".exit".
+
+You know that for built-in modules clean-up functions is not required.
+
+So, when you use exit macro with a clean-up function, the kernel build system 
+will exclude those functions during the build process itself.
+
+{{file:/home/basith/Pictures/l25_ldd1_init_exit_macro.png}}
+

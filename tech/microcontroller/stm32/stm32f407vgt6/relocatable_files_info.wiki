@@ -1,0 +1,23 @@
+= Relocatable Object File =
+
+* Object files (.o files) is in elf format(Executable and linkable format).
+* ELF is a standard file format for object files and executable files when you use GCC.
+* A file format standard describes a way of organizing various elements (data, read-only data, 
+  code, uninitialized data, etc.) of a program in different sections.
+* Other File Formats
+	- The Common Object File Format(COFF): Introduced by Unix System V
+	- Arm Image Format(AIF): Introduced by ARM
+	- SRECORD: Introduced by MOTOROLA
+* The addresses in .o files are not absolute and needs to be relocated to some other address 
+  after linking. In short it contains the offset addresses.
+
+= Helpful Commands =
+
+* arm-none-eabi-objdump -h main.o
+	- Shows which sections are available in main.o. 
+* arm-none-eabi-objdump -d main.o > main_log
+	- -d stands for disassemble. 
+* arm-none-eabi-objdump -s main.o > main_log
+	- -s displays full content of main.o. 
+* arm-none-eabi-objdump -D main.o > main_log
+	- -D stands for disassemble-all.

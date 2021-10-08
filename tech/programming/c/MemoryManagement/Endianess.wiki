@@ -1,0 +1,50 @@
+= Endianess =
+
+* What are little endian, big endian and bi-endians?
+	- Little and big endian are two ways of storing multibyte data-types (int, float, etc). In little endian 
+	  machines, last byte of binary representation of the multibyte datatype is stored first. On the other hand, 
+	  in big endian machines, first byte of binary representation of the multibyte datatype is stored first.
+
+	- Suppose integer is stored as 4 bytes then a variable x with value 0x01234567 will be stored as following: 
+	  
+	  hex number: 0x01234567 
+	  binary number: 00000001 00100011 01000101 01100111 
+	  
+	  Big Endian Machine
+	    0x01     0x23     0x45     0x67
+	  00000001 00100011 01000101 01100111 
+	  
+	  Little Endian Machine
+	    0x67     0x45     0x23     0x01
+	  01100111 00100101 00100011 00000001 
+	  
+	- How to see memory representation of multibyte data types on your machine?
+		- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/032determine_endianess.c|Source code to determine endianess}} 
+
+	- Does endianess matters for programmers?
+		- Most of the time compilers take care of endianess, however, endianess becomes an issue in following cases: 
+		1. It matters in network programming: suppose you write integers to file on a little endian machine and 
+		   you transfer this file to a big endian machine, unless there is a little endian to big endian
+		   transformation, big endian machine will read will read the file in reverse order. You can find such a 
+		   practical example here.
+		   
+		   Standard byte order for networks networks is big endian, also known as network byte order. Before 
+		   transferring data on network, data is first converted to networkbyte order(big endian). 
+		   
+		2. Sometimes it matters when type casting is being done.
+			- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/032determine_endianess.c|Source code to determine endianess}} 
+			- In the above program, a char array is typecasted to an unsigned short integer type. When the above 
+			  program runs on little endian machine the ouput will be 1 and on big endian machine the output 
+			  will be 256. To make program endianess independent above programming style should be avoided.
+		
+	- Bi-endians
+		- bi-endian can run in both modes little and big endian
+
+	- Examples of little, big and bi endian. 
+		- Intel based processors are little endian. ARM processors were little endians. Current generation ARM 
+		  processors are bi-endian.
+		- Motorola 68k processors are big endians. PowerPC(by motorola) and SPARK (by sun) processors were big 
+		  endian. Current version of these processors are bi-endians.
+
+	- Does endianness effects file format?
+		- 

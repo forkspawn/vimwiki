@@ -1,0 +1,29 @@
+= Documentation =
+
+[[file:/home/basith/Documents/SQLite C - SQLite programming in C(proper).pdf|Sqlite3 Code examples]]
+
+= Functions =
+* Remember to link sqlite3 with the main program 
+	* Example: gcc main.c -lsqlite3 (here -l means link)
+
+* sqlite3_libversion()
+	* This is used to print the sqlite version on terminal screen. 
+	* printf("%s\n", sqlite3_libversion());
+* sqlite3 <ptr db>; 
+	* It provides [[handle]] to a database.
+* sqlite3_stmt <ptr variable>;
+	* sqlite3_stmt structure represents a single SQL statement.
+* sqlite3_open()
+	* This function opens a new database connection. Its parameters 
+	  database name and the database handle. 
+	  The :memory: is a special database name using which results in 
+	  opening an in-memory database. The function's return code indicates
+	  whether the database was successfully opened. The SQLITE_OK is returned
+	  when the connection was successfully established.
+* sqlite3_errmsg(db);
+	* If the return code indicates an error, we print the message to the 
+	  console, close the database handle, and terminate the program.
+	  The sqlite3_errmsg() function returns a description of the error. Whether 
+	  or not an error occurs when it is opened, resources associated with the 
+	  database connection handle should be released by passing it to 
+	  sqlite3_close() function.

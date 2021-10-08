@@ -1,0 +1,27 @@
+= Assembly Stage =
+
+1. Here assembler comes into picture, it converts .s file to .o file. This .o 
+   file contains machine instructions.
+2. In this stage memory segments are created or formed.
+3. The memory segments are: 
+   - text segment(T, t)
+   - ro data segment(R, r)
+   - data segment(D, d)
+   - bss segment(b)/uninitiallized segment
+   - symbol table
+4. For each assembly instruction it will generate one machine instruction.
+5. Machine instructions are combination of opcode and operands. 
+   opcode: Understandable by architecure(cpu) 
+   operand: data or address or register
+6. In this stage we can see exact replica of c code along with machine code. 
+7. Here in this stage instruction address are not generated and it will 
+   generate only offset values.
+8. To stop the compilation at this stage use: 
+   
+   {{{
+   		gcc -c <c program file name>
+		gcc -c test.c // it creates directly .o file only
+		gcc -c test.s // it also creates .o file.
+   }}}
+   
+9. To see the contents of .o file use tools like objdump and readelf.

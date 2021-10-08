@@ -1,0 +1,11 @@
+
+= Introduction =
+
+* Initiallized global and static variable memories are allocated in data segment only.
+* User will have both Read and write permission.
+
+== RO data segment ==
+[[RO Data Segment]]
+
+== Bss Segment ==
+[[BssSegment.wiki|BSS Segment]]

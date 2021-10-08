@@ -1,0 +1,14 @@
+= #define function like macro =
+The #define directive has another powerful feature: the macro name can have arguments. Each time the macro name 
+is encountered, the arguments used in the definition are replaced by the actual arguments found in the program. 
+This form of a macro is called a function-like macro.
+
+Example:
+
+Program
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/140macros.c|Macro Program 1}} 
+
+The use of a function-like macro in place of real functions has one major benefit: It increases the execution 
+speed of the code because there is no function call overhead. However, if the size of the function-like macro is 
+very large, this increased speed may be paid for with an increase in the size of the program because of 
+duplicated code. 

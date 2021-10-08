@@ -1,0 +1,31 @@
+= Linking Stage =
+
+1. In this stage linker will come into picture and it combines objfile along 
+   with additional objfile which are commonly added for every program or 
+   application.
+2. The default executable file name is a.out.
+3. When you link a library during compilation time by using -l flag and if its 
+   a static library the library function involved called in your program those
+   function definitions are added in text segment and if it's a dynamic library
+   or shared library only particular path is set.
+4. In this stage instruction addresses are decided.
+5. When we use the command gcc <c program filename> it generates only a.out. 
+   Intermediate files like .s, .i, .o are not generated.
+6. We cannot see the content of executable file by using textual editor.
+7. We have to use objdump and readelf tools to see contents of executable file. 
+   {{{
+   		objdump -s a.out
+		objdump -s ***.o
+   }}}
+   
+   {{{
+		gcc --help 
+   }}}
+   The above command displays flags that can be used with gcc tool.
+8. Naming decoration is done only for static local variables and not for 
+   global variables in second stage of compilation. 
+9. To view memory section/segment sizes use: 
+   {{{
+   		size ***.o 
+   }}}
+   

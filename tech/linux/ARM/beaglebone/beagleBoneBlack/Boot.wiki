@@ -1,0 +1,100 @@
+= Contents =
+  - [[#BOOT SEQUENCE]]
+  - [[#Booting From Micro SD card]]
+    - [[#Option 1]]
+    - [[#Option 2]]
+  - [[#Usage of buttons]]
+
+= BOOT SEQUENCE =
+
+When boot button is pressed it effects the SYSBOOT[4:0] register. That's why we get different 
+boot sequence. To make default boot option we need to change SYSBOOT register.
+
+- [[file:/home/basith/Pictures/bootSequence.png|Boot Sequence]]
+- [[file:/home/basith/Pictures/buttonBootResetPower.png|Buttons]]
+- [[file:/home/basith/Pictures/emmcAndSDcard.png|Memory Interface]] 
+
+= Booting From Micro SD card =
+
+== Option 1 ==
+
+*Card Preparation:*
+
+- Take 8/16/32 GB sd card and format it into two partitions. First partition
+	should be fat16(LBA) and second could be ext3/ext4. Copy boot image to boot 
+	partition and root file system to ext4 partition.
+
+- Boot image is download from lecturer and root file system is downloaded from
+	beagle bone website. [[../beagleBoneBlack/Downloads|Reference]]
+
+- Use fdisk to change filesystem format of sd card. Also fat16 should have boot
+	flag enabled and set its type to fat16(lba). Find these options in fdisk tool.
+
+- use mkfs.fat and mkfs.ext4 to create those file systems after exiting out of
+	fdisk tool.
+
+	mkfs.fat /dev/sdx1         // Here x represents disk a,b,c or anything
+	mkfs.ext4 /dev/sdx2
+
+- To mount a complete disk image to the next free loop device, 
+	use the losetup command:
+
+- This command will create loop device in /dev directory. This loop device is the image file.
+	sudo losetup -f -P bone-debian-9.9-iot-armhf-2019-08-03-4gb.img 
+
+- This command will mount bone-debian-9.9-iot-armhf-2019-08-03-4gb.img to ~/debian-image-exact.
+	sudo mount /dev/loop0p1 ~/debian-image-exact
+
+- With this diskimage is mounted. Use lsblk to check where it is mounted.
+	Now copy the contents of mounted image to sdcard rootfs partition. Run 
+	the sync command as soon as you copy it.
+
+- Copy all the contents from prebuild directory which I got from 
+	instructor. use sudo cp -a * /path/to/boot/directory
+
+- If you are getting kernel starting and nothing happens see this [[bbb_startingKernelProblem|link]]
+
+- If everthing works then we can put sd in bbb and press s2 to boot it from 
+	sd card. To interact with the bbb use usb-serial adapter. Use the application
+	*minicom* or *screen* which will let you interact with bbb using usb-serial 
+	adapter. This way you dont have to connect HDMI cable. Everything is displayed
+	in screen/minicom application. For minicom settings watch udemy LDD1 vid:14.
+
+- To make sd card as the default booting option, rename the MLO of emmc. When
+	boot doesn't find MLO it will jump to next booting option that is sd card.
+	see [[file:/home/basith/Pictures/bootSequence.png|Boot Sequence]].
+
+-	If there is no MLO then it is inside mmcblk1 see udemy LDD1 vid:15 for more
+	info. Basically we are making a backup of mmcblk1 and saving in some other
+	place and zeroing mmcblk1 using *dd* command. If we need to recover the 
+	mmcblk1 use the saved image of mmcblk1. Use the dd command to recover it.
+	dd if=mmcblk1.img of=/dev/mmcblk1 <-- recovering MBR of emmc. [[https://www.udemy.com/course/linux-device-driver-programming-using-beaglebone-black/learn/lecture/21638930|Question]]
+
+== Option 2 ==
+
+Using buildroot tool chain to create beagle bone black sd card.
+
+- [[buildroot|buildroot system]]
+- [[linux_kernel|Compiling Linux Kernel]]
+- [[root_file_system|Root File System]]
+- [[boot_loader|Boot Loader]]
+- [[development_tool|Development Tool for Host]]
+- [[sd_card_preparation|Preparing BeagleBone Black Bootable SD Card]]
+
+= Usage of buttons =
+
+*Power Button:* 
+
+* Press and hold for 10 to 20 seconds -> power off. 
+
+* Press only once to power it back on.
+
+*Reset Button:* 
+
+* Pressing this button resets the board. 
+
+* Note that the boot sequence is not affected by the reset action.
+			
+*Boot Button:* 
+
+* To change the boot sequence during power on of the board.

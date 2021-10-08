@@ -1,0 +1,147 @@
+*Lecturer: Sunil Sir*
+*Video Number: 2020-08-28* 
+
+= Process =
+
+* From kernel point of view each process is considered as one thread. When process is loaded PCB is created in 
+  kernel space, this PCB is a kernel object, its a dynamic object, it means its created during run time. Its a 
+  predefined structure. When its loaded all members of PCB are loaded. All PCBs are maintained as nodes in a double 
+  linked lists, these lists are called running queue. PCB object is of type task_struct and this task_struct can be 
+  found in linux kernel source code. When kernel is downloaded it can be found in linux_kernel_source/linux-5.11.3/
+  include/linux/sched.h. 
+
+= Standard and System Calls =
+* What are the different ways in which applications can access the files? 
+  	1. Standard I/O library calls (or) Buffered I/O calls
+		- fopen()
+		- fclose()
+		- fread()
+		- fwrite()
+		- fscanf()
+		- fgets()
+		- fputs() 
+		- etc 
+		
+		These comes under standard C library functions 
+		
+	2. System Calls
+  		There are specific subset of system calls available. These subset of calls are called Universal I/O calls 
+		or Basic I/O calls.
+		- open()
+		- read()
+		- write()
+		- close()
+		- ioctl() 
+		  
+	3. Memory mapping Calls 
+	   	Memory mapping can be done in two ways: 
+			1. File Mapping 
+				- mmap()
+			2. Anonymous Mapping
+  
+  
+  {{file:/home/basith/Pictures/function_invocations_link.png|Function Invocations Link}}
+
+* Standard I/O calls or buffered I/O calls are used to access normal textual files. Executable file or binary files 
+  cannot be accessed by standard i/o calls. To open these files we can use tools like objdump or readelf. Universal 
+  I/O calls or basic i/o calls can be used on normal textual files, special files(ipc objects, sockets, device files 
+  or device nodes, executable files(mp3, mp4, .o, elf, etc)).
+  
+* Some of the funtions(system calls) in universal i/o calls behaves as blocking and non blocking calls. 
+  
+  open() when used on ipc object it behaves as blocking call
+  open() when used on normal textual file it behaves as non blocking call 
+  
+  read() when used on normal textual file it behaves as non blocking call
+  read() when used on ipc objects or device files it behaves as blocking call
+  
+  when its used on normal files it says file exists and if it doesnt exists it says directory doesnt exists, here 
+  its non blocking call. If its used on device file to start communication, now it behaves as blocking call, until 
+  driver writes the data into the buffer the read behaves as blocking call. ???
+  
+  open() behaves as blocking call on some objects and read(), write() behaves as blocking calls. ???
+  
+* Standard I/O calls are available in any OS where libraries are installed. The system calls are available only in 
+  linux. RTOS will also have same system calls but some additional calls are available like time precision etc.
+  
+* Multiple processes which are running in user space they cant share the data directly, they have to use ipc 
+  mechanism. Parent and child cannot share data directly and even two individual processes(not parent and child) 
+  cannot share data directly, they need to use ipc mechanisms to share data. 
+  
+  IPC Mechanisms:
+  	- Pipes
+	- Named Pipes
+	- Message Queues
+	- Shared Memory  
+	  
+	- Semaphores: 
+		Its not an ipc mechanism. Its used for synchronizing processes. 
+	  
+= Device Files and Inode Object = 
+  
+* Every hardware device will have corresponding device file in /dev directory. 
+  Serial port starts with tty. 
+  
+  	/dev/ttys0 
+	/dev/ttys1 
+	/dev/ttys2 
+	
+	db9 to usb port
+	
+	/dev/ttyusb0 (cable 1)
+	/dev/ttyusb1 (cable 2) 
+	
+  Parallel Devices
+  
+  	/dev/parport
+	
+  Storage Drives
+  	
+	Hard disk
+	/dev/sda 
+	/dev/sda1 (first partition)
+	/dev/sda2 (second partition) 
+	
+	Solid state drive
+	/dev/sdb 
+	/dev/sdb1 (first partition)
+	/dev/sdb2 (second partition) 
+	/dev/sdb3 (third partition) 
+	
+	Toshiba Pendrive
+	/dev/sdc
+	/dev/sdc1 (first partition)
+
+  {{file:/home/basith/Pictures/device_files.png|Various Device Files}}
+	
+* Device files create link between user application and device driver. The basic i/o calls are used on these device 
+  files to send the request to particular driver in kernel space and from there(driver) to hardware. If open() is 
+  used on device file then link will be created between application and hardware, if close() is used on it then link 
+  gets destroyed. Universal i/o calls are used on these device files. 
+  
+  {{file:/home/basith/Pictures/application_to_hardware_communication.png|Communication from application to hardware device}} 
+  
+* From kernel point of view everything is a file, these files have file attributes(permissions, size, groupname etc). 
+  Each file will have an inode object. Inode and PCB are both kernel objects. PCB are created when process is 
+  created but inode object will be created when file is created. PCB and inode objects are different. kernel will 
+  identify the existing file by using inode objects and the process by PCB objects. 
+	
+  Contents of inode object: 
+	- file type (text, executable etc)
+	- access rights (rwx rw- r-x)
+	- owners (owner rights, group rights, others)
+	- timestamps
+	- size
+	- pointers to data blocks 
+  
+  Example: 
+  	When harddisk is divided into two partition lets say 50 GB each then it will have some limitations and that is 
+	only 42 GB is accessible(for first partition) because some of it is allocated for recyclebin, file partition 
+	tables(how many blocks created, It belong to which block, how many inode object are created each) these tracking 
+	information is maintained in inode object. ???
+  
+  ls -l will read the information from inode object.
+  
+  Concept links:
+  	process management --> file management --> memory management --> i/o management corresponding network management.
+  

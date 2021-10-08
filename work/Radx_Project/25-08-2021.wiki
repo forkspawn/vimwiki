@@ -1,0 +1,83 @@
+= Date =
+25-08-2021
+
+== Problem ==
+Nvidia Quadro T1000 graphic is not detected by NI 8880 embedded controller in NI 1092 chassis in 
+Windows 10 Operating System.
+
+== Tried Solution ==
+By Abdul Basith
+
+== Websites Visited ==
+* TSP #60 - National Instruments VirtualBench Review, Teardown & Experiments - YouTube
+	https://www.youtube.com/watch?v=8N2MhA9N77I&t=65s
+
+* Installing and Configuring PCI/PCI Express and PXI/PXI Express DAQ Devices - National Instruments
+	https://www.ni.com/getting-started/set-up-hardware/data-acquisition/pci-pxi
+
+* NI - YouTube
+	https://www.youtube.com/c/NIGlobalYoutube/videos
+
+* Dual Display Problem with PXI 8108 (driver or hardware issue) - Page 2 - NI Community
+	https://forums.ni.com/t5/PXI/Dual-Display-Problem-with-PXI-8108-driver-or-hardware-issue/td-p/3681039/page/2?profile.language=en
+
+* Solved: GPU computing with ATI Radeon - NI Community
+	https://forums.ni.com/t5/LabVIEW/GPU-computing-with-ATI-Radeon/m-p/3246924?profile.language=en#M945917
+
+* Xeon-Based PXI Embedded Controller Launched - Digital Engineering 24/7
+	https://www.digitalengineering247.com/article/xeon-based-pxi-embedded-controller-launched/
+
+* PXIe-8880 - NI
+	https://www.ni.com/en-in/support/model.pxie-8880.html
+
+* Windows CompactDAQ or PXIe Controller Not Appearing in MAX - National Instruments
+	https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z0000019Q20SAE&l=en-IN
+
+* NI CompactRIO or Network Device Doesn't Show Up or is Missing in MAX - National Instruments
+	https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000P70YSAS&l=en-IN
+
+* PXIe-8880 - NI
+	https://www.ni.com/en-in/support/model.pxie-8880.html
+
+* Dual Boot Windows 10(installed) and Linux Ubuntu 18.04.4 LTS on PXIe 8880 Controller - NI Community
+	https://forums.ni.com/t5/PXI/Dual-Boot-Windows-10-installed-and-Linux-Ubuntu-18-04-4-LTS-on/m-p/4025123?profile.language=en
+
+* PXIe 8880 display Issue - NI Community
+	https://forums.ni.com/t5/PXI/PXIe-8880-display-Issue/m-p/4134557?profile.language=en
+
+* 18531153.pdf
+	https://core.ac.uk/download/pdf/18531153.pdf
+
+* Image acquisition and GPU processing application using IRIO technology and FlexRIO devices | IEEE Conference Publication | IEEE Xplore
+	https://ieeexplore.ieee.org/document/7543139/metrics#metrics
+
+* PXI External Graphic Card - NI Community
+	https://forums.ni.com/t5/PXI/PXI-External-Graphic-Card/td-p/3054815?profile.language=en
+
+* EKF CompactPCI® Serial Products: SV1-CLIP • MXM 3.0 Type A Graphics Module Carrier
+	https://ekf.de/s/sv1/sv1.html
+
+* EKF CompactPCI® Serial Products: SV2-MOVIE • MXM 3.0/3.1 Type A & Type B Graphics Module Carrier
+	https://ekf.de/s/sv2/sv2.html
+
+* FlexRIO Peer-to-Peer GPU - NI Community
+	https://forums.ni.com/t5/NI-Labs-Toolkits/FlexRIO-Peer-to-Peer-GPU/ta-p/3660064?profile.language=en
+
+* FlexRIO Peer-to-Peer GPU - NI Community
+	https://forums.ni.com/t5/NI-Labs-Toolkits/FlexRIO-Peer-to-Peer-GPU/ta-p/3660064?profile.language=en#whats-cuda
+
+* LabVIEW FPGA Module Download - NI
+	https://www.ni.com/en-in/support/downloads/software-products/download.labview-fpga-module.html#411424
+
+* CUDA Toolkit 11.4 Update 1 Downloads | NVIDIA Developer
+	https://developer.nvidia.com/cuda-downloads
+
+* FlexRIO Download - NI
+	https://www.ni.com/en-in/support/downloads/drivers/download.flexrio.html#409638
+
+* GPUDirect | NVIDIA Developer
+	https://developer.nvidia.com/gpudirect
+
+== Result ==
+* Device Not Found in device manager.
+----

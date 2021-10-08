@@ -1,0 +1,20 @@
+* By default all local variables are applied with auto storage class.
+* For formal arguments no storage class is applicable.
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/automatic_storage_class.c}}
+{{file:/home/basith/MUBBUS_USB/MUBBUS_USB/Pictures/PNG image.png}}
+The stack frame of increment(automatic_storage_class.c) is created and destroyed for every function invocation. The 
+variable 'x' memory is allocated within that stack frame and this variable memory is destroyed when function 
+completes its execution.
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/automatic_storage_class2.c}}
+The variable 'y' memory is created and destroyed for every iteration.
+
+lifetime:
+	From memory allocation time to till the end of the function or block.
+scope:
+	Function scope or block scope.
+Default Values:
+	Garbage Values.
+Storage Location
+	Stack frame of corresponding function.
+
+

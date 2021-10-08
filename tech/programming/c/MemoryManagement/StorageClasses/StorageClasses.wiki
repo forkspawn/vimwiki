@@ -1,0 +1,59 @@
+= Storage Classes =
+
+* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+= Storage Classes =
+* These are applicable for variables and functions
+* A storage class will provide below information.
+	* Lifetime
+		* From memory allocation time to memory deallocation time is called lifetime.
+	* Scope
+		* During it's lifetime accessibility of variables is the scope of the variables.
+	* Initial values
+		* The default values assigned when memory is allocated.
+	* Storage location
+		* Location where memory is allocated or decided(segment).
+* There are four storage classes
+	1. [[Automatic Storage Class]] (auto)
+	2. [[Register Storage Class]] (register)
+	3. Static Storage Class (static)
+	4. [[External Storage Class]] (extern)
+* Importance of volatile keyword
+	* To avoid compiler optimization to access the data from the specified memory location.
+= Kiran sir =
+*  Initialized Data Segment:
+Initialized data segment, usually called simply the Data Segment. A data segment is a portion of virtual address space of a program, which contains the global variables and static variables that are initialized by the programmer.
+
+Note that, data segment is not read-only, since the values of the variables can be altered at run time.
+
+This segment can be further classified into initialized read-only area and initialized read-write area.
+
+Ex: static int i = 10 will be stored in data segment and global int i = 10 will also be stored in data segment
+ Uninitialized Data Segment:
+
+Uninitialized data segment, often called the “bss” segment, named after an ancient assembler operator that stood for “block started by symbol.” Data in this segment is initialized by the kernel to arithmetic 0 before the program starts executing
+uninitialized data starts at the end of the data segment and contains all global variables and static variables that are initialized to zero or do not have explicit initialization in source code.
+For instance a variable decl
+ared int j; would be contained in the BSS segment.

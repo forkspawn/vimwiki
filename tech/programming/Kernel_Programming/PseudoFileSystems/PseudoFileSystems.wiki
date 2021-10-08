@@ -1,0 +1,113 @@
+*Lecturer: Sunil*
+*Date: 2020-08-25*
+
+= Pseudo File Systems =
+
+* Linux makes system and kernel information available in user space through pseudo file systems. They are also 
+  called as virtual file systems. These virtual file systems allow applications to see directries and files 
+  that dont exists on any real storage, they are created and updated on the fly by the kernel. Two important 
+  virtual file systems are proc and sysfs. proc is mounted in /proc directry and it maintains operating 
+  system related information like processes, memory management parameters etc. sysfs file system is mounted 
+  in /sys directory, it maintains system devices, connected devices and bus information. 
+  
+  When media(like pendrive, usb hard disk) is attached then its detected and mounted in /media(generally), some 
+  entries will be generated in /sysfs file system and some files are created in /dev directory, with this its 
+  possible to communicate with hardware and application(user). So, kernel information is maintained in virtual 
+  file system(especially in /proc and /sysfs). By using system calls its possible to extract the information of 
+  the connected devices.
+  
+  The vfs doesnt exists on real storage(vfs is in kernel space of RAM). This file systems are loaded during system 
+  bootup time and they are offloaded when system shutdowns. 
+  
+  Linux kernel internally contains 
+	 - Device drivers, driver frameworks, low level architecture specific code(assembly code), network stack + 
+	   device trees. 
+	   
+	   Device trees contains hardware description.
+	   Network stack contains information of 7 layers of network and this is inside kernel.
+	   
+   	 - Memory management, scheduler task management, file system layers and management.
+  
+= Basic Kernel Information =
+  * Official linux kernel source code is released by Linux Torvalds. Its open source and any one can contribute to 
+    it. But only Linus Torvalds will release this source code. Linux kernel can be downloaded from {{http://www.kernel.org|Kernel Link}}
+    Many chip vendors will supply their own kernel sources these are customized kernels it is specific to their 
+    processor or soc and even development boards. Many kernel sub communities maintain their own kernels these are 
+    not official releases, communities like architecture, device drivers(spi, i2c, etc) etc. The kernel source 
+    code can also be downloaded from git repositories(github), theses are in compressed form they are called 
+	tarballs. kernels tarball size is around 100 MB to 150 MB. When its uncompressed its size will be around 600 MB 
+	to 700 MB. When kernel is compiled its size will be in giga bytes. 
+	
+	More than 50 to 60% of the kernel source code is driver code. Architecture specific code size is from 15 to 20%.
+	File system code size is around 5.5%. Sound drivers is 4.4%. Network related code is around 4.3%. Include 
+	header files code size is around 3.5%. Documentation is 2.8%. Tools will 1.3%. Kernel is around 1.2%. Makefile 
+	and kconfig files is rest. The code is mostly in c language and some assembly code specific to architecture. 
+	This assembly code is used for cpu and machine initialization and for critical library routines.
+	
+	The entire 'C' source code is compiled by using gcc compiler with the help of kconfig and makefiles. In kernel 
+	source code, 'C' library functions are not used. 'C' library are used for user space applications.
+
+*Lecturer: Sunil*
+*Date: 2020-08-26*
+
+	Kernel provide similar type of 'C' library functions. Even system calls are not used in driver development. 
+	System calls acts as the mediator between application and drivers. Each system call will have an equivalent 
+	kernel call and these system calls will internally invokes kernel functions open() invokes sys_open() etc. 
+	These kernel calls starts with sys prefix. Kernel doesnt maintain any library. The linux code is designed to 
+	be portable, it means code used on x86 machine can also be used for arm architecture with some modifications. 
+	In kernel source, look into arch folder, there are many cpu architecture code is present and those arch are 
+	supported by linux. In kernel programming floating point numbers are not used. If cpu architecture supports 
+	hardware floating point mechanism then use it and if it doesnt support use software floating point mechanism. 
+	
+	If you understand one kernel architecture then developer can work on any architecture, same set of calls will 
+	be used only the frame work functions will differ. 
+	
+  * Kernel doesnt have memory protection, it can go out of bounds. It can access illegal memory. The kernel doesnt 
+	try to recover from attempts to access illegal memory locations. When the user tries to give some illegal 
+	memory location then kernel will go there and hang itself, it wont recover from this state. When new kernel is 
+	compiled and user wants to use it, if the system doesnt boot (like user may enter grub or initramfs prompt) then 
+	the problem is with the address(path) to kernel image. This is no memory protection thing. If user gives wrong 
+	path to the kernel image, it wont boot, it will hang there and kernel panic will happen. 
+	
+	Kernel have fixed stack size. It could be 4KB or 8KB, it depends upon architecture. Kernel image is elf format. 
+	The kernel boot image is available in /boot directory in compressed format, its called vmlinuz. The uncompressed 
+	kernel image file name is vmlinux its in /boot directory. It also has memory segments like text, data, rodata, 
+	bss, symbol table, heap, stack etc. But stack size is fixed. The kernel symbol table doesnt exists in vmlinux.
+	It exists seperatly as a file called system.map. User applications will load and terminate but drivers doesnt 
+	terminate user needs to unload in explicitly(if user creates driver as module). Drivers are loaded during 
+	system boot up time and unloaded when system shutdowns. The drivers are loaded in kernel space of RAM. The 
+	stack is fixed because drivers are loaded for the device which are connected to hardware(pc, embedded device). 
+	So kernel doesnt need large stack. These drivers are loaded in kernel space of RAM. Swapping is not implemented 
+	for kernel memory. 
+	
+	Why kernel stack is fixed?
+	(After compiling kernel then there is no need for additional stack space, unless otherwise developer is 
+	developing drivers. Kernel has entries of various drivers, it doesnt need huge stack, thats why its size is 
+	limited. Look time 43:00 to understand what i wrote.) 
+	
+  * The linux kernel is licensed under GNU-General Public License Version 2(GPLV2). According to this license the 
+	code is available for everyone that is for free of cost, It can be modified, rebuild, and redistribute for 
+	free of cost. If its bought with some money then it can be sell to other people. 
+	
+	It is illegal to distribute the binary kernel that includes statically compiled proprietary drivers. 
+	Statically linked driver code is available offline but dynamically linked driver code is loaded at runtime 
+	from a location(plug and play). 
+	
+	Advantages of GPL drivers: 
+	1. No need to write driver code from scratch(download spi from source code and modify it).
+	2. It can be reused in similar free software drivers.
+	3. Developer can get free support, community, contribution, code review and testing.
+	4. The precompiled drivers works with only one kernel version and one specific configuration, makefile and 
+	   its difficult for the user who want to change the kernel version.
+	5. It is easy to understand the driver code.
+	
+= Assignment =
+
+*Date: 2020-08-25*
+1. Check your kernel version and download the kernel from official website. Its version should be less or more 
+   than your kernel version. Uncompress it as well. Take a look into various directries.
+   
+   The importance of downloading kernel is that it will provide developer the information regarding where the 
+   drivers are present and where to put the new drivers, architecture specific code. Also it already has code which 
+   new developer can read from it.
+  

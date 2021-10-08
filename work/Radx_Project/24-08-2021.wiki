@@ -1,0 +1,29 @@
+= Date =
+24-08-2021
+
+== Problem ==
+Nvidia Quadro T1000 graphic is not detected by NI 8880 embedded controller in NI 1092 chassis in 
+Windows 10 Operating System.
+
+== Tried Solution ==
+By Abdul Basith
+
+== Websites Visited ==
+* PEX 8796
+	https://www.broadcom.com/products/pcie-switches-bridges/pcie-switches/pex8796
+
+* What is Cut-through switching?
+	https://www.tutorialspoint.com/what-is-cut-through-switching
+
+* PC Motherboard Evolution - YouTube
+	https://www.youtube.com/watch?v=sewt2pqc3us
+
+* (1) PCIe - YouTube
+	https://www.youtube.com/channel/UC6qVdkKlqOg-Yp8iUaIIjJA/videos
+
+* PCIe Architecture : PCIe Enumeration - YouTube
+	https://www.youtube.com/watch?v=gavtRQN09ew
+
+== Result ==
+* Device Not Found in device manager.
+----

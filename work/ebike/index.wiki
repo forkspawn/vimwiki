@@ -1,0 +1,16 @@
+= Ebike =
+
+5A --> header
+0A --> instruction
+01 --> data length
+00 --> data
+xx --> checksum low byte
+
+
+5A 10 0A 5A 19 01 00 7D 01 7D 01 00 30 BF
+
+speed
+5A 11 01 01 E1
+
+unlock 
+5A 25 01 01 A0

@@ -1,0 +1,15 @@
+= Important arm configs =
+How to decide which one to select(uImage, zImage or vmlinux) and build?
+
+* Decide kernel ouput file image.
+	- uImage 
+	- uImage with appended DT
+	- zImage
+	- zImage with appended DT
+	- vmlinux
+	- custom target
+
+* Enable root login password
+
+* Real time patch, *Xenomai userspace* approach, this is a dual kernel approach and it enables 
+	cobalt realtime scheduler.

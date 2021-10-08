@@ -1,0 +1,25 @@
+* It's also called as code segment
+* In general function definition can exists in three formats
+	1. c code
+	2. assembly code
+	3. machine code
+* It is read only segment. 
+* This segment contains function definition in machine code format.
+* Function definition memory is allocated in Text segment
+* C statements initially converted into multiple assembly instructions
+* Each assembly instruction is again converted into machine instruction/code.
+	C statements --> Assembly Code --> Machine Code
+	C code to assembly code convertion is done by compiler and assembly code to machine code is done by assembler
+* Machine instruction is nothing but opcode and operands
+* Opcode is understandable by CPU and operands are CPU registers and data.
+* In this segment user defined function definitions along with additional function definition (which are commonly 
+  added by compiler) are used for loading, running and terminating of application successfully.
+* These additional function definitions are added by compiler in 4th stage of compilation.
+* Can you access function base address in your program?
+	Yes, we can access by using function name.
+* It is the address where memory is allocated for function definition.
+* We can see the content of text segment by extracting the info from executable file.
+* We can't use normal text editor to see the contents of executable file. There are some special tools like objdump
+  and readelf tools to see the contents of executable file along with flags or options.
+* To display text segment content, use:
+	objdump -S <executable file name>

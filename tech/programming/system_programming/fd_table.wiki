@@ -1,0 +1,39 @@
+= fd table =
+
+* When a program is loaded into ram, it becomes a process and its corresponding pcb is created by kernel in kernel 
+  space of ram. This pcb is of type task_struct. One of the members of pcb are fd table. 
+  
+  {{file:/home/basith/Pictures/fd_table_and_other_stuff.png|Fd table Information}}
+  
+  Use ulimit -a to see how many more fds can be created for that particular process. 
+  
+  The file descriptor table contains information of the file which are opened from program(process). When file
+  object is created, the inode object base address is added to the file object. open() call will return -1 on 
+  failure and if it is successful, it returns fd entry value, that is an index value to the file descriptor table.
+  
+  When a process is terminated the memory space in userspace, the kernel object in kernel space like pcb, file 
+  object, inode object etc will be destroyed.
+  
+  file object members:
+  	- Cursor position 
+	  	When the file is opened its cursor position is zero. For every read and write operation cursor position 
+		changes.
+	- Modes (f_modes) 
+	  	Access rights of owners, group and others.
+	- Flags (f_flags) 
+	  	File opened mode, read mode, write mode etc.
+	- Private data (privatedata) 
+	  	Private data is used in device drivers
+	- Inode object base address 
+	  	Normal text files inode is called inode object and device file inode object is called vnode object. 
+	    {{file:/home/basith/Pictures/inode_vnode_basic.png|Fd table Information}}
+	- etc 
+	  
+* Program 
+  {{vfile:/home/basith/Coding/system_programming/viven_system_programming/0001_fd_table_basic.c|fd table program 1}} 
+  
+* Verify the return values of every system call. Why?
+  	When system call fails to perform the operation, it will return error values, in this case we have to terminate 
+	the application there itself.
+  
+

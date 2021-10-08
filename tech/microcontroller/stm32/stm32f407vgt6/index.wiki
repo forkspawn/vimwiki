@@ -1,0 +1,13 @@
+= STM32F407VGT6 =
+
+== Build Process ==
+
+1. [[toolchain|ToolChain]]
+2. [[relocatable_files_info|Understanding Relocatable Object File(.o files)]]
+3. [[startup_file|Writing Startup File]]
+4. [[bare_minimum_files_required|Bare Minimum Files Required For Compiling]]
+5. [[writing_startup_file|Writing Startup Code]]
+6. [[writing_linker_script|Writing Linker Script From Scratch and generating application executable(.elf, bin, hex)]]
+7. [[openOCD_and_gdb_client|Loading the final executable on the target using OpenOCD and GDB client.]]
+
+

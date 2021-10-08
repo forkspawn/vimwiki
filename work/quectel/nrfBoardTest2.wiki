@@ -1,0 +1,132 @@
+= Command Tested =
+
+== obtain key (0x11) ==
+
+Command: 0x11 (to obtain key)
+CRC: CB
+key: 00 
+
+key obtained: 73
+
+Frame Sent to Bluetooth: 0x23 0x00 0x11 0x00 0xCB 0x24 
+
+*Result:*
+
+*Bluetooth Device Response:*
+00 00 00 00 00 00 00 00 23 73 11 00 58 24 0A
+
+*Application Response:*
+Received Bytes: 6
+0x23 0x0 0x11 0x0 0xcb 0x24
+Sum: 34 | Res: cb | CRC: cb | (sum^0x0FF)&0x0FF: cb
+Start :#
+, Key :0
+, Command :17
+, Data length :0
+, CRC :203
+, End :$
+5823
+73
+11
+0
+58
+24
+
+== Request Unlock Command (0x20) ==
+
+Command: 0x20
+Data Length: 6
+Unlock Sequence: 0xaa 0xcc 0xbb 0xdd 0xff 0xee (deployed seperately.)
+CRC: 48
+Key: 73
+
+Frame Sent to Bluetooth: 23 73 20 06 aa cc bb dd ff ee 36 24
+
+*Result:* 
+
+*Bluetooth Device Response:*(update later)
+00 00 00 00 00 00 00 00 23 67 01 01 01 74 24 0A
+
+*Application Response:*(update later)
+Received Bytes: 12
+0x23 0x67 0x20 0x6 0xaa 0xcc 0xbb 0xdd 0xff 0xee 0x54 0x24
+Sum: 1451 | Res: 84 | CRC: 84 | (sum^0x0FF)&0x0FF: 84
+Device is in unlock state
+Request Successful
+35
+103
+1
+1
+1
+116
+36
+10
+< write(fd=4)=15
+
+== Request lock status command (0x21) ==
+
+Command: 21
+Data Length: 00
+CRC: 48
+Key: 73
+
+Frame Sent to Bluetooth: 23 67 21 00 54 24
+
+*Result:*
+
+*Bluetooth Device Response:*
+(nothing)
+
+*Application Response:*
+Received Bytes: 6
+0x23 0x67 0x21 0x0 0x54 0x24
+Sum: 171 | Res: 84 | CRC: 84 | (sum^0x0FF)&0x0FF: 84
+Request Unsuccessful
+
+= Commands Not Tested =
+
+== Request lock status command (0x22) ==
+
+Command: 22
+Data Length: 00
+CRC: 53
+Key: 67
+
+Frame Sent to Bluetooth: 0x23 0x67 0x22 0x00 0x53 0x24
+
+*Result:*
+
+*Bluetooth Device Response:*
+
+*Application Response:*
+
+== Request lock status command (0x30) ==
+
+Command: 30
+Data Length: 
+CRC: 
+Key: 
+
+Frame Sent to Bluetooth: 
+
+*Result:*
+
+*Bluetooth Device Response:*
+
+*Application Response:*
+
+== Request lock status command (0x31) ==
+
+Command: 31
+Data Length: 
+CRC: 
+Key: 
+
+Frame Sent to Bluetooth: 
+
+*Result:*
+
+*Bluetooth Device Response:*
+
+*Application Response:*
+

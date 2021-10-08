@@ -1,0 +1,17 @@
+= Memory Command =
+
+* This command allows you to describe the different memories present in the target and their 
+	start address and size information.
+* The linker uses information mentioned in this command to assign address to merged sections.
+* The information is given under this command also helps the linker to calculate total code and 
+	data memory consumed so far and throw an error message if data, code, heap or stack areas 
+	cannot fit into the available memory size.
+* By using memory command, you can fine-tune various memories available in your target and allow 
+	different sections to occupy different memory areas.
+* Typically one linker script has one memory command.
+* Syntax: 
+  * [[file:/home/basith/Pictures/linker_memory_syntax.png|Linker Memory Syntax]]
+  * [[file:/home/basith/Pictures/linker_memory_syntax_2.png|Linker Memory Name Attributes]]
+  * [[file:/home/basith/Pictures/linker_memory_syntax_example.png|Linker Memory Example]]
+* See the linker code.
+	

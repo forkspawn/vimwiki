@@ -1,0 +1,37 @@
+*Lecturer: Sunil Sir*
+*Video Number: 2020-09-03*  
+
+= Read System Call =
+
+* Syntax
+	
+	ssize_t read(int fd, void * buf, size_t n bytes);
+	
+	ssize_t typedef of signed int type
+	size_t typedef of unsigned int type 
+	
+	First input: give fd value returned by open system call 
+	Second input: buffer base address(char array address) 
+	Third input: size of the buffer(number of bytes user want to read from file)
+
+* It can be found in unistd.h. read() is used to read the data from opened file. When read() is executed then 
+  
+  case 1: If successful, it returns number of bytes read from the file
+  case 2: When the cursor is at end of the file, and then read operation happens then it returns zero.
+  case 3: If unsuccessful, it returns -1. 
+  
+* By default when the file is open, the cursor position is zero. The cursor position is updated in file object. 
+  When a read or write is performed the cursor position is updated. read or write happens from current cursor 
+  position.
+  
+  {{file:/home/basith/Pictures/file_object_member1.png|File object member f_cursor}} 
+  
+* This read() system call will invoke equivalent kernel call sys_read(). The buffer mentioned in read is in stack 
+  frame of corresponding function or data/bss(based on initialization). This buffer is in userspace. 
+
+  {{file:/home/basith/Pictures/read_from_file_to_buffer.png|File object member f_cursor}} 
+  
+  {{vfile:/home/basith/Coding/system_programming/viven_system_programming/0002_read_system_call.c|Read system call basic (program 2)}} 
+ 
+	why character pointer is not assignable by read()???
+	in basic read program 0002 

@@ -1,0 +1,214 @@
+= Structures =
+
+- We go for structures in order to hold different types of data we require structures. It is used to create 
+  userdefined datatypes. 
+
+	Syntax: 
+
+	struct <structure name> {
+		int member1;
+		char member2;
+		float member3; 
+		...
+		...
+		double member4;
+	};
+
+  Here structure name is also called tag name or userdefined datatype.
+
+  Here members can be ordinary variables like arrays, pointers, unions, etc everything is possible except functions.
+  {{file:/home/basith/Pictures/basic_structure.png|Basic Structure}}
+  
+  To access the structure member elements we need to use two operators. 
+  1. Dot operator (.)
+  2. Pointer to member access (->)
+
+  - Program
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/168structures.c|Student Structure (program 1)}}
+    {{file:/home/basith/Pictures/sizeof_structure_basic_1.png|Basic Structure}}
+	
+== Memory Allocation Style of Structure ==
+  
+- Structure always allocates memory in the form of a block and the block size depends on the longest data 
+  member of the structure.
+- For example: Here, the structure xxx allocates two blocks of memory where each size block is of two bytes 
+  because the longest data member of the structure is short integer, whose size is 2 bytes.
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/169structures.c|Student Structure (program 2)}}
+  {{file:/home/basith/Pictures/sizeof_structure_basic_2.png|Basic Structure}} 
+  
+  In the above example, the first data member is a character which is one byte long and is seated in the first 
+  block. The second data member is a short integer which is two bytes long and cannot be seated in the second 
+  byte of the first block, so a new block is allocated where the data member b is seated.
+  
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/170structures.c|Student Structure (program 3)}}
+  {{file:/home/basith/Pictures/sizeof_structure_basic_3.png|Basic Structure}} 
+  
+  The bytes which are not used are called as slack bytes. If a structure contains a slack byte that structure 
+  is known as Imbalance Structure. To create balanced structure various compilers provides various techniques.
+  But these techniques are not standardized by ISO Committee.
+  
+  GCC/Clang provides a pre-processor directive, pragma pack, to create balanced structure. 
+  
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/171structures.c|Student Structure (program 4)}}
+  
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/188structures.c|Padding (program 4)}}
+  {{file:/home/basith/Pictures/padding_basic_1.png|Padding in structures}}
+  To avoid structure padding use __attribute__(packed). Even though structure padding occupy additional space 
+  it significantly increases system performance.
+  
+  Lets take a 32 bit processor, it can read 32 bit value integer at a time. So it doesnt have to generate code 
+  to take data from different blocks unlike removing padding where compiler generates more code to access not
+  arranged data. See the below picture to understand more clearly. 
+  
+  Performance Decreases with attribute((packed)) macro but memory is utilized fully. For padding performance is 
+  increased but memory utilization is not efficient.
+  {{file:/home/basith/Pictures/with_and_without_padding.png|Performance and memory utilization}}
+  
+  
+
+== typedef storage specifier == 
+
+It provides alias names for existing datatypes.
+
+Syntax:  
+
+	typedef <old data type> <user convenience name>
+	
+Example for why we use it(just to make it more clear):
+
+	Library Project
+	
+	College Library -- Library Person -- May be educated -- but non technical
+	
+	he understands: bookid, id card etc
+	
+	bookid --- integer(he doesnt understand integer)
+	
+	id card number --- integer 
+	
+	so we use typedef to define integer as bookid, char * as name etc.
+	
+	typedef int bookid;
+	typedef int identity; 
+	
+	identity bid;
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/172structures.c|typedef basic(program 5)}}
+
+=== Differences between macro and typedef ===
+	typedef:
+		Using typedef we can give alias names to existing datatypes. It makes the program easier to write and 
+		maintain. The code become robust.
+	
+	macro:
+		It helps to give aliases to datatypes, function names, etc. But giving alias to datatypes we need to be
+		careful.
+		
+	example: 
+		#define cp1 char*
+		typedef char* cp2
+	void main() {
+		cp1 p1, p2, p3; // it is replaced with char*
+		cp2 p4, p5, p6; // it is alias name to char*
+	} 
+	
+	here p1, p4, p5, p6 are char pointers
+	
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/173structures.c|typedef basic structures(program 6)}}
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/174structures.c|typedef basic structures global vars(program 7)}}
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/176structures.c|typedef structure(program 8)}}
+=== Programs ===
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/177structures.c|structure locally to main(program 9)}}
+	
+== Nested Structures(Structures within structures) == 
+ Defining a structure as a member element of another structure is called as structures within structures.
+ - Program
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/178structures.c|nested structures(program 10)}}
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/179structures.c|nested structure 1(program 11)}}
+	In this program it will become difficult to access the members from one structure to other, it is cumbersome 
+	process. To avoid this type of structures we can use pointers.
+	
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/180structures.c|nested structure 1(program 12)}}
+
+== Passing Structures as Functions Parameters ==
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/189structures.c|employee details(program 12)}}
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/190structures.c|pointer to structure(program 12)}}
+	
+= Unions =	
+Union is another derived type supported by C programming language. The syntax of structure and union is very 
+similar, the only difference is "union" keyword is used in place of struct keyword. Memory allocation is different 
+in unions when compared to structures.
+
+Syntax: 
+	union <union_name> {
+		member 1;
+		member 2;
+		member 3;
+		....
+		member n;
+	
+	};
+
+== Memory Allocation of Unions ==
+A union only allocates memory for its biggest datatype member, all other members uses the same shared memory. The 
+unions are used to solve some specific problems like:
+	* Memory Optimization
+	* Shared Memory
+
+- Program 
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/181structures.c|Union size 1(program 13)}}
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/182unions.c|union values 2(program 14)}}
+	
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/183unions.c|struct values 3(program 15)}}
+    {{file:/home/basith/Pictures/union_memory_basic1.png|Basic Structure and Union Memory Image}}
+	
+	{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/184unions.c|better memory utilization using unions3(program 16)}}
+	We saved 12 bytes of memory by using union.
+	
+= Enumerations = 
+Its a user defined datatypes. Its members are constants which are identifiers. The constants represent values, 
+which can be assigned to corresponding enumeration values.
+
+Syntax:
+	enum identifier {
+		Value1;
+		Value2;
+		....
+		Valuen;
+	} variable;
+	
+	or
+	
+	enum identifier {value1, value2 ...};
+	enum identifier variable;
+	
+Enum variable can be assigned values or compared to variables or values appropriate to the enum types. Enum members 
+may have the same values. Enum constants make the program more readable. 
+
+Whats the difference between enums and macros?
+	enums can increment the next value automatically but macros cannot.
+
+
+example: 
+	enum status{off, on} button;
+	
+The first value of enum starts with zero followed by remaining values. It is a series of integer constants, 
+it is an alias to integer. The size of enum is two bytes. Majorly menu based programming is implemented by enums. 
+
+For the enum elements we can assign our own values.
+
+Think tiffins example for enums. 
+enum tiffins{deadly_idly = 1, poori, dosa, masala_dosa};
+
+- Program 
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/185enums.c|Enums (program 17)}}
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/186enums.c|Enums (program 18)}} ccc
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/187enums.c|Enums (program 19)}}
+  
+
+  
+  
+  
+  
+	

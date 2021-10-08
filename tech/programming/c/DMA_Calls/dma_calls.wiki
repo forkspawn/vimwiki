@@ -1,0 +1,34 @@
+= Dynamic Memory Allocation =
+
+* As we know that static memory allocation like arrays has to define the memory allocation at the time of 
+  compilation, so the drawback of static memory allocation is once you define size it is never possible to increase 
+  or decrease. In order to overcome this drawback we can use dynamic memory allocation. i.e; Allocating memory at 
+  the time of execution. The dynamic memory allocation always takes place in heap area. We have seperate functions 
+  in C language to allocate the memory at the time of execution. When we are allocating the memory we need to 
+  perform explicit typecasting. The functions we use for dynamic memory allocation are malloc(), calloc(), realloc()
+  and free() are to allocate the memory, free() is to deallocate the memory.  
+  
+* Heap v/s stack memory allocation 
+  - The memory allocated in stack has unique name and address therefore memory location can be accessed by using 
+	name or address.
+  - The memory allocated in heap doesnt contain name, it contains only starting address of the memory allocated. 
+  - In static memory allocation the memory is allocated and freed by the system.
+  - The dynamic memory allocation is done by programmer and its very risky if he doesnt free the memory.
+  
+	{{file:/home/basith/Pictures/heap_stack_basic.png|Basic Heap and Stack}}
+
+* Dynamic memory allocation functions 
+  - [[malloc.wiki]]
+  - [[calloc.wiki]]
+  - [[realloc.wiki]]
+  - [[free.wiki]]
+
+* Programs 
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/193_malloc_double_ptr.c|Malloc Double Pointer(program 1)}}
+	{{file:/home/basith/Pictures/malloc_double_pointer_basic1.png|Basic Heap and Stack}}
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/194_malloc_double_dimension_basic.c|Rows and changeable columns in array(marks calculations) (program 1)}}
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/194_malloc_double_dimension_basic_kiran_sir.c|Rows and changeable columns in array kiran sir(marks calculations) (program 1)}} ccc 
+	
+	
+	
+  	

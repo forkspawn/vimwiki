@@ -1,0 +1,53 @@
+= Doxygen =
+
+== Introduction ==
+
+It's a tool to create documentation from the source code.
+
+Some of the languages supported by the doxygen are:
+C, Cpp, python, C#, Lex, IDL, Objective-C, Java, VHDL, PHP, Fortran and D.
+
+== Why should I care ==
+
+It allows the developer to understand the project from birds eye view.
+
+It can also be used to understand small modules of the project.
+
+It creates small graphics for understanding the project/modules.
+
+Get a clear picture of the project and debug the code more effeciently.
+
+== What should I do ==
+
+Write the comments for every function you implement.
+
+Generally function comments should be in header files, because C files will be compiled to object
+code and your comments are gone.
+
+The end user should not read the whole function implementation to use it. The other developer 
+wants comment for using it and not the implementation.
+
+You will forget the function implementation later on, so do yourself a favour and comment your 
+code.
+
+== Commenting ==
+
+Who are you writing the comments for?
+
+	1. Developer/Yourself, who is implementing the function
+	2. The user, who is going to use your function and he/she doesnt care how you implemented it.
+
+=== Commenting for Implementing the function ===
+
+You write it in the source code and it wont be visible in the doxygen (unless you follow doxygen 
+understandable commenting style).
+
+This is for the developer who wants to understand function implementation.
+
+=== Commenting for the user ===
+
+You should write the comments in the header file, above every function declaration.
+
+1. /dev dir check i2c device numbers
+2. i2cdetect -y 1( 1-> represents an i2c number ) (check if we are getting slave addr or not)
+3. 

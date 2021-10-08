@@ -1,0 +1,25 @@
+= Taskwarrior =
+
+Taskwarrior is a command line tool manager. At the core, taskwarrior is a task list processing system. But more 
+Powerful: due dates, priorities, tags, projects etc. 
+
+1. Add task 
+   
+   $ task add Do this thing 
+
+= Installation =
+
+Use package manager to install it. 
+	
+	 $ dnf install task(fedora)
+	 $ apt-get install taskwarrior (Ubuntu, Debian)
+	 $ zypper install taskwarrior (OpenSUSE)
+	 $ pacman -S task (Arch)
+	 $ sbopkg -i task (Slackware)
+	 $ emerge task (Gentoo)
+	 $ brew install task (Mac OS X, Homebrew)
+	 $ apt-get install task (Windows 10, Bash on Ubuntu) 
+
+	 
+
+

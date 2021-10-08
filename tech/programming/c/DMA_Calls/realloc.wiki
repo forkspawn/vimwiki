@@ -1,0 +1,13 @@
+= Realloc =
+
+Syntax: void * realloc(void * ptr, size_t newsize);
+
+The first argument ptr is a pointer to the memory previously allocated by the malloc or calloc functions. The 
+second argument 'newsize' is the size in bytes, of a new memory region to be allocated by realloc. This value can 
+be larger or smaller than the previously allocated memory. The realloc function will adjusts old memory region if 
+newsize is smaller than the size of old memory. If the newsize is larger than the existing memory size, It increases 
+the size by compying the contents of old memory region to new memory region. The function then deallocates the old 
+memory region. realloc is helpful in managing a dynamic array whose size change during execution time. 
+
+* Program 
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/195_realloc.c|Basic Calloc(program 2)}}

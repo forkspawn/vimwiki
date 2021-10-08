@@ -1,0 +1,62 @@
+
+%title RO Water Purifier Device 
+%%%date 
+
+= Contents =
+	- [[#User Manual]]
+		- [[#Precautions]]
+		- [[#Product Overview]]
+		- [[#Accessories]]
+		- [[#Installation Instructions]]
+		- [[#Setting Up Device]] 
+
+== User Manual ==
+RO Water Purifier Device Manual
+
+----
+=== Precautions ===
+Do not turn on device before reading this manual.
+
+| *s.no* | *device* | *feature*                         |
+| 1      | GPS      | Get the location of the tank      |
+| 2      | Antenna  | Get the signal for the 4g network |
+
+----
+=== Product Overview ===
+ The product gives the information of clean water, waste water and temperature it then stores all 
+the data in the server/computer. 
+
+User can retrieve the data by typing the address 192.168.4.1 in the browser. The information 
+displayed will be the tank number, its location, water purity along with its temperature.
+[[file:/home/basith/Pictures/ro_water_purifier/complete_device.jpeg|complete device]]
+{{file:/home/basith/Pictures/ro_water_purifier/complete_device.jpeg|complete device}}
+[[file:/home/basith/Videos/myvid/2021-08-20_20-02-51.mkv|Some Random Video]]
+[[file:/home/basith/vimwiki/tech/linux/applications/zsh/index.wiki|zsh stuff]]
+
+
+=== Accessories ===
+Accessories included with the product are:
+	1. RO Water Purity Measuring Device
+	2. 5V DC Power Adapter
+	3. One Antenna(GSM)
+	4. One GPS module
+
+=== Installation Instructions ===
+
+=== Setting Up Device ===
+*Default State*
+	* When the device gets power then various leds will turn on. Leds which turn on are 
+		Power, GSM/4G, GPS, Sensor, Wi-Fi Power. Only the Wi-Fi Status led is off. 
+
+*Connecting to the Device*
+	* Wi-Fi (AP mode/Sta Sel)
+		- By default when the power is on its in 4G state. To connect the device to wifi press 
+			wifi/4g button, wait for 10 seconds(my guess). Now press the Wi-Fi AP/STA sel. button, 
+			wifi status led should turn on. Now go to web browser and type the address 192.168.4.1.
+		- Type the router's username and password in the provided field. Save the configuration by 
+			pressing save button. Press the Wi-Fi AP/STA sel. button again to get into station mode. 
+		- It should now connect to the router and have internet access. The data now will be sent
+			to the server/computer.
+	* 4G
+		- Before applying power to device, make sure to insert the sim which has internet data. 
+			Install/connect the antenna and gps in its place. Now turn on the device.

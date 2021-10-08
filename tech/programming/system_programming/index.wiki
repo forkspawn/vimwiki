@@ -1,0 +1,13 @@
+= System Programming =
+* {{Introduction.wiki|Introduction}} 
+* {{Services.wiki|Services Provided by kernel}} 
+* {{BasicLinux.wiki|Information on files, directories, permissions etc}} 
+* {{SystemProgrammingIntroduction.wiki|Basics of System Calls, Important Directories}} 
+* {{System_Calls_Buffered_Calls_Deivce_files.wiki|System Calls, Buffered I/O Calls, Device Files, Inode Object}} 
+* {{File_Management.wiki|File Management}} 
+* {{Signals.wiki|Signals}}
+* {{Assignment/index.wiki|Assignment}} 
+
+= Research =
+* Multiple threads updating one piece of data simultaneously is creating problems
+  {{threads_temp_research.wiki|Threads Temporary Research}}

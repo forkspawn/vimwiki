@@ -1,0 +1,24 @@
+= Introduction =
+Out of tree means outside of the linux kernel source tree.
+
+When you write a module separated(which is not approved and may be buggy), build
+and link it against the running kernel, then its called as out of the tree
+module.
+
+When you load an out of tree kernel module, kernel throws a warning message
+saying it got tainted.
+
+= Out of tree = 
+Modules are built using "kbuild" which is the build system used by the linux kernel
+
+Modules must use "kbuild" to stay compatible with changes in the build 
+infrastructure and to pick up the right flags to GCC.
+
+To build external modules, you must have a prebuilt kenel source available that
+contains the configuration and header files used in the build.
+
+This ensures that as the developer changes the kernel configuration, his custom
+driver is automatically rebuilt with the correct kernel configuration.
+
+
+

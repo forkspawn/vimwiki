@@ -1,0 +1,34 @@
+= Compilation Stage =
+x86 -- 64, 32
+arm -- 64, 32
+
+	1. In this stage compiler will come into picture. 
+	2. The .i file is given as input to the compiler and it generates assembly 
+	   code specific to that architecure. Since its architecture dependent.
+	3. It verifies syntactical errors.
+	4. Delimeters are verified at appropriate locations.
+	5. If you have syntactical errors it will stop the compilation and it
+	   generates the error message on terminal screen.
+	6. The function declarations are verified with function header files and 
+	   function invocations. It verifies the functions at 4 locations.
+	7. It will identify the symbol in the program and generates corresponding 
+	   memory segments assembly instructions.
+	8. Each function definition of 'C' are converted into assembly instruction.
+	9. For simple 'C' statements it may generate one or two assembly 
+	   instructions but for complex statements it generates multiple 
+	   instructions.
+	10. The expression is evaluated by using parse tree method based on priority 
+		values and order of evaluation.
+	11. We can stop the compilation after second stage by using the command:
+		
+		{{{
+			gcc -S <c program file name>
+		}}}
+		
+		It generates .s file and this file contains assembly code. If we want 
+		to generate executable file from .s file use:
+		
+		{{{
+			gcc ***.s
+		}}}
+	

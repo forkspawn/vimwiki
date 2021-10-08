@@ -1,0 +1,20 @@
+
+= RO Data Segment =
+
+* It is read only data segment.
+* User will have read only permission.
+* If you try to modify this segment contents the app will terminate with runtime error(segmentation fault error).
+* In this segment the string which are directly passed to the function and the strings which are initiallized by 
+  using char pointer these strings memory is allocated in RO data segment. This read only segment contents can be
+  accessed by using pointers.
+
+  {{{c
+		 // here we are indirectly passing strings base address and it's stored in RO data segment. 
+		 printf("welcome"); 
+		 
+		 // Here Ramu string is stored in RO data segment and this string base address is passed to character pointer.
+		 char *ptr = "Ramu";
+  }}}
+
+* When a global variable is applied with const keyword it's memory is allocated in RO data segment.
+* RO data segment comes under data segment only.

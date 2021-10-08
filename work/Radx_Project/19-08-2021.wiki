@@ -1,0 +1,15 @@
+= Date =
+19-08-2021
+
+== Problem ==
+Nvidia Quadro T1000 graphic is not detected by NI 8880 embedded controller in NI 1092 chassis in 
+Windows 10 Operating System.
+
+== Tried Solution ==
+By Abdul Basith and Karthik
+* Updated Windows 10 to latest version and restarted the NI device. Checked the device in 
+	device manager.
+
+== Result == 
+* Device Not Found in device manager.
+----

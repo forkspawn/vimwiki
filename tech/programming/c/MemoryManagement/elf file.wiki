@@ -1,0 +1,6 @@
+[[file:/home/basith/Pictures/pic-full-210515-1128-19.png]]
+
+1. elf header
+	- Extra data about elf like what arch the file is; 
+2. program header table
+	- To  

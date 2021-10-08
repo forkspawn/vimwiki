@@ -1,0 +1,7 @@
+
+= Bss Segment =
+
+* It is also called as uninitiallized data segment.
+* Uninitiallized global and static variables info is stored in this segment.
+* This segment memory is allocated during program loading time.
+* A global variable which is initiallized with zero the memory is allocated in bss segment only.

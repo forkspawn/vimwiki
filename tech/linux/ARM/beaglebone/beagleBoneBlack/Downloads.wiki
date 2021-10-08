@@ -1,0 +1,4 @@
+= Boot Images =
+	- Prebuilt images are from lecturer [[https://att-b.udemycdn.com/2020-09-02_10-51-32-f9c9392ae716772250c48aec351ca67d/original.zip?secure=TyxNTsLgSGb6kssOQ56hoQ%3D%3D%2C1609422993&filename=pre-built-images.zip|pre built images]]
+	- Download beagleBoneBlack image [[https://beagleboard.org/|Website]]
+	- debian image name: bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz

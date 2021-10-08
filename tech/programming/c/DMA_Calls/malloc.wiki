@@ -1,0 +1,18 @@
+= Malloc =
+
+* It is used to allocate the required number of bytes in memory at runtime. 
+  
+  Syntax: 
+  	void * malloc(size_t size);
+  	ptr_var = (type_cast * )malloc(size * sizeof(datatype))
+	
+  Example: 
+  	
+	a = (int * )malloc(4); 
+	
+	4 bytes will be allocated to a variable 'a' which is of type int * .
+	
+	array = (int * )malloc(n * sizeof(int));
+	
+* Program 
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/191_malloc.c|Basic Malloc (program 1)}}

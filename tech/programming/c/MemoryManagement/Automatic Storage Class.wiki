@@ -1,0 +1,43 @@
+= Automatic Storage Class=
+
+* By default all local variables are applied with auto storage class. 
+* For formal arguments no storage class is applicable.  
+* Functions stack frame will get destroyed after the execution has been done. 
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/automatic_storage_class1.c|Automatic Storage Class Program 1}} 
+	  The stack frame of increment is created and destroyed for every function invocation. 
+	  The variable 'x' memory is allocated within that stack frame and this variable memory is destroyed when 
+	  function completes its execution. 
+	
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/automatic_storage_class2.c|Automatic Storage Class Program 2}}  
+	  The variable 'y' memory is created and destroyed for every iteration. 
+	  
+* Programs:
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/automatic_storage_class3.c|Automatic Storage Class Program 3}} 
+	  Since variable 'a' is automatic variable, it will store in the stack area. Scope of variable 'a' is 
+	  within for loop. So after each iteration variable a will be deleted from stack and in each iteration 
+	  variable a will be initialize.
+		  
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/automatic_storage_class4.c|Automatic Storage Class Program 4}} 
+	  The variable 'a' scope is within the main function and its not accessible in sample() function, compiler 
+	  will throw an error saying a is not declared. In short its scope is limited to main function.
+
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/automatic_storage_class5.c|Automatic Storage Class Program 5}} 
+	  The variable 'b' scope(anonymous scope) is within the block, it's not accessible outside the block.
+
+	- {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/automatic_storage_class6.c|Automatic Storage Class Program 6}} 
+	  When the function fun() is called everytime then its stack frame will be destroyed and recreated. With this 
+	  the automatic variables within it will be destroyed and recreate as well.
+
+* Properties of automatic storage class
+	- *Lifetime:*
+		* From memory allocation time to till the end of the function or block.
+
+	- *Scope:*
+		* Function scope or block scope.
+
+	- *Default Values:*
+		* Garbage Values.
+
+	- *Storage Location:*
+		* Stack frame of corresponding function. 
+		  

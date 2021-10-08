@@ -1,0 +1,5 @@
+= Question =
+1. What is "$@" "$*" $* =
+https://stackoverflow.com/questions/9994295/what-does-mean-in-a-shell-script
+
+ 

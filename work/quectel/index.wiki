@@ -1,0 +1,38 @@
+= Quectel Board =
+
+== Connect to ADB ==
+
+If adb device says no permission after running adb devices, then do the following:
+
+{{{
+		sudo adb kill-server
+		sudo adb start-server
+		adb devices
+}}}
+		
+now adb device will have full permission.
+
+== Testing ==
+
+[[NrfBluetooth|Nrf Bluetooth Test]]
+
+[[MotorTesting|Motor Test]]
+
+[[i2cTesting|I2C Test]]
+
+== Update of board ==
+
+gps, rtc are integraded into the main code. Need to integrate i2c as well. 
+
+imei code is working.
+
+== Misc ==
+
+for tcp and ble
+
+01. gps(done)
+02. motor running(almost done)
+03. time stamp(done)
+04. heart beat data(done)
+05. ebike lock (interrupt switch)???
+06. imei number

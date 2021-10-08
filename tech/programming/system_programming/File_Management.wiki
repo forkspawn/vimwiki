@@ -1,0 +1,53 @@
+*Lecturer: Sunil Sir*
+*Video Number: 2020-08-31*  
+
+= file properties or attributes basic =
+
+* When user creates a file then its inode object will also be created and its store in secondary storage device. 
+  This inode object will have all the information of the file. To see the information of a file, ls command can be 
+  used but it wont display all the information regarding that file. stat command gives more information about the 
+  file compared to ls command. If user this command on a file then it shows the following information.
+  
+  {{file:/home/basith/Pictures/stat_command.png|Stat command}}
+  
+* When a file is opened then its opened in userspace of ram and its inode object is copied to kernel space of ram. 
+  When the user performs some modifications, then its not updated in inode object which is in ram, but when user 
+  do save operation then inode object in kernel space of ram will be updated. If this information needs to be 
+  reflected in harddisk then user should perform close() operation. After close() operation the inode object in 
+  harddisk will be updated with the information which is present in inode object of ram and this inode object in ram 
+  will be deleted. Now the changes have been reflected in harddisk inode object as well. See the below picture.
+  
+  {{file:/home/basith/Pictures/file_operations_basic.png|File Operations Basic Information}}
+  
+* Most of the file i/o on a unix systems can be performed by using five funtions. Those are
+	- [[open().wiki|open()]]
+	- [[close().wiki|close()]]
+	- [[read().wiki|read()]]
+	- [[write().wiki|write()]]
+	- [[lseek().wiki|lseek()]]
+	
+  The above calls are unbuffered i/o or universal i/o calls or basic i/o calls. 
+	
+  Unbuffered calls: These calls will update the data directly to the original files. 
+	
+  Buffered calls: These will collect the information and store it in buffer before saving it to original files. 
+  Thats why these calls are called as buffered i/o calls. If these buffer gets deleted then modifications will 
+  not be reflected in original files. The below functions are buffered i/o calls.
+  
+  	- fopen()
+	- fclose()
+	- fread()
+	- fwrite()
+	- flseek()
+	- etc
+  
+  If user understood the unbuffered i/o calls then he can do application development. When user doesnt have the 
+  driver then with the help of libraries provided by board development team, user can create applications for this 
+  board using unbuffered i/o calls.
+  
+  What is the difference between open() and create()?
+  	create() will create the new file even if the file exists. 
+	
+	open() will open a file if it exists and if it doesnt then it will create a new file. Using some macros its 
+	possible to open the file in readonly, write only or read write mode.
+	

@@ -1,0 +1,39 @@
+*Step1:* Add the server address in /etc/resolv.conf
+	sudo nvim /etc/resolv.conf
+	nameserver 8.8.8.8
+	nameserver 8.8.4.4
+
+*Step2:* Add the server address in /etc/network/interfaces
+	sudo nvim /etc/network/interfaces
+	inside the code block 
+	iface usb0 inet static
+		...
+		...
+		dns-nameservers 8.8.8.8
+		dns-nameservers 8.8.4.4
+	
+	save and exit.
+
+*Step3:*
+	$route add default gw 192.168.7.1(host ip address, run everytime u reboot)
+
+*Step4:*
+	#!/bin/bash
+	##To run this script do
+	##1. chmod +x usbnet.sh 
+	##2. ./usbnet.sh 
+	iptables --table nat --append POSTROUTING --out-interface wlp2s0 -j MASQUERADE
+	iptables --append FORWARD --in-interface wlp2s0 -j ACCEPT
+	echo 1 > /proc/sys/net/ipv4/ip_forward
+	
+	## here wlp2s0 is interface name
+	## run ifconfig to know board network interface name
+	
+	If internet is not working type
+	$sudo route add default gw 192.168.7.1
+	
+	If only ssh connection is needed then dont run the above command
+	
+	Run this script everytime system reboot
+	
+

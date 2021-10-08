@@ -1,0 +1,16 @@
+= g commands =
+1. g
+2. gj, gk, g0, g$
+3. gq
+4. ~
+5. g~ --> make letters capitalized(word or letter)
+6. gUU --> make whole line capitalized
+7. gUfl --> make letters capitalized till l
+	- gnu/linux --> GNU/Linux
+8. ^ --> move to previous file
+9. gv --> reselect text
+10. J --> join lines with spaces in between
+11. gJ --> join lines without spaces in between
+12. g& --> substitute through out the document(when you use substitute before 
+	that command will run again when u use g&)
+

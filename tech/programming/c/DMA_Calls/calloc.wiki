@@ -1,0 +1,25 @@
+= Calloc =
+* It stands for contiguous allocation. It can allocate memory dynamically meaning allocating memory at runtime. It 
+  requires two arguments.
+  1. Total number of data 
+  2. size of each data 
+   
+  Calloc --> malloc() + memset(); 
+  
+  memset() --> is a memory function which is used to fill the block of memory with a particular value. So in case of 
+  calloc, memset fill the dynamic memory with zero values.
+
+  Syntax: 
+  	void * calloc(size_t nmemb, size_t size);
+  	
+  Example: 
+  	a = (int * ) calloc(8, sizeof(int));
+  	8 --> number of elements we need
+  	sizeof(int) --> size of each element
+  	
+  	array = (int * )calloc(n, sizeof(int));
+  	n--> allocates n elements 
+  	sizeof(int) --> size of each element
+
+* Programs
+  - {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/192_calloc.c|Basic Calloc(program 2)}}

@@ -1,0 +1,19 @@
+= Linked List =
+
+== Linked List ==
+
+== Double Linked List ==
+* Missed some points
+* In doubly linked list it has minimum three fields. 
+	* previous field
+	* information field
+	* next field
+* As usually the new node address has to place in the next field of the before node and the previous node of the 
+  new node contains the address of the before node. It makes backward to forward to forward direction. The last node 
+  of the next field and the previous field of the first node defined by NULL. 
+  
+  {{file:/home/basith/Pictures/pic-full-210714-1156-25.png|Basic double linked list diagram}} 
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/doubleLinkedList.c|Double linked list Program 1}} 
+  
+  
+

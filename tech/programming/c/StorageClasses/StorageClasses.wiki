@@ -1,0 +1,44 @@
+= Storage Classes =
+
+* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+= Storage Classes =
+* These are applicable for variables and functions
+* A storage class will provide below information.
+	* Lifetime
+		* From memory allocation time to memory deallocation time is called lifetime.
+	* Scope
+		* During it's lifetime accessibility of variables is the scope of the variables.
+	* Initial values
+		* The default values assigned when memory is allocated.
+	* Storage location
+		* Location where memory is allocated or decided(segment).
+* There are four storage classes
+	1. [[Automatic Storage Class]] (auto)
+	2. [[Register Storage Class]] (register)
+	3. Static Storage Class (static)
+	4. [[External Storage Class]] (extern)
+* Importance of volatile keyword
+	* To avoid compiler optimization to access the data from the specified memory location.

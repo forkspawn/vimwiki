@@ -1,0 +1,77 @@
+*Lecturer: Sunil Sir*
+*Video Number: 2020-08-24*
+
+= Introduction =
+
+* Main topics to consider while doing system programming.
+	* File Management
+	* Process Management
+	* Network Management (socket programming)
+	* I/O Management (In kernel)
+	* Memory Management
+	* Signals
+	* Threads
+	* Inter Process Communication (IPC) Mechanisms 
+	  
+* OS is a software layer between computer hardware and application programs. OS allows multiple programs to run 
+  simultaneously by allocating small time slices of cpu time for each process. OS also allocates seperate 
+  virtual memory space for each process. If cpu wants to execute any application, this application must be first 
+  sent to user space of RAM, before it loads into userspace of RAM, OS will decide how much memory is required 
+  by that application for its text segment, data segment, bss, rodata, stack, command line args etc and allocate 
+  that amount of memory. Each running process in this virtual memory space thinks that it is the only process which 
+  is running in the entire memory space. OS provides lot of services to the application program by using system 
+  calls or APIs. System calls are mediator between application program and kernel. Application programs can use OS 
+  services by calling the system calls or APIs. 
+  
+  Example: ls -l --> displays lot of attributes of files, its using system calls to get the information.
+  
+  A user can interact with the OS in two ways.
+	  1. GUI applications
+	  2. CLI commands 
+		 Default path for commands are /bin /usr/bin /sbin 
+  
+  Following are the services provided by the kernel to the application program:
+	  1. File Services
+	  2. I/O Services 
+	  3. Multi Processing Services
+	  4. Memory Allocation and Mapping Services
+	  5. Signal Services
+	  6. Interprocess Communication and Synchronization Services
+	  7. Time Services
+	  8. Network Communication Services 
+  
+  Kernel is the main core component of the OS. It contains device drivers. These drivers are servicing the request 
+  coming from applications, these applications are sending the request through system calls. OS has many layers 
+  like Network layer, media layer, virtual file system(VFS) layer etc. All these layers internally contains request, 
+  kernel will identify which type of request it is then fullfill it. 85% of the drivers are character drivers, 
+  all these drivers has to register with VFS layer. These drivers will service the request coming from applications, 
+  these drivers are inside kernel. The drivers are communicating with the hardware. Thats how applications interact 
+  with the hardware.
+  
+	Requesting the services: 
+  	Applications --> System Calls --> Kernel --> Drivers --> Hardware.
+  
+  On command line interface users can also interact with OS using shell terminal(bash, ksh, zsh etc). The OS 
+  utilities runs as seperate processes and can be considered as system applications that comes with OS. When the OS 
+  is loaded first bios gets executed after that it loads first stage bootloader then second stage bootloader and 
+  this second stage bootloader is responsible to load kernel, when kernel is loaded it runs one application at 
+  userspace, this application is responsible to create multiple applications like time application, system settings, 
+  wifi etc. These are system utilities so they can be considered as system applications that comes with OS. Kernel 
+  will service the request coming from user applications and hardware devices. When hardware gets request it raises 
+  an interrupt, this is called hardware signalling mechanism. There is also a software signalling mechanism. The 
+  hardware will inform to the driver saying that I have received the data by raising an interrupt, this signal will 
+  be sent to the cpu and cpu will stop normal service request and it does the task, this task will be coming from 
+  application. This feature needs to be implemented in driver code.
+  
+  {{file:/home/basith/Pictures/comm_from_app_to_driver_vice_versa.png|Communication between application and hardware}}
+  
+  The hardware consists of following components:
+	  1. CPU/microprocessor
+	  2. Volatile Memory(RAM) + non volatile devices(Flash drive).
+	  3. I/O Controllers and devices
+  
+  Kernel is the most important component of an OS and gets loaded into memory during system bootup time. RAM is 
+  divided into two parts, this kernel is loaded into kernel space of RAM during bootup time. Kernel initializes 
+  the hardware component cpu, memory, i/o controllers and takes the charge of them. Kernel allows various
+  applications to run simultaneously by assigning the hardware resources. 
+	

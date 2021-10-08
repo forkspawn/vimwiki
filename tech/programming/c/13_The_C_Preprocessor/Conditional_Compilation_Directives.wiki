@@ -1,0 +1,46 @@
+= Conditional Compilation Directives =
+There are several directives that allow you to selectively compile portions of your program's source code. This 
+process is called conditional compilation and is used widely by commercial software houses that provide and 
+maintain many customized versions of one program.
+
+Perhaps the most commonly used conditional compilation directives are the #if, #else, #elif, and #endif. These 
+directives allow you to conditionally include portions of code based upon the outcome of a constant expression. 
+
+The general form of #if is 
+#if constant-expression 
+statement sequence 
+#endif
+
+If the constant expression following #if is true, the code that is between it and #endif is compiled. Otherwise, 
+   the intervening code is skipped. The #endif directive marks the end of an #if block. 
+
+   Example:
+
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/141macros.c|Macro Program 2}}  
+
+In this case, MAX is defined to be less than 99, so the #if portion of the code in not compiled. The #else 
+alternative is compiled, however, an the message Compiled for small array is displayed. 
+
+Notice that #else is used to mark both the end of #if block and the beginning of the #else block. This is 
+necessary because there can only be one #endif associated with any #if 
+
+The #elif directive means "else if" and establishes an if-else-if chain for multiple compilation options. 
+#elif is followed by a constant expression. If the expression is true, that block of code is compiled and no 
+other #elif expression are tested. 
+
+Otherwise, the next block in the series is checked. The general form for #elif is:
+
+#if expression 
+statement sequence 
+#elif expression 1
+statement sequence 
+#elif expression 2
+statement sequence 
+#elif expression 3
+statement sequence 
+#elif expression 4
+statement sequence 
+...
+#elif expression N
+statement sequence 
+#endif 

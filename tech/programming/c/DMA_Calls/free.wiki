@@ -1,0 +1,8 @@
+= Free =
+
+* Free fucntion deallocates memory and give memory back to heap area, due to this memory lekage will not happen. 
+* Program 
+  
+  
+  
+  

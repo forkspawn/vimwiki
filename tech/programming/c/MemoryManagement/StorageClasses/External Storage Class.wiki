@@ -1,0 +1,48 @@
+* Extern keyword is applicable on global variables and functions.
+* Variables which is declared outside the function is called global variables.
+* Global variables can be accessed below all the functions till wnd of file from where they are declared or defined.
+* To access the global variables in main function we have to use extern keyword or declare that variable with extern
+  keyword.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/externKeyword1.c}}
+
+extern int x
+* When you declare a variable with extern keyword this is to inform the compiler that variables memory is allocated 
+somewhere, simply access that variable.
+* We should not define a global variable locally(inside function) along with extern keyword.
+* First time for a global variable we can apply extern keyword, it won't give error but warnings.
+* A global variable which is difined/declared in one file cannot be access in another file directly.
+
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/externKeyword2.c}}
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/externKeyword3.c}}
+
+For above two files when we do gcc 1.c 2.c we will get compilation error. Instead we need to do the following.
+
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/externKeyword4.c}}
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/externKeyword5.c}}
+
+In above the scope of x variable is increased till end of function. This variable 'x' cannot be accessed in below
+the increment function. Because extern int x; is declared locally to increment function. If we want variable 'x' to 
+be available till end of file then we have to declare extern int x; above all functions.
+
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/externKeyword6.c}}
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/externKeyword7.c}}
+
+For local variables
+Lifetime:
+	Program loading time till program terminates.
+Scope:
+	File scope(global variables)
+Default Values:
+	Zeros
+Storage Location
+	.bss or data segment
+	
+For global variables
+Lifetime:
+	Program loading time to till program terminates.
+Scope:
+	We can increase the scope from file to program.
+Initial Values:
+	Uninitialized global variables conatins zeros. Initiallized global variables contain initiallized values.
+Storage Location:
+	.data or .bss segment.

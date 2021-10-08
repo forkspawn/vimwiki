@@ -1,0 +1,12 @@
+= High Level =
+
+* Text: .c, .cpp, .txt, .asm
+	- Formatted 
+		Stream oriented data files are subdivided into two categories.
+	- Unformatted 
+		It organizes data into blocks containing conditions bytes of information. The blocks 
+		represent more complex data structures such as an array and structures. To process stream 
+		oriented data data files, a seperate set of library functions are used. System oriented 
+		data files are more closely related to the computer operating systems.
+		
+* Binary: .o, .exe, .elf, a.out, .mp3, .wav, .mp4 etc(all multimedia files)

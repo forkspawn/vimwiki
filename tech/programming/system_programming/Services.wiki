@@ -1,0 +1,134 @@
+*Lecturer: Sunil Sir*
+*Video Number: 2020-08-25*
+
+= Services Provided By the Kernel =
+
+* File Services
+	1. Opening an existing file 
+	2. Creating a new file
+	3. Writing data sequentially into a file or at selected location
+	4. Reading a data from a file sequentially or from selected area of a file
+	5. Deleting the file
+	6. Changing the attributes of the file
+	7. Opening an existing directory 
+	8. Creating a new directory 
+	9. Read the content of the directory
+	10. Closing the file or directory 
+	
+	Open, read, write etc. are system calls used for opening, reading, writing I/O devices, device drivers etc. 
+	Applications use these system calls to interact with the driver. 
+
+* Multi Processing Services
+	1. Creating a new process 
+	2. Loading a new executable code into a process
+	3. Scheduling the process during the timer interrupt and system calls
+	4. Waiting for a particular process till it complete its task
+	5. Terminating the process
+	
+	For process resources are allocated seperately, but threads are created within the process.
+
+* Multi Threading Services
+	1. Creating a new thread 
+	2. Terminating a thread or exiting a thread
+	3. Waiting for a completion of a thread
+    
+	Threads are created within the process itself. 
+	
+	Difference between thread and process?
+	
+	*Process:* Process is created seperately, it has seperate memory segments, attributes. If there are multiple
+	processes, each process will have seperate address space, memory space, usage space. Attributes will differ.
+	
+	*Thread:* Its created within the process. If multiple threads are created then it utilizes same work space,
+	meaning the memory allocated within the process iteself. Process related attributes are same for all these 
+	threads, but come members will be different.
+	
+	*Questions:*
+	1. Why we have to use threads, why cant we use process?
+	2. What is the problem with process?
+	3. What are the advantages by using threads?
+	4. What are the drawbacks using threads.
+	5. What are the advantages of process over a thread.
+
+
+* Memory allocation and Mapping Services
+	Using DMA calls, memory can be created dynamically. 
+	
+	1. Dynamic memory allocation
+	2. Free the memory requested dynamically
+	3. Mapping a file or a device into the memory space of a process
+
+* Signal Services
+	1. Catching a signal by assigning a signal handler
+	2. Sending signal to other processes
+	3. Masking and unmasking of signals
+	4. Reading the pending signals information
+	
+	Signals are called software interrupts. To kill a process user can use system monitor to kill it(from GUI). 
+	From command line interface ctrl+c can be used to kill the particular process.
+
+* Interprocess Communication Services(IPC) services
+	Creating a communication object such as 
+	1. PIPE
+	2. FIFO
+	3. Message Queue
+	4. Shared Memory 
+		* MMAP calls (Memory Allocation)
+		* File Mapping Techniques 
+	
+	Writing to the communication objects created above by a process and reading from the communication object is 
+	done by other process. Directly process cannot communicate with other process, it needs a mediator that is PIPE,
+	first one process needs to write data to this pipe and other process should read from it. One process will 
+	write and other process will read from it. FIFO it will create a seperate, first in first out. Message queue, 
+	first the data should be written and then later it should be read, queue like mechanism. 
+	
+	Writing to the communication objects.
+	
+	Reading from the communication objects.
+	
+	Deleting the communication objects.
+	
+	_look time stamp 29:14_
+	Changing the properties of some communication objects (like permissions) by using special files(as FIFO 
+	objects)), When we see shared memory at the time we use file mapping techniques and non file mapping techniques. 
+	
+	Creating the synchronization objects such as semaphores.
+	
+* Time services
+	1. Getting a time delay 
+	2. Sleeping or delaying of a process execution for a specific period
+	3. Setting the alarm
+	
+* Network Communication Services
+	1. Creating a network socket
+	2. Establishing a connection to the remote socket
+	3. Sending the data to the remote socket and reading the data from the remote socket
+	4. Reading the attributes of a socket and modifing the attributes of a socket 
+	5. Closing the socket
+	
+	Other programming languages also has same concepts like files, process, memory. Some use python, java etc. 
+	Sockets can be creted using other languages as well. But the function name will differ. 
+	
+	* How to create a socket for a particular laptop port, and on the remote machine also socket needs to be created 
+	  so the socket at remote machine is called remote socket for a particular port. These two can be connected 
+	  wirelessly or via a LAN cable. Reading the data from one socket to another socket, from remote socket to 
+	  existing socket or existing socket to remote socket. Reading the attributes, modifing some attributes. Reading 
+	  attributes like socket type, ip address, port number etc. Close the socket after doing the information.
+
+* General Stuff
+	If you create a process that process is executing and when it is executing it creates some files. If user wants 
+	to terminate this process, user should send a signal(kill command) then the process will be killed. If one 
+	process needs to be divided into various tasks, threads can be used. Process is series of steps to be executed. 
+	One task(thread) is independent of other tasks, and tasks are executed parallely. So that process executes 
+	efficiently. So time is utilized more accurately. There are some system calls to make process sleep. If user 
+	wants to make two processes communicate with each other then, he can use interprocess communication(IPC) 
+	mechanisms. if two processes are communicating and user wants to store the data then he can do it using file
+	system calls(to store data permanently). 
+	
+	There are kill commands to terminate a process from the terminal. kill -L to list all kill commands.
+	
+	There are some system calls which are used commonly for normal files, special files, device files, ipc objects 
+	sockets. These system calls are called universal I/O calls. Behaviour of these system calls differ from 
+	topic to topic. When these calls are used on ipc objects they behave as blocking calls and if they are used on 
+	normal textual files they behave as blocking and non blocking. 
+	

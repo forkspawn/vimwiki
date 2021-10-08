@@ -1,0 +1,18 @@
+* This applicable only on local variables.
+* System bus is combination of data bus, control bus, address bus.
+* When we use register keyword the variable's memory is allocated in freely available general purpose cpu registers
+  for fast access.
+* If the cpu registers are not freely available the memory is allocated in stack frame of corresponding function only.
+* Compiler will not allow to access the address of a variable with a register keyword.
+{{file:/home/basith/Pictures/registerKeywordPic.png}}
+* Even we cannot read input dynamically for register variables(scanf function)
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenOld/registerKeyword1.c}}
+
+Lifetime: 
+	From memory allocation time till end of function or block.
+Scope:
+	Function or block scope
+Default Values:
+	Garbage Values
+Storage Location:
+	General purpose cpu registers or stack frame of corresponding location.

@@ -1,0 +1,16 @@
+= Setting Up Device =
+Default State
+	* When the device gets power then various leds will turn on. Leds which turn on are 
+		Power, GSM/4G, GPS, Sensor, Wi-Fi Power. Only the Wi-Fi Status led is off. 
+Connecting to the Device
+	* Wi-Fi (AP mode/Sta Sel)
+		- By default when the power is on its in 4G state. To connect the device to wifi press 
+		  wifi/4g button, wait for 10 seconds(my guess). Now press the Wi-Fi AP/STA sel. button, 
+			wifi status led should turn on. Now go to web browser and type the address 192.168.4.1.
+		- Type the router's username and password in the provided field. Save the configuration by 
+			pressing save button. Press the Wi-Fi AP/STA sel. button again to get into station mode. 
+		- It should now connect to the router and have internet access. The data now will be sent
+		  to the server/computer.
+	* 4G
+		- Before applying power to device, make sure to insert the sim which has internet data. 
+			Install/connect the antenna and gps in its place. Now turn on the device.

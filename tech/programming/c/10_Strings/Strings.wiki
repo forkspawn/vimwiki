@@ -1,0 +1,393 @@
+*Lecturer: Kiran Sir*
+*Video: 2021-06-17_12-04-00.mkv, 2021-06-17_11-04-39.mkv*
+Didnt do the two videos, it deals with graphics, some of it I did but not all.
+
+= Strings =
+
+== Introduction ==
+
+* String is a collection of characters. To work with strings and characters there are unformated character input 
+  functions like getchar(), getche(), and getch(), and output functions like putchar() and putch().
+
+* Escape Sequence ASCII codes:
+
+	1. '\n'	  -->	 10
+	2. '\r'	  -->	 13 
+	3. '\t'	  -->	 9
+	4. '\b'	  -->	 8 
+	5. ' ' 	  -->	 32
+	6. '\0'	  -->	 0
+	7. EOF	  -->	 26
+	   
+* The common point of all these functions will accept one byte of character as input. 
+  
+  getchar(): 
+  
+  It is similar to scanf function both will capture only data keys(like 1,2,3,a,b,c etc). Both will accept the 
+  last key as an enter key(\n).
+
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/105string.c|String Program 1}} 
+  
+  getche() and getch() are similar and defined in conio.h(console input/output) in windows machine. Both will read
+  datakeys and non datakeys(like page up , page down, F1, F2, up arrow etc). getche() doesnt wait for enter key, as 
+  soon as a character is pressed, it will display(echo) that key on terminal. Unique nature of getch() and getche() 
+  is they will accept a key \r, unlike getchar() which accepts enter key(\n) to end the input. getch() will accept 
+  the key but wont echo it on the screen, if user wants to display then he can do using printf function. getch() can 
+  be used to implement password application, the user will type the password but it wont show on screen.
+  
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/106string.c|Implementation of getche() and getch() (string program 2)}} 
+  
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/107string.c|Some useful program from stackoverflow behind the scenes of terminal(string program 3)}} 
+ 
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/108string.c|caca_conio getch() and getche() (string program 4)}} 
+  
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/109string.c|getch from ncurses(string program 5)}} 
+  
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/110string.c|getch and getche(string program 6)}} 
+
+  The non datakeys are used for scrolling, moving up, down etc, go to home, delete etc. Non datakey starts with zero 
+  in windows machine(just a guess). 
+  
+  In windows 
+  up arrow     -->   0 and 72
+  down arrow   -->   0 and 80
+  left arrow   -->   0 and 75
+  right arrow  -->   0 and 77
+  
+  pg up        -->   0 and 73
+  pg down      -->   0 and 81
+  
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/114string.c|gets() and puts()(string program 7)}} 
+  These are string input and output functions. They are similar to scanf and printf. It reads the input until the 
+  user press enter key. puts() will display string as an output. The advantage of gets(), it can also read white 
+  spaces.
+ 
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/113string.c|string program 8}} 
+  This program prints ascii character on the screen
+  
+  windows machine: 
+  
+	wherex() reads current cursor horizontal position and it returns 1 to 80
+	wherey() reads current cursor vertical position and it returns 1 to 50
+	gotoxy() It moves the cursor in particular row and column
+
+  linux machine: 
+  
+  	{{ncurses_output.wiki}}
+  	{{ncurses_input.wiki}}
+	
+* Program 
+  
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/117string.c|string program 11}} 
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/118string.c|string program 12}} 
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/119string.c|string program 13}} 
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/120string.c|string program 14}} 
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/121string.c|string program 15}} 
+  {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/122string.c|string program 16}} 
+  
+* Predefined Functions 
+  
+  string.h
+  	
+	strcpy(T,S) --> Copy source string to target string
+	strcat(T,S) --> Combine/Concatenate source string to target string (always compy from null char)
+	strrev(T) --> It reverse the string
+	strupr(T) --> Converts string to upper case
+	strlwr(T) --> Converts string to lower case 
+	l = strlen(str) --> finds length of string excluding null character 
+	l = strcmp(s1, s2) --> compares two string(exact) if equal returns zero else returns difference of ascii code 
+	l = stricmp(s1, s2) --> compare two strings by ignoring case sensitive
+	
+  - Programs
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/123string.c|string program 17}} 
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/124string.c|string program 18}} 
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/125string.c|string program 20}} 
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/126string.c|string program 21}} 
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/127string.c|string program 22}} 
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/128string.c|string program 23}} 
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/129string.c|string program 24}} 
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/130string.c|string program 25}} 
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/131string.c|string program 26}}  
+    {{file:/home/basith/Pictures/array_basic_1.png|Storing string in a character array}}
+	
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/132string.c|string program 27}} 
+    {{file:/home/basith/Pictures/array_basic_2.png|Storing string in character pointer}}
+	
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/133string.c|string program 28}}  
+	
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/134string.c|string program 29}}  
+	char pointers are more flexible than char arrays 
+	
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/135string.c|string program 30}}  
+	If first string character is greater than second string ascii code it returns difference of two characters of 
+	positive value. If second string greater than first string ascii code it returns difference of two characters 
+	of negative value. If all characters are same it returns zero. It also compares null chars as well. 
+	
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/136string.c|string program 31}}   
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/137string.c|string program 32}}  
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/138string.c|string program 33}}  
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/139string.c|string program 34}}  
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/158string.c|string program 35}}  
+	
+	Use:
+
+	fgets (name, 100, stdin);
+	100 is the max length of the buffer. You should adjust it as per your need.
+
+	Use:
+
+	scanf ("%[^\n]%*c", name);
+   
+	The [] is the scanset character. [^\n] tells that while the input is not a newline ('\n') take input. 
+	Then with the %*c it reads the newline character from the input buffer (which is not read), and the * indicates 
+	that this read in input is discarded (assignment suppression), as you do not need it, and this newline in 
+	the buffer does not create any problem for next inputs that you might take.
+
+	Read here about the {{https://pubs.opengroup.org/onlinepubs/9699919799/|scanset}} and the {{https://pubs.opengroup.org/onlinepubs/9699919799/|assignment suppression}} operators.
+	
+	Comment:
+	Just like on should never use gets, one should never use scanf with a bare %s or %[ conversion -- 
+	you should ALWAYS use a size -- so scanf("%99[^\n]%*c", name); – Chris Dodd Jun 17 '18 at 20:46
+	
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/159string.c|string program 36}}  
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/160string.c|string program 37}}  
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/161string.c|string program 38}}  
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/162string.c|string program 39}}  
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/163string.c|string program 40}}  
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/164string.c|string program 41}}  ccc
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/165string.c|string program 42}} 
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/166string.c|string program 43}}
+    {{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/vivenNew/167string.c|string program 44}} ccc
+	continue from video 2021-06-22_11-02-05.mkv
+
+	
+
+
+  
+	
+
+	
+
+
+  
+  
+
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*Lecturer: Sunil Sir*
+= Strings =
+== String Constants ==
+* Group of character enclosed within pair of double quotes. (Eg: "hello").
+* Each char constant in a string will take 1 byte memory.
+* Null character gets stored additionally at the end of the string constant.
+"RAM" = {'R', 'A', 'M', '\0'}
+This type of representation can be seen in char array initialization.
+In each byte it will store corresponding ascii character's ascii value.
+
+|       'R'       |       'A'       |       'M'       |
+|:---------------:|:---------------:|:---------------:|
+|       82        |       65        |       77        |
+|    0101 0010    |    0100 0001    |    0100 1101    |
+| 0x8000(address) | 0x8001(address) | 0x8002(address) |
+
+To display the the string we should use %s format specifier.
+printf("%s", "RAM");
+output: RAM
+* %s format specifier always requires the string starting base address(from lsb).
+* printf function will print the string character by character until it finds null character.
+* When string is being passed, It's actually passing the address of that string.
+* sizeof operator will return number of characters size.
+sizeof("Welcome");
+output: 8 (including null character byte)
+* String constants can be initialized in two ways
+* character array
+{{{c
+	// char array initialization
+	char str[10] = "RAM";
+	// char by character array initialization
+	char str[10] = {'R', 'A', 'M', '\0'};
+}}}
+  
+* character pointer
+{{{c
+	char *str = "RAM";
+}}}
+
+== String Manipulation Technique ==
+To use the string manipulation functions we have to include string.h header file.
+
+*String copy function:* This function will copy the string from source array to destination array and return the 
+destination array base address to these string manipulation functions.
+
+{{{c
+	// string copy syntax
+	char* strcpy(char *destination, const char *source);
+	// here char* is return type
+}}}
+
+Program:
+Using string copy function
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/stringCopyFunExample.c}}
+
+Creating my own string copy function
+{{vfile:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/mystringCopyFunExample.c}}
+
+*String length function:* This function will return the length of string excluding null character.
+
+{{{c
+	// string length syntax
+	size_t strlen(const char *source);
+	// here size_t is return type
+}}}
+
+Program:
+Using string length function
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/stringLengthFunExample.c}}
+
+Creating my own string length function
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/mystringLengthFunExample.c}}
+
+Differences between sizeof operator and string length function
+
+| sizeof()                                  | strlen()                               |
+|-------------------------------------------|----------------------------------------|
+| 1. Its an operator and not a function. It | 1. This is string lib function and it  |
+| will return number of bytes allocated to  | returns length of the string excluding |
+| the variable.                             | null character.                        |
+|                                           |                                        |
+| char src[10];                             | char src[10] = "raju";                 |
+| sizeof(src) --> 10 bytes                  | strlen(src) --> 4 bytes                |
+| sizeof("raju") --> 5 bytes                | strlen("raju") --> 4 bytes             |
+|                                           |                                        |
+| 2. In this we can pass var, const, array  | 2. We have to pass string base address |
+| name, struct name, union name, etc.       | only.                                  |
+
+
+Practice Program:
+Write a program to convert string to integer.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/mystringToInteger.c}}
+
+Write a program to convert integer to string.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/myintegerToString.c}}
+
+Write a program to reverse the string.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/myreverseString.c}}
+
+Write a program to count the number of characters in a given string.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/mycountingTheCharacters.c}}
+
+Write a program to arrange the characters of string in ascending order.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/myarrangeCharInAscending.c}}
+
+== String Concatenation ==
+It is predefined library function. It requires two string base addresses. The source string is added at the end of 
+the destination string and it will return destination string base address.
+
+{{{c
+	char* strcat(char *destination, const char *source);
+	// char* is return type
+}}}
+
+Example Problem:
+Write a program to showcase strcat() funtion.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/strConcat.c}}
+
+Write a program to implement a function like strcat().
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/mystrConcat.c}}
+
+== String Concatenation ==
+The  strcpy()  function  copies the string pointed to by src, including the terminating null byte ('\0'), to the
+buffer pointed to by dest.  The strings may not overlap, and the destination string dest must be large enough to
+receive the copy.  Beware of buffer overruns!  (See BUGS.)
+
+The  strncpy() function is similar, except that at most n bytes of src are copied.  
+Warning: If there is no null byte among the first n bytes of src, the string placed in dest will not be 
+null-terminated.
+
+If the length of src is less than n, strncpy() writes additional null bytes to dest to ensure that a total of n
+bytes are written.
+
+(This is copied from manual(man strcpy))
+
+See manual for more info.
+
+== String Compare ==
+This function is used to compare the two strings if they are same it returns zero else non-zero value.
+
+{{{c
+	int strcmp(const char *source1, const char *source2);
+}}}
+
+Example Problem:
+Write a program to showcase strcmp() funtion.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/strCmp.c}}
+
+Write your own strcmp() function and use it in a program.
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/mystrCmp.c}}
+
+Quiz:
+{{file:/home/basith/Coding/CProgramming/vivenEmbeddedAcademy/strInitilize.c}}
+
+We can initialize a string by using character pointer. The memory for the string is allocated in ro data segment.
+If you try to modify the contents of ro segment the app will terminate with seg fault error. 
+{{file:/home/basith/Pictures/p306errorChangingString_viven.png}}
+
+
+
