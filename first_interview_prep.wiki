@@ -1,0 +1,27 @@
+= Introduction =
+ 	Basith, could you brief me about yourself (could you go through your profile)
+		Sure, as you know my name. I'm abdul basith and I'm an electrical and electronics engineer. I have completed my 
+		engineering	in 2019 and intermediate in 2011 and ssc in 2009. During my engineering I have taken training on 
+		various courses like:
+		1. Introduction to electronics (coursera)
+		2. Introduction to Power Electronics (coursera)
+		3. C programming
+		4. Kernel Programming
+		5. System Programming(somewhat familiar)
+		6. linux
+		I was looking for a job which suite my skills. After completing my engineering I started looking for jobs. 
+		(I had backlogs and to clear those backlogs it has taken quite a while.)
+		This is the brief introduction about me.
+		
+	Why did you took so long to complete your backlogs.
+		My father was laid off of his job. He didn't want to continue doing the job abroad so he came back to india). He 
+		started business here and the business was very hecktic in the beginning. So most of the time I was resposible 
+		for handling the business.
+		
+= Resume List =
+{{vfile:/home/basith/Documents/resumelist/resume1.txt}}
+{{vfile:/home/basith/Documents/resumelist/resume2.txt}}
+{{file:/home/basith/Documents/resumelist/embedded_software_developer_cv.pdf}}
+{{file:/home/basith/Documents/resumelist/embedded-software-engineer-1527487488.pdf}}
+{{file:/home/basith/Documents/resumelist/Embedded-System-Developer-Resume-Sample.jpg}}
+

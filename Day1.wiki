@@ -1,0 +1,21 @@
+= Questions =
+
+1. [[q1|Difference Between userspace stack and kernel space stack]]
+2. [[q2|What is the differnce between packed and unpacked structure]]
+3. [[q3|Difference between structure padding and structure packing]]
+4. [[q4|What is linkage information]]
+5. [[q5|What is heap corruption]]
+6. [[q6|Write a c program to written c function pointer and where we are using]]
+7. [[q7|Difference between structure and union]]
+8. [[q8|What is enum]]
+9. [[q9|Difference between pointer to array and array to pointer]]
+10. [[q10|Swap two variables without third variable.]]
+11. [[q11|Write a c program without main]]
+12. [[q12|Difference between c and embedded c?]]
+13. [[q13|What is reentrant function.]]
+14. [[q14|Write a program to swap nibble.]]
+15. [[q15|Write a program to find MSB set in number.]]
+16. [[q16|Allocate 2-d array using dynamic memory allocation]]
+17. [[q17|What are the content of executable file]]
+18. [[q18|What is the use of symbol table and its use in executable file.]]
+
