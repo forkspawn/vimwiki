@@ -14,7 +14,7 @@
 [[logs.wiki|Logs]]
 
 = Interview =
-{{file:/home/basith/vimwiki/InterviewPrep.wiki|Interview Prep}}
+{{Interview/InterviewPrep.wiki|Interview Prep}}
 
 = Life Goal =
 [[/LifeGoal/index.wiki|Islam]]
