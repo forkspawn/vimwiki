@@ -1,4 +1,0 @@
-TODO
-- [✓] Do 2 problems from recursive funciton topic.
-- [✗] Think which microcontroller project to do.
-- [✓] Review the notes you took.

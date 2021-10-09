@@ -1,7 +1,0 @@
-TODO
-- [✓] Complete the some of memory management (viven notes)
-- [✓] Write notes on ldd1 section 3(udemy)
-	- [✓] 34 
-
-= Notes =
-Confused on how to organize kernel notes. 

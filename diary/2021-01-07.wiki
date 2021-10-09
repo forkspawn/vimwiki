@@ -1,3 +1,0 @@
-TODO
-- [✗] Complete section 2 of ldd1
-- [✗] Complete 4 problems

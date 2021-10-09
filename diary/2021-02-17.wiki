@@ -1,3 +1,0 @@
-TODO
-- [✓] Do arrays
-- [✗] Do java

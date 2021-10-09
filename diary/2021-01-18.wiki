@@ -1,3 +1,0 @@
-TODO
-- [✓] Complete some of the head_first c book 
-	- [✓] Completed till chapter 4

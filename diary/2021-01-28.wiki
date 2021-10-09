@@ -1,7 +1,0 @@
-TODO
-- [✓] Completed watching section 3 ldd1
-- [✗] Revise the head first c chapter 5
-	- [✗] do the chapter 6 then.
-
-= Notes =
-I went to buy some stuff for home.

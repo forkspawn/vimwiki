@@ -1,5 +1,0 @@
-TODO
-- [○] Write these viven notes to vimwiki
-	- [✓] Strings
-	- [✗] Arrays
-	- [✗] Pointers

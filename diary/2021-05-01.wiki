@@ -1,8 +1,0 @@
-TODO
-- [✗] Complete array problems from book
-- [✗] Do the sorts problems from class
-- [✗] Do the java coding
-- [✗] Dont sleep until you complete
-
-= Notes =
-

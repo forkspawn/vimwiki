@@ -1,3 +1,0 @@
-TODO
-- [✗] Revise the anki deck of ldd1 and c programming.
-- [✗] Create flash cards for ldd1 videos 79 to 83.

@@ -1,5 +1,0 @@
-TODO
-- [◐] Learn and create flash cards for
-	- [✓] Memory Management
-	- [✓] Storage classes
-	- [✗] Compilation Stages

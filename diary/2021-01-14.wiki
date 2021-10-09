@@ -1,5 +1,0 @@
-TODO
-- [✗] Complete section 2 notes of LDD1(UDEMY)
-- [✗] Analyze the recursive funtions(solved problems)
-- [✗] If you have time then go for c game programming.
-- [✗] Revise C programming notes of viven (3 hours).

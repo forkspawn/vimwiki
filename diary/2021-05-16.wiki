@@ -1,5 +1,0 @@
-TODO
-- [X] Watch Lecture 1 (cs50 harvard)
-- [ ] Practice from cindepth book(matrix chapter)
-- [ ] Practice new viven notes
-- [ ] Code wars(5 problems)

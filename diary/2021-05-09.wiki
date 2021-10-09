@@ -1,4 +1,0 @@
-TODO
-
-- [X] Create compilation stages notes
-- [ ] Create memory managemen notes

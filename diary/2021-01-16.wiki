@@ -1,2 +1,0 @@
-TODO
-- [✓] Complete some of the head_first c book 

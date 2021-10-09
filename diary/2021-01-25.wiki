@@ -1,8 +1,0 @@
-TODO
-- [✓] Complete ldd1 section 2 notes
-- [✗] Complete watching ldd1 section 3
-- [✗] Revice head first c chapter 5 and continue to chapter 6
-	- [✗] Review the concepts and analyze the programs.
-- [✗] Revice the strings, arrays and pointers(viven notes)
-
-= Notes =

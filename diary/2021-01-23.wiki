@@ -1,9 +1,0 @@
-TODO 
-- [✓] Complete pointers concepts(viven)
-	- [✓] Write 3 programs using pointers
-		- [✓] Find the sum of natural number
-		- [✓] Find factorial of a number
-		- [✓] Print the group of peoples name using three different ways.(learn c the hard way-->ex:15)
-- [✓] structures and unions(head first c)
-	- [✓] practice it, some of it.
-- [✗] if you have time then practice the next chapter.
