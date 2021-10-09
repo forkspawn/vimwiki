@@ -1,0 +1,12 @@
+TODO
+- [✓] Revise the viven notes.
+- [✗] Revise the driver methods and implement it from scratch.
+- [✓] Redo section 3(some videos)
+- [✗] Revise the programs from head first c(structures).
+- [✓] Think of the project and start doing it from today.
+	- [✓] Do the sqlite
+
+= Notes =
+Unable to write contents of init and exit function. Doing section 3 again. Was able to write skeleton of the program.
+
+

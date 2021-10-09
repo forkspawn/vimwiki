@@ -1,0 +1,5 @@
+TODO
+- [✓] Watch ldd1 section 5
+- [✓] Start chapter 6 (head first c)
+- [✗] Review memory management(with any example)
+	- [✗] Do atleast 5 problems

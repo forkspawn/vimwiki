@@ -1,0 +1,5 @@
+TODO
+- [✓] Practice 5 solved problems of recursive functions.
+- [✓] Complete Watching of Section 2 of LDD1.
+- [✗] Revise C programming notes of viven (3 hours).
+- [✗] If you have time then go for c game programming.

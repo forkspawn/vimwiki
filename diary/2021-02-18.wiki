@@ -1,0 +1,15 @@
+TODO
+- [✓] Viven Notes(Practice 2 hours).
+- [✗] Kernel Programming(3 hours).
+	- [✗] Create a video on kernel programming.
+		- [✗] How system calls are transferred from userspace to kernel space.
+	- [✗] Write your own kernel module.
+- [✓] Review the head first c notes.
+- [✗] Do the project
+
+= Notes =
+Viven Notes: Practiced till page 114
+
+Kernel Programming: Not able to recall correctly about device drivers.
+
+Project: Didn't got time to do it.

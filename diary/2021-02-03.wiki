@@ -1,0 +1,4 @@
+TODO
+- [✗] Watch and complete ldd1 section 4(udemy)
+- [✗] Start chapter 6 (head first c)
+- [✗] 

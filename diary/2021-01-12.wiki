@@ -1,0 +1,4 @@
+TODO
+- [✓] Watch 2 videos of recursive function. neso academy
+	- [✓] solved prob1, prob2
+- [✓] Do kernel compilation of raspberrypi.

@@ -1,0 +1,11 @@
+TODO
+- [ ] Do the all sorting problems in c
+	- [✓] insertion sort
+	- [✗] quick sort
+	- [✗] merge sort
+- [✗] Complete the arrays example problems from c in depth book
+- [✗] Record the video(fzf)
+- [✗] Complete the java section 5 problems
+
+= Notes =
+

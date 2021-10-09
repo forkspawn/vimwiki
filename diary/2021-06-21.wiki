@@ -1,0 +1,10 @@
+TODO
+
+- [ ] Create c lang notes (kiran sir). 
+	- [ ] Date: 25, 26, 27 
+	- [ ] Date: 28, 29, 31
+	- [ ] Date: 8, 14, 15
+	- [ ] Date: 16, 17, 19
+	- [ ] Date: 20, 21, 22
+- [✓] Vinod Sir and Sunil Sir notes
+	- [✓] 

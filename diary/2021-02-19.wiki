@@ -1,0 +1,8 @@
+TODO
+- [○] Learn(use gdb to learn) and create flash cards for
+	- [✓] Memory Management
+	- [✗] Storage classes
+	- [✗] Compilation Stages
+
+= Notes =
+1. The above is 5 days task. Do it without fail. Inshallah.

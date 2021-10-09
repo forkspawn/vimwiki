@@ -1,0 +1,17 @@
+TODO
+
+- [X] Watch vim video(luke smith)
+	- [X] https://youtu.be/bQfFvExpZDU
+- [X] Create the memory management video
+	- [X] Do some research on memory management. 
+		- [X] Create the notes
+- [X] watch Harvard cs50 (official)
+	- [X] Just watch Lecture 0
+
+= Notes =
+Memory Management is very deep topic so im going to skip it for about two 
+months probably. Then I will decide what to do. 
+
+I need to learn about digital electronics and microprocessor and 
+microcontroller to be able to appreciate the importance of memory in embedded
+world.

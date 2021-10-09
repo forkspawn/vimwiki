@@ -1,0 +1,5 @@
+TODO
+- [✓] ldd1 section 3
+	- [✓] Watched 34 - 39 video lectures
+- [✗] Analyze the head first c chapter 5 problems then start chapter 6
+- [✗] Start CInDepth Recursive Functions 

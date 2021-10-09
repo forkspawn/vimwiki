@@ -1,0 +1,9 @@
+TODO
+- [✓] Watch ldd1 section 6 videos
+	- [✓] watched two vides from section 6
+- [✗] Review c notes viven
+	- [✗] Arrays
+	- [✗] Pointers
+	- [✗] Strings
+	- [✗] storage classes
+	- [✗] Memory Management

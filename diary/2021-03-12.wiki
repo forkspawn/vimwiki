@@ -1,0 +1,4 @@
+TODO
+- [✗] Do this all day.
+	- [✗] Revise the anki deck of ldd1 and c programming.
+

@@ -10,8 +10,8 @@
 	different sections to occupy different memory areas.
 * Typically one linker script has one memory command.
 * Syntax: 
-  * [[file:/home/basith/Pictures/linker_memory_syntax.png|Linker Memory Syntax]]
-  * [[file:/home/basith/Pictures/linker_memory_syntax_2.png|Linker Memory Name Attributes]]
-  * [[file:/home/basith/Pictures/linker_memory_syntax_example.png|Linker Memory Example]]
-* See the linker code.
+  * [[file:/home/basith/Pictures/linker_memory_syntax.png|Linker Memory Syntax Pic]]
+  * [[file:/home/basith/Pictures/linker_memory_syntax_2.png|Linker Memory Name Attributes Pic]]
+  * [[file:/home/basith/Pictures/linker_memory_syntax_example.png|Linker Memory Example Pic]]
+* See the linker code (See Memory Section).
 	

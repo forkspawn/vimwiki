@@ -1,0 +1,3 @@
+TODO
+- [ ] Practice c programming(cindepth complete matrix problems)
+- [ ] Do code wars(5 problems)

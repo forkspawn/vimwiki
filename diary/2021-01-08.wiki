@@ -1,0 +1,3 @@
+TODO
+- [✓] Complete 55, 56, 57 and 58 problems from functions
+- [✗] Complete Section 2 for LDD1

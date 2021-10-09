@@ -1,0 +1,9 @@
+TODO
+- [X] Create a video on fzf
+- [ ] Complete sorting algorithms
+	- [ ] quick sort
+	- [ ] merge sort
+- [ ] Create stack programs
+	- [ ] basic stack programs
+	- [ ] infix to postfix
+- [ ] Complete array chapter examples

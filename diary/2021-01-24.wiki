@@ -1,0 +1,4 @@
+TODO
+- [✓] head first c (chapter 5 complete)
+- [✗] LDD1(udemy) section 2 complete(notes)
+- [✗] Complete section 2 videos

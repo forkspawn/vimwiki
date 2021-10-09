@@ -1,0 +1,4 @@
+TODO
+- [✓] Revise the head first c 
+	- [✓] Revise chapter 5
+	- [✓] start chapter 6

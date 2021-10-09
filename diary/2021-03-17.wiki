@@ -1,0 +1,15 @@
+TODO
+- [✗] 9 to 12 c language
+	- [✗] revision and coding exercise(udemy)
+- [✗] 1 to 4 kernel programming
+- [✗] 4 to 11 java
+
+= Notes =
+== C programmming ==
+Do the coding and dont waste time on concepts you already know
+
+== Kernel Programming ==
+Continue with the read method
+
+== Java Programming ==
+Continue with the udemy course

@@ -1,0 +1,41 @@
+TODO
+- [◐] Complete Yesterdays Task 
+	- [✓] Create the git account
+		- [✓] Create git account
+		- [✓] Take notes on how it functions
+		- [✓] Upload the function problems(chapter 6)to git
+	- [✗] Watch LDD1 videos(udemy) from 13 to 21
+		- [✗] Make organized notes
+
+= Task =
+- [✗] Watch LDD1 Videos(udemy)
+	- [✗] Complete Section 2 with notes
+- [✗] Problems(Functions)
+	- [✗] 53 - 60
+
+= Notes =
+*10:30 AM*
+Got up and did water plant bussiness. 
+
+*12:24 PM*
+I want to go to zomato but I'm confused why? because todays task is huge and in
+a month time I will not study too much. I'm also worried about zomato will 
+disable my account. So today I will most likely not go. I will start studying 
+at 1:00 PM.
+
+*5:00 PM*
+Finished half of git video. It took a lot of time to understand and
+implement it.
+
+*5:50 PM*
+Feeling a little sleepy, Unable to concentrate. My head is full, I'm feeling 
+nauceous. On top of that my mom is telling me to clean. She doesn't know I'm
+feeling nauceous and even if I say it nothing changes. She may blame me. 
+
+*11:46 PM*
+Mom was cleaning the room so I wasn't able to do the task. But I'm starting 
+now.
+
+*5:37 AM*
+Stuck at mounting .img file in archlinux. I want to mount the beagle bone black
+os image to /mnt/rootfs so I'm getting errors. SIGH....

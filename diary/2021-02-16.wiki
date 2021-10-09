@@ -1,0 +1,6 @@
+TODO
+- [✓] Create anki flash cards for udemy(section 3)
+	- [✓] Create 1st and 2nd videos flash cards.
+- [✓] Do the array chapter for 1.5 hours
+- [✓] Review the head first c problems.
+- [✗] Do the project.

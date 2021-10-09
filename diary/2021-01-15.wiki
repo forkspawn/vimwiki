@@ -1,0 +1,9 @@
+TODO
+- [✓] Complete section 2 notes of LDD1(UDEMY)
+	- [✓] almost comleted
+- [✓] If you have time then watch C game programming.
+	- [✓] Writing 2d games in C using SDL library
+- [✗] Revise C programming notes of viven (3 hours).
+
+= Notes =
+

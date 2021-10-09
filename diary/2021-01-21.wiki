@@ -1,0 +1,7 @@
+- [◐] Write these viven notes to vimwiki
+	- [✓] Strings
+	- [✓] Arrays(page 288)
+		- [✓] Complete the feature1.c problem (see how problem is solved from notes)
+	- [✗] Pointers
+- [✗] Revise the head first c concepts
+	- [✗] Look up the problems and analyze it.

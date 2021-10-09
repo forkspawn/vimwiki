@@ -1,0 +1,27 @@
+- Do research on ultisnips
+
+- Send the sound signal via esp8266
+	- It should send and receive signal.
+	- It's very complicated. I may not do it.
+
+- Music Spectrum
+	Create a music spectrum device.
+	- https://www.hackster.io/DKARDU/how-to-diy-32-band-led-audio-music-spectrum-analyzer-4d63d9
+
+- Build the second brain(should i use obsidian?)
+	- https://youtu.be/OP3dA2GcAh8
+
+- How to become software developer, how to prepare for interviews
+	- https://youtu.be/yufRLksxdLo
+
+- Learn about zettlekastian note taking method
+	- vim-zettle: can i use it for zettling my notes, it can be used with vimwiki?
+
+- How to generate kernel's compile_commands.json
+	- https://stackoverflow.com/questions/59324820/linux-kernel-generate-compile-commands-json-for-module
+	- https://github.com/torvalds/linux/commit/b30204640192
+- Look into ncurses
+	- It allows to create termianl based windows in c language
+
+- Some tips on MCU
+https://www.edaboard.com/threads/getting-started-with-microprocessor-programming-in-c-c.378550/

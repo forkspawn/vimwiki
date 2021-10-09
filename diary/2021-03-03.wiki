@@ -1,0 +1,12 @@
+TODO
+- [✗] Watch and follow along ldd1(udemy)
+	- [✗] Try to understand what each statement is doing.
+	- [✗] Write the code.
+	- [✗] Create flash cards if understood.
+- [✗] Complete Arrays from cindepth book
+- [✗] Complete the pointers from cindepth book.
+- [✗] start the java course https://www.udemy.com/course/java-the-complete-java-developer-course/
+
+= Notes =
+Complete the above task by 13th March
+

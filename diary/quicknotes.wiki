@@ -1,0 +1,475 @@
+= How to create the header files =
+https://www.tutorialspoint.com/cprogramming/c_header_files.htm
+
+= How to remember what you read =
+https://www.youtube.com/watch?v=a28SdBZNIOc&t=1816s
+Does it apply to technical stuff (kernel programming and system programming).
+I want to master it. I want to use anki to do space repetition.
+
+= Software Development Story=
+I literally learned my software engineering job from the internet. 
+Out of work construction worker when the market crashed in 2007.
+I was blessed to be able to just find something I found interesting, and just 
+dug in. I had always thought home automation was cool, so I started playing 
+with Linux. Linux led me to learning scripts. Scripts led me to wanting 
+more of a 'system'. Wanting that 'system' for home automation led me to an 
+open source project, LinuxMCE. LinuxMCE had lots of code I was able to slowly 
+take piece by piece, understand, and improve. All at my own speed. Started 
+with basic patches to the media management that let you add metadata to 
+video files. Just some php and html with some JSON sprinkled in there. 
+And learning to work with databases. Then, with that under my belt I 
+approached c++. From there i learned how to write an interface for the 
+Phillips hue system in c++ so that everyone could use it with LinuxMCE.
+Fast forward 5 years, ive written multiple c++ components, and ported the 
+application to android. At this point, I started shopping my resume around 
+with a link to my work and was able to get hired as a Qt Software engineer.
+I should point out, im a HEAVY Qt user as it make the multi-platform life for 
+most of the applications I develop easier. But i've had to write native java 
+applications as well, so its not all Qt all the time. Stick with it! It can 
+be frustrating, but hang in there! I have a great software engineering job 
+now and my resume was essentially my OSS development work. Plus, working in 
+the OSS field allows you to develop a thick skin and people skills. Or not ;)
+
+= Linking Files =
+How to link library files 
+https://youtu.be/Sy9rGuvfmO0
+
+= Fix These =
+Fix the colors displayed when doing debugging. I cant see the number line.
+{{file:/home/basith/Pictures/gdbColorProb.png}}
+Fix the default layout of gdbdash dashboard when it launches.
+
+Also fix browser settings. I cant launch browser when i press mod+w, which 
+should launch browser. I uninstalled brave and firefox. I have qutebrowser.
+
+~~Create the private repository for vimwiki.~~
+
+Create the good syncing between all devices so that I can access all documents,
+videos, music, downloads etc.
+
+= Do This =
+learn sqlite:
+I want to create a database of customers. Write a c program which should have the following features:
+search, add, remind etc. 
+
+= Research This =
+What audit message is saying while using dmesg. Im getting a lot of audit 
+messages while using dmesg.
+
+how to organize kernel notes. 
+
+Whats the use of raspiAP which I installed on raspberrypi4. :) 
+
+Generate Kernel compile_command.json file
+
+Folding code in nvim
+
+= What does it mean when Allah says people break the relation after making relation with Allah strong =
+Find the details
+
+= Quick Sort =
+{{vfile:/home/basith/Documents/quicksort.txt}}
+
+Ted talk: Focus
+https://www.youtube.com/watch?v=xF80HzqvAoA
+The takeaway: 
+-Destroy nervousness in order to focus
+-Destroy nervousness by taking attention off negative things and worries, and place it on neutral things
+-Stop looking to future success, look to the now
+-Focus on one thing, and do it really really well
+-Play to your strengths
+-Make a dont-do list
+
+Loved her line "...and still today, I can remember that smell of lead and loneliness." Reveals what it takes to be the best! 
+
+At the end of the day it is not the remarkably insightful which become the world champions, it is the determined and focused.
+
+= Job =
+Amit (kartik friend)
+madhu sir - 9000247232
+
+= Pointer program =
+{{{
+
+void main()
+{
+int A[]={4,14,24,34};
+int B[]={6,16,26,36};
+int C[]={9,19,29,39};
+
+int *ptr[3];
+int **pptr;
+int i;
+
+ptr[0]=A;
+ptr[1]=B;
+ptr[2]=C;
+
+pptr=ptr;
+
+for(i=1;i<=3;i++)
+{
+*pptr+=i;
+**pptr+=i;
+++pptr;
+}
+--pptr;
+printf("\n%d", **pptr);
+for(i=0;i<3;i++)
+printf("%d", *ptr[i]);
+
+for(i=0;i<4;i++)
+printf("\n %d %d %d",A[i],B[i],C[i]);
+}
+
+}}}
+
+{{{
+void accept(int[],int);
+void display(int[],int);
+void sort(int [],int);
+int inter_arr(int[],int[],int[],int,int);
+int union_arr(int[],int[],int[],int,int);
+
+main()
+{
+	int a[50],b[50],un[50],in[50],ie,ue,m,n;
+printf("Enter the Size of m : ");
+scanf("%d",&m);
+printf("Enter the Size of n : ");
+scanf("%d",&n);
+printf("Enter the elements in first array ..: \n");
+accept(a,m);
+printf("Enter the elements in Second array ..: \n");
+accept(b,n);
+sort(a,m);
+sort(b,n);
+printf("\n The elements in A array..\n"
+}}}
+
+Segments
+
+%% Program
+{{{
+int g;
+void abc()
+{
+int al;
+static int as;
+al=++as;
+++g;
+printf("%d %d %d", al,as,g);
+if(al<=2)
+abc();
+printf("\n %d %d %d",al,as,g);
+}
+ 
+void kiran()
+{
+int l;
+static int s;
+l=++s;
+++g;
+printf("\n %d %d %d",l,s,g);
+abc();
+if(l<=2)
+kiran();
+printf("\n %d %d %d",l,s,g);
+}
+
+void main()
+{
+kiran();
+}
+}}}
+
+= Date: 15/6/21 =
+{{{
+void main()
+{
+static int arr[3][3]={{1,11,21},{2,12,22},{3,13,23} };
+int *ptr[3];
+int **pptr;
+clrscr();
+
+ptr[0]=&arr[0][0];
+ptr[1]=&arr[1][0];
+ptr[2]=&arr[2][0];
+pptr=ptr;
+++*pptr;
+  ++ptr[0];
+  ++**pptr;
+  ++*ptr[0];
+
+  ++pptr;
+  ++*pptr;
+  --ptr[1];
+  --**pptr;
+  ++*ptr[1];
+
+  ++pptr;
+  ++*pptr;
+  --*ptr[2];
+  ++**pptr;
+printf("\n%d %d %d",arr[0][2],
+		 arr[1][2],arr[2][0]);
+printf("\n%d %d %d", *(*(arr+1)+2),
+	   *(*(arr+2)+0), *(*(arr+0)+2));
+printf("\n %d %d %d ", *ptr[0], *ptr[1], *ptr[2]);
+
+printf("\n%d %d %d", **(ptr+0),
+		    **(ptr+1), **(ptr+2));
+}
+}}}
+
+
+= C(MACROS)@ 11 AM kiran sir=
+http://meet.google.com/ipo-zhwz-oei
+
+= C @ 11 AM kiran sir=
+http://meet.google.com/qzj-qeic-yyi
+
+= Palindrome string =
+main()
+	 {
+	   char st[20];
+	   int k;
+	  // clrscr();
+	   printf("Enter the string :");
+	   gets(st);
+	   k=palindrome_str(st);
+	   if(k==0)
+	     printf("Given string is not Palindrome");
+	   else
+	     printf("Given string is Palindrome");
+	   get
+}
+
+= Password Program Kiran sir =
+#include<stdio.h>
+#include<conio.h>
+#include<process.h>
+#include<string.h>
+//#include<windows.h>
+main()
+{
+  char st[40],ch;
+  /*const char *exe;*/
+
+  int i=0;
+  clrscr();
+  gotoxy(20,12);
+  printf("Enter Password  :");
+  while(1)
+  {
+    ch=getch();
+    if(ch==13)
+     break;
+    else
+    {
+      if(ch==8)
+      {
+       if(i>0)
+       {
+	printf("\b");
+	printf("%c",32);
+	printf("\b");
+	i--;
+       }
+      }
+     else
+     {
+       st[i]=ch;
+       i++;
+       printf("*");
+      }
+    }
+   }
+   s
+ st[i]='\0';
+  if(strcmp(st,"kiran")==0)
+  {
+      gotoxy(35,20);
+      printf("Please Wait....");
+      system("c:\\prj.exe");
+   }
+ else
+  {
+     gotoxy(35,20);
+    printf("Invalid Password");
+    getch();
+  }
+}
+= Collection of string program kiran sir=
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+main()
+{
+char name[50][50];
+
+int n,i,pos,big=0,l[50];
+
+//clrscr();
+printf("How many strings->");
+scanf("%d",&n);
+printf("\nEnter %i Strings with  different lengths\n",n);
+for(i=0;i<n;i++)
+{
+printf("Enter string-%2i -> ",i+1);
+//flushall();
+fflush(stdin);
+gets(name[i]);
+}
+
+
+printf("\nPosition\tLength\t\tString\n\n");
+for(i=0;i<n;i++)
+{
+l[i]=strlen(name[i]);
+printf("%5i\t\t%4i\t\t",i+1,l[i]);
+puts(name[i]);
+if(l[i]>big)
+{
+big=l[i];
+pos=i;
+}
+}
+printf("\n\nLongest string is ");
+puts(name[pos]);
+printf("With characters %i at position %i",big,pos+1);
+getch();
+}
+
+= 24 06 2021 Program kiran sir =
+//Array of structures
+#include<stdio.h>
+typedef struct student
+{
+	char name[4];
+	int age;
+	int rollno;
+}std;
+
+main()
+{
+	std s[3];//array of structures
+	int i;
+
+printf("Size of structure : %d , Size of s : %d\n",sizeof(struct student),sizeof(s));
+	
+for(i=0;i<3;i++)
+{
+printf("Enter Student Details %d..\n",i+1);
+scanf("%s %d %d",&s[i].name,&s[i].age,&s[i].rollno);
+}
+
+printf("The Student Details..	\n");
+for(i=0;i<3;i++)
+printf("%s %d %d\n",s[i].name,s[i].age,s[i].rollno);
+}
+
+= 24 06 2021 Program kiran sir =
+
+If u store employee information
+Highly Scale HSK
+Semi Scale SSK
+
+One way to store structures structures wasting two slots either any two used but not both Then we can store by unions 
+//UTILITY
+
+Name
+Grade
+Age
+If Grade=HSK 
+  Hobbie name
+Credit card no
+If Grade =SSK
+Vehicle No
+Distance from Company
+
+
+struct info1
+{
+	char hobby[10];
+	int creditno;
+};
+struct info2
+{
+	char vehno[10];
+	int dist;
+};
+
+
+union info
+{
+	struct info1 a;
+	struct info2 b;
+};
+struct emp
+{
+	char name[20];
+	char grade[4];
+	int 
+age;
+	union info f;
+};
+
+
+Token        Stack
+6				6
+3				6,3
+2				6,3,2
+-				6,1
+5				
+
+
+= Sunil Sir Videos Telegram =
+01. 10/23/2020 (5_6307725447786398338.avi) 
+    sigaction(), signal handler(), alarm(), pause()
+    Signal concepts completed.
+    Threads first class(time of video where threads starts: 38:24) 
+   
+02. 11/3/2020 (5_6307320999306068538.avi)
+    not the first class of threads 
+
+03. 11/4/2020 (5_6307725447786398329.avi)
+    threads continuation 
+   
+04. 11/6/2020 (5_6307725447786398331.avi)
+    threads continuation 
+   
+05. 11/9/2020 (5_6307725447786398333.avi) 
+    mutex locks (not the first class) 
+    pthread_mutex_lock
+    pthread_mutex_unlock 
+    corresponding vinod sirs video(22/07/2021) 
+   
+06. 11/19/2020 (5_6307725447786398336.avi)
+    message queues first class 
+   
+07. 11/20/2020 (5_6307725447786398337.avi) 
+    server and client program
+   
+08. 11/25/2020 (5_6307725447786398340.avi) 
+    semaphores first class 
+   
+09. 11/26/2020 (5_6307725447786398341.avi)
+    semaphores continuation,
+	client and server application, shared memory
+   
+10. 11/30/2020 (5_6307725447786398342.avi) 
+	server and client application continuation, shared memory 
+	
+11. 12/1/2020 (5_6307320999306068537.avi) 
+	posix ipc mechanisms first class, memory mapping, pages
+
+12. 12/4/2020 (5_6307725447786398330.avi)
+    POSIX shared memory 
+   
+13. 12/14/2020 (5_6307725447786398334.avi) 
+    no video(absent)
+
+
+= youtube and aria2c =
+youtube-dl -f best --external-downloader aria2c --external-downloader-args "-j 16 -x 16 -s 16 -k 1M" https://www.youtube.com/watch?v=blablablabla1 https://www.youtube.com/watch?v=blablablabla2 https://www.youtube.com/watch?v=blablablabla3
