@@ -8,5 +8,3 @@
 4. [[bare_minimum_files_required|Bare Minimum Files Required For Compiling]]
 5. [[writing_linker_script|Writing Linker Script From Scratch and generating application executable(.elf, bin, hex)]]
 6. [[openOCD_and_gdb_client|Loading the final executable on the target using OpenOCD and GDB client.]]
-
-
