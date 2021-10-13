@@ -1,0 +1,45 @@
+* What is above stack?
+	* command line args and environment variables.
+
+* Why stack grows
+	* When function is invoked
+	* When a new thread is created a block of memory is created in stack
+* Why heap grows
+	* 
+
+* Process
+	* Memory segments in userspace and pcb in kernel space both collectively called it as process.
+		* text segments contain instructions, data segment contains global initialized vars info, 
+		  bss has 
+	* There could be 100s or 1000s of process running in your system.
+
+* What is PCB and what does it contains.
+	* PCB: process control block or process descriptor
+	* It contains process information (IQ)
+	* These are objects of type task_struct
+	* Every process has unique id called pid(process identifier) and ppid. Every process is created 
+    from another process.
+	* It has file descriptor
+		* fd table contains info about files which are opened from program or process.
+	* signal disposition table
+		* When program goes into infinite loop we can use signals to terminate(ctrl+c) and 
+      suspend(ctrl+z). Find out other key combinations used in kernel applications. These key 
+			combinations can generate signals.
+		* Any other example where signals are used?
+			* Inproper handling of pointers. 
+			  Example: In linked lists if its not handled properly it crash during runtime or execution time.
+				It crashes with seg fault. Here program is aborted using signal mechanism. 
+		* It maintains signals behaviour or disposition of signals or signal's disposition
+		* It contains page table
+			* To understand it we need to know about virtual memory.
+				* To understand virtual memory we need to understand paging technique and address translating
+	* PCBs which belong to multiple process are maintained as nodes in double linked lists. This 
+		list is called as running queue. List of pcbs are maintained or handled in process management 
+		subsystem.
+		* Who is maintaining running queue.
+			* Process management subsystem maintains or handles this running queue. 
+	* Any other mechanism to create to process?
+		* Using a system call. System calls are used in userspace application.
+			* Why do we need system call?
+				* To send request to various subsystems of kernel.
+
