@@ -11,3 +11,10 @@
 = Research =
 * Multiple threads updating one piece of data simultaneously is creating problems
   {{threads_temp_research.wiki|Threads Temporary Research}}
+
+= System Programming =
+vamsi sir
+* {{Introduction_Vamsi_Sir.wiki|Introduction}} 
+
+* Why stack grows
+* Why heap grows

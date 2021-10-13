@@ -38,8 +38,37 @@
 		subsystem.
 		* Who is maintaining running queue.
 			* Process management subsystem maintains or handles this running queue. 
-	* Any other mechanism to create to process?
-		* Using a system call. System calls are used in userspace application.
-			* Why do we need system call?
-				* To send request to various subsystems of kernel.
+	* Any other mechanism to create to process? How do you create a new process. How do you create a 
+		child process (IQ)? 
+		* Using a system call(fork or vfork). System calls are used in userspace application. 
+		* The process from where the fork is invoked thats called as parent process.
+		* Why do we need system call?
+			* To send request to various subsystems of kernel. Every system call has equivalent kernel 
+				call. 
+* When cpu is executing instructions from .text segment, when it calls fork the control will 
+	goes from userspace to kernel space. When fork is invoked internally sys_fork(kernel call) will 
+	be invoked. fork is actually sending request to kernelspace subsystem(process management). A 
+	new pcb will be created for child process. A process which invokes fork system call is called as 
+	parent process and new Process which is created is called child process. The parent process PCB 
+	it has some members:
+	1. Process ID(PID)
+	2. Parent Process ID (PPID)
+	3. Signal disposition table 
+	4. Page table
+
+	* Some members of parent process pcb are copied to child process pcb. which members are copied?(IQ) 
+		* fd table
+		* page table
+	* The contents of fd table are inherited from where?
+		* The contents of fd table are inherited from parent process to child process. This new child 
+			process will create some new memory in userspace. Then contents of parent process memory 
+			segments are copied as it is to child process memory segments. The child process is exact 
+			replica of parent process.
+		* From a single program can we create multiple process?(IQ)
+			* Yes, from one program we are creating parent process and child process. From fork we can 
+				have parent as well as child process. Both parent and child has to execute different 
+				blocks of code for tasks. To understand the execution of parent and child process visualize 
+				two c programs.
+
+
 
