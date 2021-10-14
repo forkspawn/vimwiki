@@ -69,6 +69,30 @@
 				have parent as well as child process. Both parent and child has to execute different 
 				blocks of code for tasks. To understand the execution of parent and child process visualize 
 				two c programs.
+* After fork both parent and child should execute different process. 
+  * {{file:/home/basith/Coding/system_programming/viven_system_programming/fork_vs.c|Read system call basic (program 2)}} 
+	* If there are no conditional statements then parent and child will execute same program. Its no 
+		use executing same program.
+	* Child process execution will start after the statement fork. fork returns twice once in child 
+		process and once in parent process. 
+	* What does fork return in your parent process and child process?(IQ)
+		* PID of child process in parent process.
+		* In child process fork returns zero.
+		* Write a basic program here to understand fork system call.
+	* statements or code that needs to be executed in parent process has to be under default 
+		case(switch case scenario).
+	* statements or code that needs to be executed in child process has to be under case 0 
+		(switch case scenario).
+* To see the running process use ps command and/or top command.
+* What is orphan process, daemon process and zombie process?
+	* Once the main function completes the parent process is terminated and memory of this process is 
+		offloaded from userspace of ram and pcb will also be destroyed.
+	* If a parent process terminates even before child process then its called as an orphan process.
+	* What is the parent process id of orphan process? (IQ)
+	* 1 is the pid of init process. init process is the first process which runs after OS bootsup.
+	* How do you make sure that parent waits till child process terminates?
+		* using wait system call.
+	* 
 
 
 
