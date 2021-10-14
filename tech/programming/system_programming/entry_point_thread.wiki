@@ -1,0 +1,9 @@
+= entry point =
+* The function from where the execution of the thread starts. 
+* main thread starts the execution from main function.
+
+= random points =
+* From user point of view every function has to be visualized as multiple statements within the 
+	curly braces. But from system point of view every function has to be visualized as instructions 
+	present in text segment.
+* When function is invoked cpu is executing the instructions present in text segment.

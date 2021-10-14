@@ -93,6 +93,3 @@
 	* How do you make sure that parent waits till child process terminates?
 		* using wait system call.
 	* 
-
-
-

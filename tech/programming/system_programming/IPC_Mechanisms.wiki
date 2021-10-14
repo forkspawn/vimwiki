@@ -1,0 +1,75 @@
+= Threads =
+
+* To run parallel tasks within a process we use threads.
+	* Lets see a scenario. Every process by default has a single thread that is main thread. Every 
+		thread has its own [[entry_point_thread|entry point]], [[context_info|context info]], stack area.
+	* Main thread starts the execution from main function.
+	* pthread_create is a library function. Its in library libpthread.so. pthread_create internally 
+		invokes clone() system call. Then why we are not using clone? because its args are more complex 
+		so we will use pthread_create.
+	* Each cpu will give some time (like 200ms for each process). This time changes from system 
+		to system. When cpu is unable to complete the process within given time limit the cpu goes to 
+		next process. Even before completely executing the process and the control switches to other 
+		process its called preemption. There are four reasons for preemption.
+			1. When cpu time expires for the process cpu goes to next process
+			2. When we use a blocking call the process block and control goes to next process. 
+					* Imagin a scenario with scanf. it took 40ms for scanf to process then it will block, the remaining 
+						time(160ms) is wasted and the control goes to next process. To utilize the 160ms we need 
+						to use threads. Use threads on functions which are independent of other functions, for 
+						example read() and write() functions are independent of each other.
+			3. When hardware raises interrupt then execution stops and control goes to interrupt handler.
+			4. When higher priority task is created then control switches to that task.
+  * {{file:/home/basith/Coding/system_programming/viven_system_programming/0040_ipc_1.c|0040_ipc_1: blocking call and how to use threads to use time more effeciently}} 
+		* In above program scanf is blocking call and it wastes 160ms so to overcome it we use threads
+		* We will create thread for function threadfun(). This threadfun() is not directly invoking from 
+			the main function. We invoke it from the context of new thread(main thread is first thread now 
+			we are creating new thread). We use pthread_create() to create new thread. pthread_t is of 
+			typedef of unsigned int. Here pthread_t is typedef to unsigned int to increase the readability 
+			of the program.
+		* pthread_create(&ti, some_flags or put NULL, threadfun, func_args);
+			* first arg: thread identifier(address of a variable which is of type pthread_t). ti initially 
+				doesnt contain any useful value when pthread_create is invoked it will be initilized to 
+				valid value called thread identifier. This thread identifier is used in all subsequent calls 
+				related to thread operations. thread identifer is nothing but the os stores all the thread 
+				information inside a table. Here table is of type structural array. This table contains 
+				information of threads. first column is thread identifier next column in thread table are 
+				flags.
+			* second arg: flags. lot of info can be passed using flags. we put as NULL.
+			* third arg: Every thread starts from an entry point. main thread starts from main function. 
+				threadfun(ti i guess) thread should start from threadfun() function. so third arg is name of the function 
+				i.e threadfun. 
+			* fourth arg: Base addr of normal vars, structural vars, arrays, structural arrays, strings. 
+				Info mentioned as fourth arg is passed as arg to threads entry point. (for example, we can 
+				pass "hello" as arg to threadfun).
+			* When pthread_create is executed, an entry gets created in the thread table maintained by 
+				the OS.
+			* If there are no blocking call then how much cpu time is allocated for main thread and threadfun?
+				* The cpu time given to a process is equally split among its multiple threads.
+				* In this case 100ms for main thread and 100ms for threadfun
+|              | main thread  | threadfun    |
+|--------------|--------------|--------------|
+| cpu time     | 100ms        | 100ms        |
+| entry point  | main()       | threadfun()  |
+| context info | -(see later) | -(see later) |
+| stack area   | -(see later) | -(see later) |
+	* Threads entry point function we need to follow a standard format.
+		* Threads entry point can only accept one argument. (void pointer is a generic pointer. we need 
+			void pointer can store data of which is of any type.)
+			* void* threadfun(void* args) {} --> basic thread function format.
+	* Why stack grows?
+		* stack grows upwards and heap grows downwards. When function is invoked stack memory is consumed 
+			and when a new thread is created then block of memory is created in stack memory called as 
+			stack area. Within stack area we have stack frames. stack frames are created when functions 
+			are invoked.
+		* Imagine stack area for main thread and stack area for new thread. stack area occupies by 
+			default 2MB (we can increase it as well). The first function which gets invoked from main 
+			thread is main function and stack frame is created in main thread stack area. Same is true 
+			for new threads.
+	* What/which segments are shared by multiple threads within a process.
+		* text, data, bss, and heap.
+	* Which info gets shared between muliple processes?
+		* text, data, bss, heap
+	* Which segments are not shared between threads within a process.
+		* only stack segment is not shared.
+	* Every thread has its own cpu time
+	* In RTOS every process is called as task.

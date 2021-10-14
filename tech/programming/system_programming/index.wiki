@@ -17,4 +17,5 @@
 vamsi sir
 
 * {{Introduction_Vamsi_Sir.wiki|Introduction}} 
+* [[IPC_Mechanisms|IPC Mechanisms]]
 
